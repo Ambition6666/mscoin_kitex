@@ -1,4 +1,4 @@
-package config_center
+package config
 
 import (
 	"context"
@@ -8,8 +8,8 @@ import (
 	etcdServer "github.com/kitex-contrib/config-etcd/server"
 )
 
-func InitConfigClient(serviceName string, key string, uniqueId int64, ip string, port string, cfg any) server.Suite {
-	etcdClient, _ := etcd.NewClient(etcd.Options{Node: []string{ip + ":" + port}})
+func InitConfigClient(serviceName string, key string, uniqueId int64, etcdAddr string, cfg any) server.Suite {
+	etcdClient, _ := etcd.NewClient(etcd.Options{Node: []string{etcdAddr}})
 	suite := etcdServer.NewSuite(serviceName, etcdClient)
 
 	etcdClient.RegisterConfigCallback(context.Background(), key, uniqueId, func(restoreDefault bool, data string, parser etcd.ConfigParser) {

@@ -1,0 +1,9 @@
+server:
+  host: "localhost"
+  port: 8080
+database:
+  user: "admin"
+  password: "secret"
+  settings:
+    timeout: 30
+    max_connections: 100

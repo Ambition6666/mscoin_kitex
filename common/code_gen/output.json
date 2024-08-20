@@ -1,0 +1,14 @@
+{
+  "database": {
+    "password": "secret",
+    "settings": {
+      "max_connections": 100,
+      "timeout": 30
+    },
+    "user": "admin"
+  },
+  "server": {
+    "host": "localhost",
+    "port": 8080
+  }
+}

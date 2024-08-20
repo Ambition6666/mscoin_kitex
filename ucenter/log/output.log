@@ -1,0 +1,3 @@
+{"level":"info","ts":1724149011.5082827,"msg":"KITEX: server listen at addr=127.0.0.1:8081"}
+{"level":"info","ts":1724149012.5935128,"msg":"start keepalive lease 694d91360fe68eb2 for etcd registry"}
+{"level":"info","ts":1724149074.2991493,"msg":"stop keep register service /ucenter/127.0.0.1:8081"}

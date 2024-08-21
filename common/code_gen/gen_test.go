@@ -19,3 +19,8 @@ func TestYamlToJson(t *testing.T) {
 		t.Error(err)
 	}
 }
+
+func TestNewProto(t *testing.T) {
+	p := NewProto()
+	p.WriteProto("test.go", "output.go")
+}

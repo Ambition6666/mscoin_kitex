@@ -1,11 +1,13 @@
 package main
 
 import (
-    "fmt"
-    "reflect"
-    "strings"
+	"fmt"
 	"os"
+	"reflect"
+	"strings"
+	"unicode"
 )
+
 type Request struct {
 	Username     string      `json:"username"`
 	Password     string      `json:"password,optional"`
@@ -18,27 +20,22 @@ type Request struct {
 	Ip           string      `json:"ip,optional"`
 }
 
-
 type CaptchaReq struct {
 	Server string `json:"server"`
 	Token  string `json:"token"`
 }
 
-
 type Response struct {
 	Message string `json:"message"`
 }
-
 
 type CodeRequest struct {
 	Phone   string `json:"phone,optional"`
 	Country string `json:"country,optional"`
 }
 
-
 type NoRes struct {
 }
-
 
 type LoginReq struct {
 	Username string      `json:"username"`
@@ -46,7 +43,6 @@ type LoginReq struct {
 	Captcha  *CaptchaReq `json:"captcha,optional"`
 	Ip       string      `json:"ip,optional"`
 }
-
 
 type LoginRes struct {
 	Username      string `json:"username"`
@@ -62,7 +58,6 @@ type LoginRes struct {
 	MemberRate    int    `json:"memberRate"`
 }
 
-
 type AssetReq struct {
 	CoinName  string `json:"coinName,optional" path:"coinName,optional"`
 	Ip        string `json:"ip,optional"`
@@ -74,7 +69,6 @@ type AssetReq struct {
 	Symbol    string `json:"symbol,optional" form:"symbol,optional"`
 	Type      string `json:"type,optional" form:"type,optional"`
 }
-
 
 type MemberTransaction struct {
 	Id          int64   `json:"id" from:"id"`
@@ -89,7 +83,6 @@ type MemberTransaction struct {
 	DiscountFee string  `json:"discountFee" from:"discountFee"`
 	RealFee     string  `json:"realFee" from:"realFee"`
 }
-
 
 type Coin struct {
 	Id                int     `json:"id" from:"id"`
@@ -122,7 +115,6 @@ type Coin struct {
 	MinRechargeAmount float64 `json:"minRechargeAmount" from:"minRechargeAmount"`
 }
 
-
 type MemberWallet struct {
 	Id             int64   `json:"id" from:"id"`
 	Address        string  `json:"address" from:"address"`
@@ -135,7 +127,6 @@ type MemberWallet struct {
 	Coin           Coin    `json:"coin" from:"coinId"`
 	ToReleased     float64 `json:"toReleased" from:"toReleased"`
 }
-
 
 type ApproveReq struct {
 }
@@ -186,11 +177,11 @@ type WithdrawWalletInfo struct {
 	Addresses       []AddressSimple `json:"addresses"`
 }
 
-
 type AddressSimple struct {
 	Remark  string `json:"remark"`
 	Address string `json:"address"`
 }
+
 // determineTypeProto 根据 Go 类型确定 Protobuf 类型
 func determineTypeProto(t reflect.Type) string {
 	switch t.Kind() {
@@ -226,7 +217,6 @@ func toProtobufName(name string) string {
 	}
 	return result
 }
-
 
 func toProtobufMessageName(name string) string {
 	// Protobuf 消息名通常使用驼峰式命名
@@ -269,26 +259,26 @@ func GetStruct(s interface{}) string {
 }
 
 func main() {
-	
+
 	//类型定义占位
 	st := make([]string, 0)
 
-st = append(st ,	GetStruct(new(Request)))
-st = append(st ,	GetStruct(new(CaptchaReq)))
-st = append(st ,	GetStruct(new(Response)))
-st = append(st ,	GetStruct(new(CodeRequest)))
-st = append(st ,	GetStruct(new(NoRes)))
-st = append(st ,	GetStruct(new(LoginReq)))
-st = append(st ,	GetStruct(new(LoginRes)))
-st = append(st ,	GetStruct(new(AssetReq)))
-st = append(st ,	GetStruct(new(MemberTransaction)))
-st = append(st ,	GetStruct(new(Coin)))
-st = append(st ,	GetStruct(new(MemberWallet)))
-st = append(st ,	GetStruct(new(ApproveReq)))
-st = append(st ,	GetStruct(new(MemberSecurity)))
-st = append(st ,	GetStruct(new(WithdrawReq)))
-st = append(st ,	GetStruct(new(WithdrawWalletInfo)))
-st = append(st ,	GetStruct(new(AddressSimple)))
+	st = append(st, GetStruct(new(Request)))
+	st = append(st, GetStruct(new(CaptchaReq)))
+	st = append(st, GetStruct(new(Response)))
+	st = append(st, GetStruct(new(CodeRequest)))
+	st = append(st, GetStruct(new(NoRes)))
+	st = append(st, GetStruct(new(LoginReq)))
+	st = append(st, GetStruct(new(LoginRes)))
+	st = append(st, GetStruct(new(AssetReq)))
+	st = append(st, GetStruct(new(MemberTransaction)))
+	st = append(st, GetStruct(new(Coin)))
+	st = append(st, GetStruct(new(MemberWallet)))
+	st = append(st, GetStruct(new(ApproveReq)))
+	st = append(st, GetStruct(new(MemberSecurity)))
+	st = append(st, GetStruct(new(WithdrawReq)))
+	st = append(st, GetStruct(new(WithdrawWalletInfo)))
+	st = append(st, GetStruct(new(AddressSimple)))
 
 	create, err := os.Create("./output.proto")
 

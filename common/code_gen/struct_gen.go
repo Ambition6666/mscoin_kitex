@@ -1,22 +1,28 @@
 package code_gen
 
-type Server struct {
-	Host string `yaml:"host"`
-	Port int `yaml:"port"`
+type Mysql struct {
+	DataSource string `yaml:"DataSource"`
 }
 
-type Settings struct {
-	Timeout int `yaml:"timeout"`
-	MaxConnections int `yaml:"max_connections"`
+type CacheRedis struct {
+	Pass string `yaml:"Pass"`
+	Host string `yaml:"Host"`
+	Type string `yaml:"Type"`
 }
 
-type Database struct {
-	User string `yaml:"user"`
-	Password string `yaml:"password"`
-	Settings Settings `yaml:"settings"`
+type Captcha struct {
+	Key string `yaml:"Key"`
+	Vid string `yaml:"Vid"`
+}
+
+type JWT struct {
+	AccessSecret string `yaml:"AccessSecret"`
+	AccessExpire int `yaml:"AccessExpire"`
 }
 
 type config struct {
-	Server Server `yaml:"server"`
-	Database Database `yaml:"database"`
+	Mysql Mysql `yaml:"Mysql"`
+	CacheRedis CacheRedis `yaml:"CacheRedis"`
+	Captcha Captcha `yaml:"Captcha"`
+	JWT JWT `yaml:"JWT"`
 }

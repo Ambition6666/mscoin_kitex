@@ -1,3 +1,7 @@
 {"level":"info","ts":1724149011.5082827,"msg":"KITEX: server listen at addr=127.0.0.1:8081"}
 {"level":"info","ts":1724149012.5935128,"msg":"start keepalive lease 694d91360fe68eb2 for etcd registry"}
 {"level":"info","ts":1724149074.2991493,"msg":"stop keep register service /ucenter/127.0.0.1:8081"}
+{"level":"debug","ts":1724159714.374354,"msg":"[etcd] /KitexConfig/ucenter/limit server etcd limiter updater init, config {0 0 0x2033e00}"}
+{"level":"info","ts":1724159714.3748608,"msg":"KITEX: server listen at addr=127.0.0.1:8081"}
+{"level":"info","ts":1724159715.4155622,"msg":"start keepalive lease 694d91360fe68ef2 for etcd registry"}
+{"level":"info","ts":1724159737.6956007,"msg":"stop keep register service /ucenter/127.0.0.1:8081"}

@@ -1,14 +1,18 @@
 {
-  "database": {
-    "password": "secret",
-    "settings": {
-      "max_connections": 100,
-      "timeout": 30
-    },
-    "user": "admin"
+  "CacheRedis": {
+    "Host": "192.168.40.134:6379",
+    "Pass": "dream",
+    "Type": "node"
   },
-  "server": {
-    "host": "localhost",
-    "port": 8080
+  "Captcha": {
+    "Key": "1bcb427ccf2c4b5da3e337334b9504a8",
+    "Vid": "669a1de3d3784602950e95e6"
+  },
+  "JWT": {
+    "AccessExpire": 604800,
+    "AccessSecret": "!@#$mscoin"
+  },
+  "Mysql": {
+    "DataSource": "root:123456@tcp(127.0.0.1:3306)/mscoin?charset=utf8mb4\u0026parseTime=true\u0026loc=Asia%2FShanghai"
   }
 }

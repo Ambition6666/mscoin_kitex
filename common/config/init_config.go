@@ -2,7 +2,6 @@ package config
 
 import (
 	"context"
-
 	"github.com/cloudwego/kitex/server"
 	"github.com/kitex-contrib/config-etcd/etcd"
 	etcdServer "github.com/kitex-contrib/config-etcd/server"

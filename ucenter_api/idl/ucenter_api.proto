@@ -1,0 +1,191 @@
+syntax = "proto3";
+
+package ucenter_api;
+
+// protoc-gen-go 版本大于1.4.0, proto文件需要加上go_package,否则无法生成
+option go_package = "./ucenter_api";
+
+import "api.proto";
+
+message Request {
+  string username = 1;
+  string password = 2;
+  bytes captcha = 3;
+  string phone = 4;
+  string promotion = 5;
+  string code = 6;
+  string country = 7;
+  string super_partner = 8;
+  string ip = 9;
+}
+
+message CaptchaReq {
+  string server = 1;
+  string token = 2;
+}
+
+message Response {
+  string message = 1;
+}
+
+message CodeRequest {
+  string phone = 1;
+  string country = 2;
+}
+
+message NoRes {
+}
+
+message LoginReq {
+  string username = 1;
+  string password = 2;
+  bytes captcha = 3;
+  string ip = 4;
+}
+
+message LoginRes {
+  string username = 1;
+  string token = 2;
+  string member_level = 3;
+  string real_name = 4;
+  string country = 5;
+  string avatar = 6;
+  string promotion_code = 7;
+  int64 id = 8;
+  int32 login_count = 9;
+  string super_partner = 10;
+  int32 member_rate = 11;
+}
+
+message AssetReq {
+  string coin_name = 1;
+  string ip = 2;
+  string unit = 3;
+  int32 page_no = 4;
+  int32 page_size = 5;
+  string start_time = 6;
+  string end_time = 7;
+  string symbol = 8;
+  string type = 9;
+}
+
+message MemberTransaction {
+  int64 id = 1;
+  string address = 2;
+  double amount = 3;
+  string create_time = 4;
+  double fee = 5;
+  int32 flag = 6;
+  int64 member_id = 7;
+  string symbol = 8;
+  string type = 9;
+  string discount_fee = 10;
+  string real_fee = 11;
+}
+
+message Coin {
+  int32 id = 1;
+  string name = 2;
+  int32 can_auto_withdraw = 3;
+  int32 can_recharge = 4;
+  int32 can_transfer = 5;
+  int32 can_withdraw = 6;
+  double cny_rate = 7;
+  int32 enable_rpc = 8;
+  int32 is_platform_coin = 9;
+  double max_tx_fee = 10;
+  double max_withdraw_amount = 11;
+  double min_tx_fee = 12;
+  double min_withdraw_amount = 13;
+  string name_cn = 14;
+  int32 sort = 15;
+  int32 status = 16;
+  string unit = 17;
+  double usd_rate = 18;
+  double withdraw_threshold = 19;
+  int32 has_legal = 20;
+  string cold_wallet_address = 21;
+  double miner_fee = 22;
+  int32 withdraw_scale = 23;
+  int32 account_type = 24;
+  string deposit_address = 25;
+  string infolink = 26;
+  string information = 27;
+  double min_recharge_amount = 28;
+}
+
+message MemberWallet {
+  int64 id = 1;
+  string address = 2;
+  double balance = 3;
+  double frozen_balance = 4;
+  double release_balance = 5;
+  int32 is_lock = 6;
+  int64 member_id = 7;
+  int32 version = 8;
+  Coin coin = 9;
+  double to_released = 10;
+}
+
+message ApproveReq {
+}
+
+message MemberSecurity {
+  string username = 1;
+  int64 id = 2;
+  string create_time = 3;
+  string real_verified = 4;
+  string email_verified = 5;
+  string phone_verified = 6;
+  string login_verified = 7;
+  string funds_verified = 8;
+  string real_auditing = 9;
+  string mobile_phone = 10;
+  string email = 11;
+  string real_name = 12;
+  string real_name_reject_reason = 13;
+  string id_card = 14;
+  string avatar = 15;
+  string account_verified = 16;
+}
+
+message WithdrawReq {
+  string unit = 1;
+  string address = 2;
+  double amount = 3;
+  double fee = 4;
+  string jy_password = 5;
+  string code = 6;
+  int32 page = 7;
+  int32 page_size = 8;
+}
+
+message WithdrawWalletInfo {
+  string unit = 1;
+  double threshold = 2;
+  double min_amount = 3;
+  double max_amount = 4;
+  double min_tx_fee = 5;
+  double max_tx_fee = 6;
+  string name_cn = 7;
+  string name = 8;
+  double balance = 9;
+  string can_auto_withdraw = 10;
+  int32 withdraw_scale = 11;
+  int32 account_type = 12;
+  repeated AddressSimple addresses = 13;
+}
+
+message AddressSimple {
+  string remark = 1;
+  string address = 2;
+}
+
+service Register {
+  rpc Register(Request) returns (Response){
+    option (api.post) = "/uc/register/phone";
+  };
+  rpc SendCode(CodeRequest) returns (Response){
+    option (api.post) = "/uc/mobile/code";
+  };
+}

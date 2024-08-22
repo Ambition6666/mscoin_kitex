@@ -45,8 +45,8 @@ func main() {
 
 	svr := server.NewServer(server.WithServerBasicInfo(&rpcinfo.EndpointBasicInfo{ServiceName: config.ServerName}), server.WithRegistry(r), server.WithServiceAddr(addr), server.WithSuite(cc.InitConfigClient(config.ServerName, config.ServerName, config.MID, config.EtcdAddr, config.GetConf())))
 
-	login.RegisterService(svr, new(handler.LoginImpl))
-	register.RegisterService(svr, new(handler.RegisterImpl))
+	login.RegisterService(svr, handler.NewLoginImpl())
+	register.RegisterService(svr, handler.NewRegisterImpl())
 
 	err = svr.Run()
 	if err != nil {

@@ -54,6 +54,11 @@ func (x *RegReq) FastRead(buf []byte, _type int8, number int32) (offset int, err
 		if err != nil {
 			goto ReadFieldError
 		}
+	case 9:
+		offset, err = x.fastReadField9(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
 	default:
 		offset, err = fastpb.Skip(buf, _type, number)
 		if err != nil {
@@ -109,6 +114,11 @@ func (x *RegReq) fastReadField7(buf []byte, _type int8) (offset int, err error) 
 
 func (x *RegReq) fastReadField8(buf []byte, _type int8) (offset int, err error) {
 	x.SuperPartner, offset, err = fastpb.ReadString(buf, _type)
+	return offset, err
+}
+
+func (x *RegReq) fastReadField9(buf []byte, _type int8) (offset int, err error) {
+	x.Ip, offset, err = fastpb.ReadString(buf, _type)
 	return offset, err
 }
 
@@ -217,6 +227,54 @@ func (x *LoginReq) fastReadField3(buf []byte, _type int8) (offset int, err error
 
 func (x *LoginReq) fastReadField4(buf []byte, _type int8) (offset int, err error) {
 	x.Ip, offset, err = fastpb.ReadString(buf, _type)
+	return offset, err
+}
+
+func (x *NoRes) FastRead(buf []byte, _type int8, number int32) (offset int, err error) {
+	switch number {
+	default:
+		offset, err = fastpb.Skip(buf, _type, number)
+		if err != nil {
+			goto SkipFieldError
+		}
+	}
+	return offset, nil
+SkipFieldError:
+	return offset, fmt.Errorf("%T cannot parse invalid wire-format data, error: %s", x, err)
+}
+
+func (x *CodeReq) FastRead(buf []byte, _type int8, number int32) (offset int, err error) {
+	switch number {
+	case 1:
+		offset, err = x.fastReadField1(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 2:
+		offset, err = x.fastReadField2(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	default:
+		offset, err = fastpb.Skip(buf, _type, number)
+		if err != nil {
+			goto SkipFieldError
+		}
+	}
+	return offset, nil
+SkipFieldError:
+	return offset, fmt.Errorf("%T cannot parse invalid wire-format data, error: %s", x, err)
+ReadFieldError:
+	return offset, fmt.Errorf("%T read field %d '%s' error: %s", x, number, fieldIDToName_CodeReq[number], err)
+}
+
+func (x *CodeReq) fastReadField1(buf []byte, _type int8) (offset int, err error) {
+	x.Phone, offset, err = fastpb.ReadString(buf, _type)
+	return offset, err
+}
+
+func (x *CodeReq) fastReadField2(buf []byte, _type int8) (offset int, err error) {
+	x.Country, offset, err = fastpb.ReadString(buf, _type)
 	return offset, err
 }
 
@@ -357,6 +415,7 @@ func (x *RegReq) FastWrite(buf []byte) (offset int) {
 	offset += x.fastWriteField6(buf[offset:])
 	offset += x.fastWriteField7(buf[offset:])
 	offset += x.fastWriteField8(buf[offset:])
+	offset += x.fastWriteField9(buf[offset:])
 	return offset
 }
 
@@ -421,6 +480,14 @@ func (x *RegReq) fastWriteField8(buf []byte) (offset int) {
 		return offset
 	}
 	offset += fastpb.WriteString(buf[offset:], 8, x.GetSuperPartner())
+	return offset
+}
+
+func (x *RegReq) fastWriteField9(buf []byte) (offset int) {
+	if x.Ip == "" {
+		return offset
+	}
+	offset += fastpb.WriteString(buf[offset:], 9, x.GetIp())
 	return offset
 }
 
@@ -496,6 +563,38 @@ func (x *LoginReq) fastWriteField4(buf []byte) (offset int) {
 		return offset
 	}
 	offset += fastpb.WriteString(buf[offset:], 4, x.GetIp())
+	return offset
+}
+
+func (x *NoRes) FastWrite(buf []byte) (offset int) {
+	if x == nil {
+		return offset
+	}
+	return offset
+}
+
+func (x *CodeReq) FastWrite(buf []byte) (offset int) {
+	if x == nil {
+		return offset
+	}
+	offset += x.fastWriteField1(buf[offset:])
+	offset += x.fastWriteField2(buf[offset:])
+	return offset
+}
+
+func (x *CodeReq) fastWriteField1(buf []byte) (offset int) {
+	if x.Phone == "" {
+		return offset
+	}
+	offset += fastpb.WriteString(buf[offset:], 1, x.GetPhone())
+	return offset
+}
+
+func (x *CodeReq) fastWriteField2(buf []byte) (offset int) {
+	if x.Country == "" {
+		return offset
+	}
+	offset += fastpb.WriteString(buf[offset:], 2, x.GetCountry())
 	return offset
 }
 
@@ -617,6 +716,7 @@ func (x *RegReq) Size() (n int) {
 	n += x.sizeField6()
 	n += x.sizeField7()
 	n += x.sizeField8()
+	n += x.sizeField9()
 	return n
 }
 
@@ -681,6 +781,14 @@ func (x *RegReq) sizeField8() (n int) {
 		return n
 	}
 	n += fastpb.SizeString(8, x.GetSuperPartner())
+	return n
+}
+
+func (x *RegReq) sizeField9() (n int) {
+	if x.Ip == "" {
+		return n
+	}
+	n += fastpb.SizeString(9, x.GetIp())
 	return n
 }
 
@@ -756,6 +864,38 @@ func (x *LoginReq) sizeField4() (n int) {
 		return n
 	}
 	n += fastpb.SizeString(4, x.GetIp())
+	return n
+}
+
+func (x *NoRes) Size() (n int) {
+	if x == nil {
+		return n
+	}
+	return n
+}
+
+func (x *CodeReq) Size() (n int) {
+	if x == nil {
+		return n
+	}
+	n += x.sizeField1()
+	n += x.sizeField2()
+	return n
+}
+
+func (x *CodeReq) sizeField1() (n int) {
+	if x.Phone == "" {
+		return n
+	}
+	n += fastpb.SizeString(1, x.GetPhone())
+	return n
+}
+
+func (x *CodeReq) sizeField2() (n int) {
+	if x.Country == "" {
+		return n
+	}
+	n += fastpb.SizeString(2, x.GetCountry())
 	return n
 }
 
@@ -874,6 +1014,7 @@ var fieldIDToName_RegReq = map[int32]string{
 	6: "Code",
 	7: "Country",
 	8: "SuperPartner",
+	9: "Ip",
 }
 
 var fieldIDToName_CaptchaReq = map[int32]string{
@@ -888,6 +1029,13 @@ var fieldIDToName_LoginReq = map[int32]string{
 	2: "Password",
 	3: "Captcha",
 	4: "Ip",
+}
+
+var fieldIDToName_NoRes = map[int32]string{}
+
+var fieldIDToName_CodeReq = map[int32]string{
+	1: "Phone",
+	2: "Country",
 }
 
 var fieldIDToName_LoginRes = map[int32]string{

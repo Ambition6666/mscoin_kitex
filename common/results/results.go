@@ -1,5 +1,11 @@
 package results
 
+import (
+	"github.com/cloudwego/hertz/pkg/app"
+	"github.com/cloudwego/kitex/pkg/kerrors"
+	"net/http"
+)
+
 type Result struct {
 	Code    BizCode `json:"code"`
 	Message string  `json:"message"`
@@ -27,12 +33,17 @@ func (r *Result) Success(data any) {
 	r.Data = data
 }
 
-func (r *Result) Deal(data any, err error) *Result {
+func (r *Result) Deal(data any, err error, c *app.RequestContext) {
 	if err != nil {
-		r.Fail(BizFailCode, err.Error())
-		return r
+		if bizErr, isBizErr := kerrors.FromBizStatusError(err); isBizErr {
+			r.Fail(BizFailCode, bizErr.BizMessage())
+			c.JSON(http.StatusOK, r)
+		} else {
+			r.Fail(BizFailCode, bizErr.BizMessage())
+			c.JSON(http.StatusInternalServerError, r)
+		}
 	}
 
 	r.Success(data)
-	return r
+	c.JSON(http.StatusOK, r)
 }

@@ -6,10 +6,15 @@ import (
 )
 
 // LoginImpl implements the last service interface defined in the IDL.
-type LoginImpl struct{}
+type LoginImpl struct {
+}
 
 // Login implements the LoginImpl interface.
 func (s *LoginImpl) Login(ctx context.Context, req *login.LoginReq) (resp *login.LoginRes, err error) {
 	// TODO: Your code here...
 	return
+}
+
+func NewLoginImpl() *LoginImpl {
+	return &LoginImpl{}
 }

@@ -12,6 +12,7 @@ import (
 // Client is designed to provide IDL-compatible methods with call-option parameter for kitex framework.
 type Client interface {
 	RegisterByPhone(ctx context.Context, Req *ucenter.RegReq, callOptions ...callopt.Option) (r *ucenter.RegRes, err error)
+	SendCode(ctx context.Context, Req *ucenter.CodeReq, callOptions ...callopt.Option) (r *ucenter.NoRes, err error)
 }
 
 // NewClient creates a client for the service defined in IDL.
@@ -46,4 +47,9 @@ type kRegisterClient struct {
 func (p *kRegisterClient) RegisterByPhone(ctx context.Context, Req *ucenter.RegReq, callOptions ...callopt.Option) (r *ucenter.RegRes, err error) {
 	ctx = client.NewCtxWithCallOptions(ctx, callOptions)
 	return p.kClient.RegisterByPhone(ctx, Req)
+}
+
+func (p *kRegisterClient) SendCode(ctx context.Context, Req *ucenter.CodeReq, callOptions ...callopt.Option) (r *ucenter.NoRes, err error) {
+	ctx = client.NewCtxWithCallOptions(ctx, callOptions)
+	return p.kClient.SendCode(ctx, Req)
 }

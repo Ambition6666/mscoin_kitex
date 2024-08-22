@@ -22,6 +22,13 @@ var serviceMethods = map[string]kitex.MethodInfo{
 		false,
 		kitex.WithStreamingMode(kitex.StreamingUnary),
 	),
+	"sendCode": kitex.NewMethodInfo(
+		sendCodeHandler,
+		newSendCodeArgs,
+		newSendCodeResult,
+		false,
+		kitex.WithStreamingMode(kitex.StreamingUnary),
+	),
 }
 
 var (
@@ -241,6 +248,159 @@ func (p *RegisterByPhoneResult) GetResult() interface{} {
 	return p.Success
 }
 
+func sendCodeHandler(ctx context.Context, handler interface{}, arg, result interface{}) error {
+	switch s := arg.(type) {
+	case *streaming.Args:
+		st := s.Stream
+		req := new(ucenter.CodeReq)
+		if err := st.RecvMsg(req); err != nil {
+			return err
+		}
+		resp, err := handler.(ucenter.Register).SendCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return st.SendMsg(resp)
+	case *SendCodeArgs:
+		success, err := handler.(ucenter.Register).SendCode(ctx, s.Req)
+		if err != nil {
+			return err
+		}
+		realResult := result.(*SendCodeResult)
+		realResult.Success = success
+		return nil
+	default:
+		return errInvalidMessageType
+	}
+}
+func newSendCodeArgs() interface{} {
+	return &SendCodeArgs{}
+}
+
+func newSendCodeResult() interface{} {
+	return &SendCodeResult{}
+}
+
+type SendCodeArgs struct {
+	Req *ucenter.CodeReq
+}
+
+func (p *SendCodeArgs) FastRead(buf []byte, _type int8, number int32) (n int, err error) {
+	if !p.IsSetReq() {
+		p.Req = new(ucenter.CodeReq)
+	}
+	return p.Req.FastRead(buf, _type, number)
+}
+
+func (p *SendCodeArgs) FastWrite(buf []byte) (n int) {
+	if !p.IsSetReq() {
+		return 0
+	}
+	return p.Req.FastWrite(buf)
+}
+
+func (p *SendCodeArgs) Size() (n int) {
+	if !p.IsSetReq() {
+		return 0
+	}
+	return p.Req.Size()
+}
+
+func (p *SendCodeArgs) Marshal(out []byte) ([]byte, error) {
+	if !p.IsSetReq() {
+		return out, nil
+	}
+	return proto.Marshal(p.Req)
+}
+
+func (p *SendCodeArgs) Unmarshal(in []byte) error {
+	msg := new(ucenter.CodeReq)
+	if err := proto.Unmarshal(in, msg); err != nil {
+		return err
+	}
+	p.Req = msg
+	return nil
+}
+
+var SendCodeArgs_Req_DEFAULT *ucenter.CodeReq
+
+func (p *SendCodeArgs) GetReq() *ucenter.CodeReq {
+	if !p.IsSetReq() {
+		return SendCodeArgs_Req_DEFAULT
+	}
+	return p.Req
+}
+
+func (p *SendCodeArgs) IsSetReq() bool {
+	return p.Req != nil
+}
+
+func (p *SendCodeArgs) GetFirstArgument() interface{} {
+	return p.Req
+}
+
+type SendCodeResult struct {
+	Success *ucenter.NoRes
+}
+
+var SendCodeResult_Success_DEFAULT *ucenter.NoRes
+
+func (p *SendCodeResult) FastRead(buf []byte, _type int8, number int32) (n int, err error) {
+	if !p.IsSetSuccess() {
+		p.Success = new(ucenter.NoRes)
+	}
+	return p.Success.FastRead(buf, _type, number)
+}
+
+func (p *SendCodeResult) FastWrite(buf []byte) (n int) {
+	if !p.IsSetSuccess() {
+		return 0
+	}
+	return p.Success.FastWrite(buf)
+}
+
+func (p *SendCodeResult) Size() (n int) {
+	if !p.IsSetSuccess() {
+		return 0
+	}
+	return p.Success.Size()
+}
+
+func (p *SendCodeResult) Marshal(out []byte) ([]byte, error) {
+	if !p.IsSetSuccess() {
+		return out, nil
+	}
+	return proto.Marshal(p.Success)
+}
+
+func (p *SendCodeResult) Unmarshal(in []byte) error {
+	msg := new(ucenter.NoRes)
+	if err := proto.Unmarshal(in, msg); err != nil {
+		return err
+	}
+	p.Success = msg
+	return nil
+}
+
+func (p *SendCodeResult) GetSuccess() *ucenter.NoRes {
+	if !p.IsSetSuccess() {
+		return SendCodeResult_Success_DEFAULT
+	}
+	return p.Success
+}
+
+func (p *SendCodeResult) SetSuccess(x interface{}) {
+	p.Success = x.(*ucenter.NoRes)
+}
+
+func (p *SendCodeResult) IsSetSuccess() bool {
+	return p.Success != nil
+}
+
+func (p *SendCodeResult) GetResult() interface{} {
+	return p.Success
+}
+
 type kClient struct {
 	c client.Client
 }
@@ -256,6 +416,16 @@ func (p *kClient) RegisterByPhone(ctx context.Context, Req *ucenter.RegReq) (r *
 	_args.Req = Req
 	var _result RegisterByPhoneResult
 	if err = p.c.Call(ctx, "registerByPhone", &_args, &_result); err != nil {
+		return
+	}
+	return _result.GetSuccess(), nil
+}
+
+func (p *kClient) SendCode(ctx context.Context, Req *ucenter.CodeReq) (r *ucenter.NoRes, err error) {
+	var _args SendCodeArgs
+	_args.Req = Req
+	var _result SendCodeResult
+	if err = p.c.Call(ctx, "sendCode", &_args, &_result); err != nil {
 		return
 	}
 	return _result.GetSuccess(), nil

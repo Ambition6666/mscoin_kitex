@@ -4,7 +4,7 @@ package model
 
 import (
 	"github.com/cloudwego/hertz/pkg/app/server"
-	model "ucenter_api/biz/handler/model"
+	model "ucenter_api/biz/handler"
 )
 
 /*

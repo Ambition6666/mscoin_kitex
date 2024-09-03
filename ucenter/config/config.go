@@ -24,7 +24,7 @@ type Captcha struct {
 
 type JWT struct {
 	AccessSecret string `yaml:"AccessSecret"`
-	AccessExpire int    `yaml:"AccessExpire"`
+	AccessExpire int64  `yaml:"AccessExpire"`
 }
 
 type config struct {

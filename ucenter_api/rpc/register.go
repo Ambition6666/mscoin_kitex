@@ -4,16 +4,17 @@ import (
 	"github.com/cloudwego/kitex/client"
 	etcd "github.com/kitex-contrib/registry-etcd"
 	"grpc_common/kitex_gen/ucenter/register"
+	"ucenter/config"
 )
 
 var registerCli register.Client
 
 func initRegister() {
-	r, err := etcd.NewEtcdResolver([]string{"192.168.40.134:2379"})
+	r, err := etcd.NewEtcdResolver([]string{config.EtcdAddr})
 	if err != nil {
 		panic(err)
 	}
-	registerCli, err = register.NewClient("ucenter", client.WithResolver(r))
+	registerCli, err = register.NewClient(config.ServerName, client.WithResolver(r))
 	if err != nil {
 		panic(err)
 	}

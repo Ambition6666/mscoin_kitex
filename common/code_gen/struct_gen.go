@@ -10,11 +10,6 @@ type CacheRedis struct {
 	Type string `yaml:"Type"`
 }
 
-type Captcha struct {
-	Key string `yaml:"Key"`
-	Vid string `yaml:"Vid"`
-}
-
 type JWT struct {
 	AccessSecret string `yaml:"AccessSecret"`
 	AccessExpire int `yaml:"AccessExpire"`
@@ -23,6 +18,5 @@ type JWT struct {
 type config struct {
 	Mysql Mysql `yaml:"Mysql"`
 	CacheRedis CacheRedis `yaml:"CacheRedis"`
-	Captcha Captcha `yaml:"Captcha"`
 	JWT JWT `yaml:"JWT"`
 }

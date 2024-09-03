@@ -18,8 +18,8 @@ var (
 	maxMessageNum int32 = 16
 	// invisibleDuration should > 20s
 	invisibleDuration = time.Second * 20
-	// receive concurrency
-	receiveConcurrency = 6
+	// repeated number of send the message
+	retries = 3
 )
 
 type RocketMQProducer struct {
@@ -31,12 +31,16 @@ type RocketMQProducer struct {
 
 type RocketMQData struct {
 	Topic string
-	Key   string
+	Key   []string
 	Data  []byte
 }
 
 func NewRocketMQProducer(config *rmq.Config, cap int) (*RocketMQProducer, error) {
 	producer, err := rmq.NewProducer(config)
+	if err != nil {
+		return nil, err
+	}
+	err = producer.Start()
 	if err != nil {
 		return nil, err
 	}
@@ -80,10 +84,9 @@ func (p *RocketMQProducer) sendRocketMQ() {
 				Topic: data.Topic,
 				Body:  data.Data,
 			}
-			message.SetKeys(data.Key)
+			message.SetKeys(data.Key...)
 
 			var err error
-			const retries = 3
 
 			success := false
 			for i := 0; i < retries; i++ {
@@ -133,7 +136,12 @@ func (c *RocketMQConsumer) AddConsumer(config *rmq.Config, cap int, topic string
 	c.mutex.Lock()
 	defer c.mutex.Unlock()
 
-	consumer, err := rmq.NewSimpleConsumer(config)
+	consumer, err := rmq.NewSimpleConsumer(config, rmq.WithAwaitDuration(awaitDuration))
+	if err != nil {
+		return err
+	}
+
+	err = consumer.Start()
 	if err != nil {
 		return err
 	}
@@ -142,7 +150,6 @@ func (c *RocketMQConsumer) AddConsumer(config *rmq.Config, cap int, topic string
 	if err != nil {
 		return err
 	}
-	consumer.Start()
 
 	c.r[topic] = &topicInfo{
 		consumer: consumer,
@@ -185,7 +192,7 @@ func (c *RocketMQConsumer) readMsg(topic string) {
 			data := RocketMQData{
 				Topic: mv.GetTopic(),
 				Data:  mv.GetBody(),
-				Key:   mv.GetKeys()[0],
+				Key:   mv.GetKeys(),
 			}
 
 			topicInfo.data <- data

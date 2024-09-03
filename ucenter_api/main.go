@@ -4,10 +4,11 @@ package main
 
 import (
 	"github.com/cloudwego/hertz/pkg/app/server"
+	"ucenter_api/config"
 )
 
 func main() {
-	h := server.Default()
+	h := server.Default(server.WithHostPorts(config.ServerAddr))
 
 	register(h)
 	h.Spin()

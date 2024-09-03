@@ -189,3 +189,9 @@ service Register {
     option (api.post) = "/uc/mobile/code";
   };
 }
+
+service Login {
+  rpc Login(LoginReq) returns (LoginRes) {
+    option (api.post) = "/uc/login";
+  };
+}

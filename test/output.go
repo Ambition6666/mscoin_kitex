@@ -7,12 +7,12 @@ import (
 	"strings"
 	"unicode"
 )
+
 type LoginReq struct {
 	Username string `json:"username"`
 	Password string `json:"password"`
 	Ip       string `json:"ip,optional"`
 }
-
 
 type LoginRes struct {
 	Username      string `json:"username"`
@@ -27,6 +27,7 @@ type LoginRes struct {
 	SuperPartner  string `json:"superPartner"`
 	MemberRate    int    `json:"memberRate"`
 }
+
 // determineTypeProto 根据 Go 类型确定 Protobuf 类型
 func determineTypeProto(t reflect.Type) string {
 	switch t.Kind() {
@@ -62,7 +63,6 @@ func toProtobufName(name string) string {
 	}
 	return result
 }
-
 
 func toProtobufMessageName(name string) string {
 	// Protobuf 消息名通常使用驼峰式命名
@@ -105,12 +105,12 @@ func GetStruct(s interface{}) string {
 }
 
 func main() {
-	
+
 	//类型定义占位
 	st := make([]string, 0)
 
-st = append(st ,	GetStruct(new(LoginReq)))
-st = append(st ,	GetStruct(new(LoginRes)))
+	st = append(st, GetStruct(new(LoginReq)))
+	st = append(st, GetStruct(new(LoginRes)))
 
 	create, err := os.Create("./output.proto")
 

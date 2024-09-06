@@ -4,15 +4,22 @@
     "Pass": "dream",
     "Type": "node"
   },
-  "Captcha": {
-    "Key": "1bcb427ccf2c4b5da3e337334b9504a8",
-    "Vid": "669a1de3d3784602950e95e6"
+  "Kafka": {
+    "Addr": "192.168.40.134:9092",
+    "ReadCap": 100,
+    "WriteCap": 100
   },
-  "JWT": {
-    "AccessExpire": 604800,
-    "AccessSecret": "!@#$mscoin"
+  "Mongo": {
+    "Database": "mscoin",
+    "Password": "123456",
+    "Url": "mongodb://192.168.40.134:27017",
+    "Username": "ambition"
   },
-  "Mysql": {
-    "DataSource": "root:123456@tcp(127.0.0.1:3306)/mscoin?charset=utf8mb4\u0026parseTime=true\u0026loc=Asia%2FShanghai"
+  "Okx": {
+    "Apikey": "137aab10-839d-417f-9de8-28e8d63b7324",
+    "Host": "http://www.okx.com",
+    "Pass": "Ztynb680::",
+    "Proxy": "http://localhost:7890",
+    "SecretKey": "FB8078D5B1FBD14FD6A4E4993F859BCB"
   }
 }

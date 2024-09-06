@@ -78,6 +78,9 @@ func (p *RocketMQProducer) Close() {
 
 func (p *RocketMQProducer) sendRocketMQ() {
 	for {
+		if p.closed {
+			break
+		}
 		select {
 		case data := <-p.data:
 			message := &rmq.Message{

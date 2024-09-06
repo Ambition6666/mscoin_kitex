@@ -60,6 +60,7 @@ func (s *LoginImpl) Login(ctx context.Context, req *login.LoginReq) (resp *login
 	}, nil
 	return
 }
+
 func (l *LoginImpl) getJwtToken(secretKey string, iat, seconds, userId int64) (string, error) {
 	claims := make(jwt.MapClaims)
 	claims["exp"] = iat + seconds

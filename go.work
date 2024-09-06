@@ -1,9 +1,11 @@
 go 1.20
 
 use (
+	./jobcenter
+	./market
 	./ucenter_api
 	common
 	grpc_common
-	ucenter
 	test
+	ucenter
 )

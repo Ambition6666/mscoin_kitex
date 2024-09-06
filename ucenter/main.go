@@ -15,13 +15,13 @@ import (
 	"time"
 	"ucenter/config"
 	"ucenter/handler"
-	"ucenter/sql"
+	"ucenter/init"
 )
 
 func main() {
 
 	// 工具初始化
-	sql.Init()
+	init.Init()
 
 	// 日志注册
 	klog.SetLogger(zap.NewLogger())

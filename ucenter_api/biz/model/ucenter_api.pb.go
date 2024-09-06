@@ -1039,7 +1039,7 @@ type MemberWallet struct {
 	IsLock         int32   `protobuf:"varint,6,opt,name=is_lock,json=isLock,proto3" form:"is_lock" json:"is_lock,omitempty" query:"is_lock"`
 	MemberId       int64   `protobuf:"varint,7,opt,name=member_id,json=memberId,proto3" form:"member_id" json:"member_id,omitempty" query:"member_id"`
 	Version        int32   `protobuf:"varint,8,opt,name=version,proto3" form:"version" json:"version,omitempty" query:"version"`
-	Coin           *Coin   `protobuf:"bytes,9,opt,name=coin,proto3" form:"coin" json:"coin,omitempty" query:"coin"`
+	Coin           *Coin   `protobuf:"bytes,9,opt,name=coin.go,proto3" form:"coin.go" json:"coin.go,omitempty" query:"coin.go"`
 	ToReleased     float64 `protobuf:"fixed64,10,opt,name=to_released,json=toReleased,proto3" form:"to_released" json:"to_released,omitempty" query:"to_released"`
 }
 
@@ -1955,7 +1955,7 @@ var file_ucenter_api_proto_goTypes = []interface{}{
 	(*AddressSimple)(nil),      // 15: ucenter_api.AddressSimple
 }
 var file_ucenter_api_proto_depIdxs = []int32{
-	9,  // 0: ucenter_api.MemberWallet.coin:type_name -> ucenter_api.Coin
+	9,  // 0: ucenter_api.MemberWallet.coin.go:type_name -> ucenter_api.Coin
 	15, // 1: ucenter_api.WithdrawWalletInfo.addresses:type_name -> ucenter_api.AddressSimple
 	0,  // 2: ucenter_api.Register.Register:input_type -> ucenter_api.Request
 	3,  // 3: ucenter_api.Register.SendCode:input_type -> ucenter_api.CodeRequest

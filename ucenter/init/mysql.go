@@ -1,4 +1,4 @@
-package sql
+package init
 
 import (
 	"common/database"
@@ -8,7 +8,7 @@ import (
 
 var db *gorm.DB
 
-func InitMysql() {
+func initMysql() {
 	var err error
 	db, err = database.ConnectMysql(config.GetConf().Mysql.DataSource)
 	if err != nil {

@@ -1,1 +1,144 @@
+syntax = "proto3";
 
+package market_api;
+
+// protoc-gen-go 版本大于1.4.0, proto文件需要加上go_package,否则无法生成
+option go_package = "./market_api";
+
+import "api.proto";
+
+message RateRequest {
+  string unit = 1;
+  string ip = 2;
+}
+
+message RateResponse {
+  double rate = 1;
+}
+
+message CoinThumbResp {
+  string symbol = 1;
+  double open = 2;
+  double high = 3;
+  double low = 4;
+  double close = 5;
+  double chg = 6;
+  double change = 7;
+  double volume = 8;
+  double turnover = 9;
+  double last_day_close = 10;
+  double usd_rate = 11;
+  double base_usd_rate = 12;
+  int32 zone = 13;
+  repeated double trend = 14;
+}
+
+message MarketReq {
+  string ip = 1;
+  string symbol = 2;
+  string unit = 3;
+  int64 from = 4;
+  int64 to = 5;
+  string resolution = 6;
+}
+
+message ExchangeCoinResp {
+  int64 id = 1;
+  string symbol = 2;
+  int64 base_coin_scale = 3;
+  string base_symbol = 4;
+  int64 coin_scale = 5;
+  string coin_symbol = 6;
+  int64 enable = 7;
+  double fee = 8;
+  int64 sort = 9;
+  int64 enable_market_buy = 10;
+  int64 enable_market_sell = 11;
+  double min_sell_price = 12;
+  int64 flag = 13;
+  int64 max_trading_order = 14;
+  int64 max_trading_time = 15;
+  double min_turnover = 16;
+  int64 clear_time = 17;
+  int64 end_time = 18;
+  int64 exchangeable = 19;
+  double max_buy_price = 20;
+  double max_volume = 21;
+  double min_volume = 22;
+  double publish_amount = 23;
+  double publish_price = 24;
+  int64 publish_type = 25;
+  int64 robot_type = 26;
+  int64 start_time = 27;
+  int64 visible = 28;
+  int64 zone = 29;
+  int64 current_time = 30;
+  int32 market_engine_status = 31;
+  int32 engine_status = 32;
+  int32 ex_engine_status = 33;
+}
+
+message Coin {
+  int32 id = 1;
+  string name = 2;
+  int32 can_auto_withdraw = 3;
+  int32 can_recharge = 4;
+  int32 can_transfer = 5;
+  int32 can_withdraw = 6;
+  double cny_rate = 7;
+  int32 enable_rpc = 8;
+  int32 is_platform_coin = 9;
+  double max_tx_fee = 10;
+  double max_withdraw_amount = 11;
+  double min_tx_fee = 12;
+  double min_withdraw_amount = 13;
+  string name_cn = 14;
+  int32 sort = 15;
+  int32 status = 16;
+  string unit = 17;
+  double usd_rate = 18;
+  double withdraw_threshold = 19;
+  int32 has_legal = 20;
+  string cold_wallet_address = 21;
+  double miner_fee = 22;
+  int32 withdraw_scale = 23;
+  int32 account_type = 24;
+  string deposit_address = 25;
+  string infolink = 26;
+  string information = 27;
+  double min_recharge_amount = 28;
+}
+
+message MarketResp {
+  repeated CoinThumbResp list = 1;
+}
+
+//    marketGroup.Post("/market/symbol-thumb-trend", market.SymbolThumbTrend)
+//    marketGroup.Post("/market/symbol-thumb", market.SymbolThumb)
+//    marketGroup.Post("/market/symbol-info", market.SymbolInfo)
+//    marketGroup.Post("/market/coin-info", market.CoinInfo)
+//    marketGroup.Get("/market/history", market.History)
+
+
+
+service Market {
+  rpc SymbolThumbTrend(MarketReq) returns(MarketResp) {
+    option(api.post) = "/market/symbol-thumb-trend";
+  };
+  rpc SymbolThumb(MarketReq) returns(MarketResp) {
+    option(api.post) = "/market/symbol-thumb";
+  };
+  rpc SymbolInfo(MarketReq) returns (CoinThumbResp) {
+    option(api.post) = "/market/symbol-info";
+  };
+  rpc CoinInfo(MarketReq) returns (Coin) {
+    option(api.post) = "/market/coin-info";
+  };
+
+}
+
+service ExchangRate {
+  rpc GetUsdRate(RateRequest) returns (RateResponse) {
+    option(api.post) = "/market/exchange-rate/usd/:unit";
+  }
+}

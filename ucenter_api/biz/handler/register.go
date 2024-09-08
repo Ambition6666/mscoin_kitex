@@ -28,7 +28,7 @@ func Register(ctx context.Context, c *app.RequestContext) {
 
 	copier.Copy(regReq, req)
 
-	_, err = rpc.GetRegisterClient().RegisterByPhone(ctx, regReq)
+	_, err = (*rpc.GetRegisterClient()).RegisterByPhone(ctx, regReq)
 
 	resp := new(model.Response)
 
@@ -49,7 +49,7 @@ func SendCode(ctx context.Context, c *app.RequestContext) {
 	codeReq := &ucenter.CodeReq{}
 	copier.Copy(&req, codeReq)
 
-	_, err = rpc.GetRegisterClient().SendCode(ctx, codeReq)
+	_, err = (*rpc.GetRegisterClient()).SendCode(ctx, codeReq)
 
 	resp := new(model.Response)
 

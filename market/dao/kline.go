@@ -5,8 +5,8 @@ import (
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
-	"market/init"
 	"market/model"
+	"market/utils"
 )
 
 type KlineDao struct {
@@ -36,7 +36,7 @@ func (d *KlineDao) FindBySymbolTime(ctx context.Context, symbol, period string, 
 
 func NewKlineDao() *KlineDao {
 	return &KlineDao{
-		db: init.GetMongoClient().Db,
+		db: utils.GetMongoClient().Db,
 	}
 }
 

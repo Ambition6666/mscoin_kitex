@@ -94,8 +94,9 @@ func (p *DefaultProcessor) AddHandler(h MarketHandler) {
 func (p *DefaultProcessor) startReadFromRocketMQ(topic string, tp string) {
 	conf := config.GetConf().Rocketmq
 	err := p.rocketmqCli.AddConsumer(&rmq.Config{
-		Endpoint:    conf.Addr,
-		Credentials: &credentials.SessionCredentials{},
+		Endpoint:      conf.Addr,
+		ConsumerGroup: "market_api",
+		Credentials:   &credentials.SessionCredentials{},
 	}, conf.ReadCap, topic)
 	if err != nil {
 		klog.Error(err)
@@ -113,9 +114,17 @@ func (p *DefaultProcessor) startReadFromRocketMQ(topic string, tp string) {
 func (p *DefaultProcessor) dealQueueData(rcli *database.RocketMQConsumer, tp string, topic string) {
 	for {
 		rocketmqData, _ := rcli.Read(topic)
+		var key string
+
+		if len(rocketmqData.Data) == 0 {
+			continue
+		} else {
+			key = string(rocketmqData.Key[0])
+		}
+
 		pd := &ProcessData{
 			Type: tp,
-			Key:  []byte(rocketmqData.Key[0]),
+			Key:  []byte(key),
 			Data: rocketmqData.Data,
 		}
 		p.Process(pd)

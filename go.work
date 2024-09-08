@@ -6,6 +6,7 @@ use (
 	./ucenter_api
 	common
 	grpc_common
+	market_api
 	test
 	ucenter
 )

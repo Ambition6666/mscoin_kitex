@@ -6,6 +6,7 @@ import (
 	"github.com/cloudwego/kitex/pkg/klog"
 	socketio "github.com/googollee/go-socket.io"
 	"grpc_common/kitex_gen/market"
+	"market_api/biz/model"
 	"market_api/ws"
 )
 

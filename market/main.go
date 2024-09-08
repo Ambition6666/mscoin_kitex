@@ -12,15 +12,20 @@ import (
 	"grpc_common/kitex_gen/market/market"
 	"market/config"
 	"market/handler"
-	"market/init"
+	"market/utils"
 	"net"
 	"os"
 	"time"
 )
 
 func main() {
+
+	// 配置初始化
+	suite := cc.InitConfigClient(config.ServerName, config.ServerName, config.MID, config.EtcdAddr, config.GetConf())
+
 	// 初始化工具
-	init.Init()
+	utils.Init()
+	defer utils.Close()
 
 	// 日志注册
 	klog.SetLogger(zap.NewLogger())
@@ -46,7 +51,7 @@ func main() {
 		panic(err)
 	}
 
-	svr := server.NewServer(server.WithServerBasicInfo(&rpcinfo.EndpointBasicInfo{ServiceName: config.ServerName}), server.WithRegistry(r), server.WithServiceAddr(addr), server.WithSuite(cc.InitConfigClient(config.ServerName, config.ServerName, config.MID, config.EtcdAddr, config.GetConf())))
+	svr := server.NewServer(server.WithServerBasicInfo(&rpcinfo.EndpointBasicInfo{ServiceName: config.ServerName}), server.WithRegistry(r), server.WithServiceAddr(addr), server.WithSuite(suite))
 
 	market.RegisterService(svr, handler.NewMarketImpl())
 	exchangerate.RegisterService(svr, handler.NewExchangeRateImpl())

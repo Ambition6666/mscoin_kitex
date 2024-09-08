@@ -20,6 +20,6 @@ func initLogin() {
 	}
 }
 
-func GetLoginClient() login.Client {
-	return loginCli
+func GetLoginClient() *login.Client {
+	return &loginCli
 }

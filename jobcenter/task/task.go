@@ -3,8 +3,8 @@ package task
 import (
 	"github.com/go-co-op/gocron"
 	"jobcenter/config"
-	"jobcenter/init"
 	"jobcenter/market"
+	"jobcenter/utils"
 	"time"
 )
 
@@ -19,8 +19,8 @@ func NewTask() *Task {
 }
 
 func (t *Task) Run() {
-	kline := market.NewKline(init.GetMongoClient(), init.GetRocketMQProducer(), config.GetConf().Okx, init.GetRedis()) //开启kafka写
-	rate := market.NewRate(init.GetRedis())
+	kline := market.NewKline(utils.GetMongoClient(), utils.GetRocketMQProducer(), config.GetConf().Okx, utils.GetRedis()) //开启kafka写
+	rate := market.NewRate(utils.GetRedis())
 	t.s.Every(60).Seconds().Do(func() {
 		kline.Do("1m")
 		kline.Do("1H")

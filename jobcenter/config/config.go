@@ -1,15 +1,20 @@
 package config
 
-type Mongo struct {
-	Url      string `yaml:"Url"`
-	Username string `yaml:"Username"`
-	Password string `yaml:"Password"`
-	Database string `yaml:"Database"`
+const (
+	EtcdAddr   = "192.168.40.134:2379"
+	ServerName = "jobcenter"
+	MID        = 1
+)
+
+type Rocketmq struct {
+	Addr     string `yaml:"Addr"`
+	WriteCap int    `yaml:"WriteCap"`
+	ReadCap  int    `yaml:"ReadCap"`
 }
 
 type CacheRedis struct {
 	Host string `yaml:"Host"`
-	Type string `yaml:"Type"`
+	Node int    `yaml:"Node"`
 	Pass string `yaml:"Pass"`
 }
 
@@ -21,17 +26,18 @@ type Okx struct {
 	Proxy     string `yaml:"Proxy"`
 }
 
-type Rocketmq struct {
-	Addr     string `yaml:"Addr"`
-	WriteCap int    `yaml:"WriteCap"`
-	ReadCap  int    `yaml:"ReadCap"`
+type Mongo struct {
+	Url      string `yaml:"Url"`
+	Username string `yaml:"Username"`
+	Password string `yaml:"Password"`
+	Database string `yaml:"Database"`
 }
 
 type config struct {
-	Mongo      Mongo      `yaml:"Mongo"`
 	Rocketmq   Rocketmq   `yaml:"Rocketmq"`
 	CacheRedis CacheRedis `yaml:"CacheRedis"`
 	Okx        Okx        `yaml:"Okx"`
+	Mongo      Mongo      `yaml:"Mongo"`
 }
 
 var conf config

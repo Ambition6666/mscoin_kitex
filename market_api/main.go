@@ -3,15 +3,36 @@
 package main
 
 import (
+	cc "common/config"
 	"github.com/cloudwego/hertz/pkg/app/server"
-	"github.com/cloudwego/hertz/pkg/network/standard"
+	"github.com/cloudwego/kitex/pkg/klog"
+	"github.com/kitex-contrib/obs-opentelemetry/logging/zap"
 	"market_api/config"
 	"market_api/processor"
+	"market_api/rpc"
 	"market_api/ws"
+	"os"
 )
 
 func main() {
-	h := server.New(server.WithHostPorts(config.ServerAddr), server.WithTransport(standard.NewTransporter))
+	// rpc服务注册
+	rpc.Init()
+
+	// 配置初始化
+	cc.InitConfigClient(config.ServerName, config.ServerName, config.MID, config.EtcdAddr, config.GetConf())
+
+	// 日志注册
+	klog.SetLogger(zap.NewLogger())
+	klog.SetLevel(klog.LevelDebug)
+	f, err := os.OpenFile("./log/output.log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+	if err != nil {
+		panic(err)
+	}
+	defer f.Close()
+	klog.SetOutput(f)
+
+	// 创建网关
+	h := server.Default(server.WithHostPorts(config.ServerAddr))
 	w := ws.NewWebSocketServer()
 	go w.Start()
 	defer w.Stop()

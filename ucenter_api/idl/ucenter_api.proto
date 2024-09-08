@@ -6,11 +6,15 @@ package ucenter_api;
 option go_package = "./ucenter_api";
 
 import "api.proto";
+message CaptchaReq {
+  string server = 1;
+  string token = 2;
+}
 
 message Request {
   string username = 1;
   string password = 2;
-  bytes captcha = 3;
+  CaptchaReq captcha = 3;
   string phone = 4;
   string promotion = 5;
   string code = 6;
@@ -19,10 +23,7 @@ message Request {
   string ip = 9;
 }
 
-message CaptchaReq {
-  string server = 1;
-  string token = 2;
-}
+
 
 message Response {
   string message = 1;
@@ -39,7 +40,7 @@ message NoRes {
 message LoginReq {
   string username = 1;
   string password = 2;
-  bytes captcha = 3;
+  CaptchaReq captcha = 3;
   string ip = 4;
 }
 

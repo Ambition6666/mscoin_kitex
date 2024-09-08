@@ -1,6 +1,6 @@
 package rpc
 
-func init() {
+func Init() {
 	initRegister()
 	initLogin()
 }

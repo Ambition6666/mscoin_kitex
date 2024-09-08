@@ -20,6 +20,6 @@ func initRegister() {
 	}
 }
 
-func GetRegisterClient() register.Client {
-	return registerCli
+func GetRegisterClient() *register.Client {
+	return &registerCli
 }

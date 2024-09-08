@@ -3,7 +3,7 @@ package config
 const (
 	EtcdAddr   = "192.168.40.134:2379"
 	ServerName = "ucenter"
-	ServerAddr = "127.0.0.1:8081"
+	ServerAddr = "192.168.40.1:8081"
 	MID        = 1
 )
 
@@ -14,7 +14,7 @@ type Mysql struct {
 type CacheRedis struct {
 	Pass string `yaml:"Pass"`
 	Host string `yaml:"Host"`
-	Type string `yaml:"Type"`
+	Node int    `yaml:"Node"`
 }
 
 type Captcha struct {

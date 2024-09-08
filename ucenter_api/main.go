@@ -4,12 +4,29 @@ package main
 
 import (
 	"github.com/cloudwego/hertz/pkg/app/server"
+	"github.com/cloudwego/kitex/pkg/klog"
+	"github.com/kitex-contrib/obs-opentelemetry/logging/zap"
+	"os"
 	"ucenter_api/config"
+	"ucenter_api/rpc"
 )
 
 func main() {
-	h := server.Default(server.WithHostPorts(config.ServerAddr))
+	// rpc服务注册
+	rpc.Init()
 
+	// 日志注册
+	klog.SetLogger(zap.NewLogger())
+	klog.SetLevel(klog.LevelDebug)
+	f, err := os.OpenFile("./log/output.log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+	if err != nil {
+		panic(err)
+	}
+	defer f.Close()
+	klog.SetOutput(f)
+
+	// 启动http服务
+	h := server.Default(server.WithHostPorts(config.ServerAddr))
 	register(h)
 	h.Spin()
 }

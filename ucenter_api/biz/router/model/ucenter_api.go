@@ -4,8 +4,7 @@ package model
 
 import (
 	"github.com/cloudwego/hertz/pkg/app/server"
-	"ucenter_api/biz/handler"
-
+	model "ucenter_api/biz/handler"
 )
 
 /*
@@ -20,15 +19,14 @@ func Register(r *server.Hertz) {
 	root := r.Group("/", rootMw()...)
 	{
 		_uc := root.Group("/uc", _ucMw()...)
-		_uc.POST("/login", append(_loginMw(), handler.Login)...)
-		_uc.POST("/check/login", append(_loginMw(), handler.CheckLogin)...)
+		_uc.POST("/login", append(_loginMw(), model.Login)...)
 		{
 			_mobile := _uc.Group("/mobile", _mobileMw()...)
-			_mobile.POST("/code", append(_sendcodeMw(), handler.SendCode)...)
+			_mobile.POST("/code", append(_sendcodeMw(), model.SendCode)...)
 		}
 		{
 			_register := _uc.Group("/register", _registerMw()...)
-			_register.POST("/phone", append(_register0Mw(), handler.Register)...)
+			_register.POST("/phone", append(_register0Mw(), model.Register)...)
 		}
 	}
 }

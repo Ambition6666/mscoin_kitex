@@ -6,6 +6,7 @@ import (
 	"common/results"
 	"common/tools"
 	"context"
+	"github.com/cloudwego/kitex/pkg/klog"
 	"github.com/jinzhu/copier"
 	"grpc_common/kitex_gen/ucenter"
 	"ucenter_api/config"
@@ -28,8 +29,10 @@ func Login(ctx context.Context, c *app.RequestContext) {
 	}
 	loginReq := new(ucenter.LoginReq)
 	copier.Copy(loginReq, &req)
-	data, err := rpc.GetLoginClient().Login(ctx, loginReq)
-
+	data, err := (*rpc.GetLoginClient()).Login(ctx, loginReq)
+	if err != nil {
+		klog.Error(err)
+	}
 	resp := new(model.LoginRes)
 	copier.Copy(resp, data)
 

@@ -15,13 +15,16 @@ import (
 	"time"
 	"ucenter/config"
 	"ucenter/handler"
-	"ucenter/init"
+	"ucenter/utils"
 )
 
 func main() {
 
+	// 配置初始化
+	suite := cc.InitConfigClient(config.ServerName, config.ServerName, config.MID, config.EtcdAddr, config.GetConf())
+
 	// 工具初始化
-	init.Init()
+	utils.Init()
 
 	// 日志注册
 	klog.SetLogger(zap.NewLogger())
@@ -47,10 +50,17 @@ func main() {
 		panic(err)
 	}
 
-	svr := server.NewServer(server.WithServerBasicInfo(&rpcinfo.EndpointBasicInfo{ServiceName: config.ServerName}), server.WithRegistry(r), server.WithServiceAddr(addr), server.WithSuite(cc.InitConfigClient(config.ServerName, config.ServerName, config.MID, config.EtcdAddr, config.GetConf())))
+	svr := server.NewServer(server.WithServerBasicInfo(&rpcinfo.EndpointBasicInfo{ServiceName: config.ServerName}), server.WithRegistry(r), server.WithServiceAddr(addr), server.WithSuite(suite))
 
-	login.RegisterService(svr, handler.NewLoginImpl())
-	register.RegisterService(svr, handler.NewRegisterImpl())
+	err = login.RegisterService(svr, handler.NewLoginImpl())
+	if err != nil {
+		panic(err)
+	}
+
+	err = register.RegisterService(svr, handler.NewRegisterImpl())
+	if err != nil {
+		panic(err)
+	}
 
 	err = svr.Run()
 	if err != nil {

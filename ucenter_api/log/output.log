@@ -1,0 +1,5 @@
+{"level":"error","ts":1725778783.3011336,"msg":"service discovery error: no instance remains for ucenter"}
+{"level":"error","ts":1725779708.1747663,"msg":"service discovery error: no instance remains for ucenter"}
+{"level":"error","ts":1725779999.136316,"msg":"service discovery error: no instance remains for ucenter"}
+{"level":"error","ts":1725780912.720417,"msg":"service discovery error: no instance remains for ucenter"}
+{"level":"error","ts":1725781519.9556885,"msg":"service discovery error: no instance remains for /ucenter/192.168.40.1:8888"}

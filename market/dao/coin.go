@@ -3,8 +3,8 @@ package dao
 import (
 	"context"
 	"gorm.io/gorm"
-	"market/init"
 	"market/model"
+	"market/utils"
 )
 
 type CoinDao struct {
@@ -31,6 +31,6 @@ func (d *CoinDao) FindById(ctx context.Context, id int64) (*model.Coin, error) {
 
 func NewCoinDao() *CoinDao {
 	return &CoinDao{
-		conn: init.GetMysql(),
+		conn: utils.GetMysql(),
 	}
 }

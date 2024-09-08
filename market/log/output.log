@@ -1,0 +1,42 @@
+{"level":"debug","ts":1725693708.8315213,"msg":"[etcd] /KitexConfig/market/limit server etcd limiter updater init, config {0 0 0x1d97640}"}
+{"level":"info","ts":1725693708.833046,"msg":"KITEX: server listen at addr=127.0.0.1:8082"}
+{"level":"info","ts":1725693709.85621,"msg":"start keepalive lease 694d91cb21bb3e86 for etcd registry"}
+{"level":"warn","ts":1725697400.8151078,"msg":"keep register get /market/127.0.0.1:8082 failed with err: context deadline exceeded"}
+{"level":"debug","ts":1725697404.691056,"msg":"[etcd] config key: market updated,value is {   \"CacheRedis\": {     \"Host\": \"192.168.40.134:6379\",     \"Node\": 0,     \"Pass\": \"dream\"   },   \"Mongo\": {     \"Database\": \"mscoin\",     \"Password\": \"123456\",     \"Url\": \"mongodb://192.168.40.134:27017\",     \"Username\": \"ambition\"   },   \"Mysql\": {     \"DataSource\": \"root:123456@tcp(127.0.0.1:3306)/mscoin?charset=utf8mb4\\u0026parseTime=true\\u0026loc=Asia%2FShanghai\"   },   \"Rocketmq\": {     \"Addr\": \"192.168.40.134:9876\",     \"ReadCap\": 100,     \"WriteCap\": 100   } }"}
+{"level":"warn","ts":1725697408.923321,"msg":"keep register get /market/127.0.0.1:8082 failed with err: context deadline exceeded"}
+{"level":"info","ts":1725697443.976769,"msg":"keep register service /market/127.0.0.1:8082"}
+{"level":"info","ts":1725697443.9954462,"msg":"start keepalive lease 694d91cb21bb3f77 for etcd registry"}
+{"level":"info","ts":1725704052.9924915,"msg":"keep register service /market/127.0.0.1:8082"}
+{"level":"info","ts":1725704053.0204384,"msg":"start keepalive lease 694d91cb21bb40f4 for etcd registry"}
+{"level":"warn","ts":1725713992.0355134,"msg":"keep register get /market/127.0.0.1:8082 failed with err: context deadline exceeded"}
+{"level":"info","ts":1725714037.129442,"msg":"keep register service /market/127.0.0.1:8082"}
+{"level":"info","ts":1725714037.137482,"msg":"start keepalive lease 694d91cb21bb4129 for etcd registry"}
+{"level":"info","ts":1725718085.7021117,"msg":"keep register service /market/127.0.0.1:8082"}
+{"level":"info","ts":1725718085.7149844,"msg":"start keepalive lease 694d91cb21bb416b for etcd registry"}
+{"level":"warn","ts":1725718568.9636672,"msg":"keep register get /market/127.0.0.1:8082 failed with err: context deadline exceeded"}
+{"level":"warn","ts":1725718576.975866,"msg":"keep register get /market/127.0.0.1:8082 failed with err: context deadline exceeded"}
+{"level":"info","ts":1725719744.588846,"msg":"stop keep register service /market/127.0.0.1:8082"}
+{"level":"error","ts":1725719744.5944612,"msg":"KITEX: BootstrapServer accept failed, err=accept tcp 127.0.0.1:8082: use of closed network connection"}
+{"level":"debug","ts":1725719770.8927228,"msg":"[etcd] /KitexConfig/market/limit server etcd limiter updater init, config {0 0 0x1527640}"}
+{"level":"info","ts":1725719770.896885,"msg":"KITEX: server listen at addr=192.168.40.1:8082"}
+{"level":"info","ts":1725719771.9254684,"msg":"start keepalive lease 694d91cb21bb42d7 for etcd registry"}
+{"level":"warn","ts":1725721650.2796361,"msg":"keep register get /market/192.168.40.1:8082 failed with err: context deadline exceeded"}
+{"level":"info","ts":1725721691.876067,"msg":"keep register service /market/192.168.40.1:8082"}
+{"level":"info","ts":1725721691.8914194,"msg":"start keepalive lease 694d91cb21bb437e for etcd registry"}
+{"level":"warn","ts":1725722515.2942786,"msg":"keep register get /market/192.168.40.1:8082 failed with err: context deadline exceeded"}
+{"level":"info","ts":1725731204.3356605,"msg":"keep register service /market/192.168.40.1:8082"}
+{"level":"info","ts":1725731204.3410742,"msg":"start keepalive lease 694d91cb21bb44f5 for etcd registry"}
+{"level":"warn","ts":1725774899.2136607,"msg":"keep register get /market/192.168.40.1:8082 failed with err: context deadline exceeded"}
+{"level":"warn","ts":1725774907.2330532,"msg":"keep register get /market/192.168.40.1:8082 failed with err: context deadline exceeded"}
+{"level":"info","ts":1725774952.3320718,"msg":"keep register service /market/192.168.40.1:8082"}
+{"level":"info","ts":1725774952.348699,"msg":"start keepalive lease 694d91cb21bb452e for etcd registry"}
+{"level":"info","ts":1725776041.067823,"msg":"keep register service /market/192.168.40.1:8082"}
+{"level":"info","ts":1725776041.079483,"msg":"start keepalive lease 694d91cb21bb455e for etcd registry"}
+{"level":"warn","ts":1725777649.8328364,"msg":"keep register get /market/192.168.40.1:8082 failed with err: context deadline exceeded"}
+{"level":"info","ts":1725777715.0155468,"msg":"keep register service /market/192.168.40.1:8082"}
+{"level":"info","ts":1725777715.0999444,"msg":"start keepalive lease 694d91cb21bb45a0 for etcd registry"}
+{"level":"info","ts":1725778184.6576157,"msg":"stop keep register service /market/192.168.40.1:8082"}
+{"level":"error","ts":1725778184.6606948,"msg":"KITEX: BootstrapServer accept failed, err=accept tcp 192.168.40.1:8082: use of closed network connection"}
+{"level":"debug","ts":1725778260.6757042,"msg":"[etcd] /KitexConfig/market/limit server etcd limiter updater init, config {0 0 0x1b57640}"}
+{"level":"info","ts":1725778260.6762137,"msg":"KITEX: server listen at addr=192.168.40.1:8082"}
+{"level":"info","ts":1725778261.6964066,"msg":"start keepalive lease 694d91cb21bb45e1 for etcd registry"}

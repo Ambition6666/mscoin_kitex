@@ -3,8 +3,8 @@ package dao
 import (
 	"context"
 	"gorm.io/gorm"
-	"market/init"
 	"market/model"
+	"market/utils"
 )
 
 type ExchangeCoinDao struct {
@@ -26,6 +26,6 @@ func (d *ExchangeCoinDao) FindSymbol(ctx context.Context, symbol string) (*model
 
 func NewExchangeCoinDao() *ExchangeCoinDao {
 	return &ExchangeCoinDao{
-		conn: init.GetMysql(),
+		conn: utils.GetMysql(),
 	}
 }

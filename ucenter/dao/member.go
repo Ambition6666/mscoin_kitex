@@ -5,8 +5,8 @@ import (
 	"errors"
 	"fmt"
 	"gorm.io/gorm"
-	"ucenter/init"
 	"ucenter/model"
+	"ucenter/utils"
 )
 
 type MemberDao struct {
@@ -59,6 +59,6 @@ func (m *MemberDao) UpdateLoginCount(ctx context.Context, id int64, incr int) er
 
 func NewMemberDao() *MemberDao {
 	return &MemberDao{
-		conn: init.GetMysql(),
+		conn: utils.GetMysql(),
 	}
 }

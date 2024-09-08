@@ -1,13 +1,8 @@
 {
   "CacheRedis": {
     "Host": "192.168.40.134:6379",
-    "Pass": "dream",
-    "Type": "node"
-  },
-  "Kafka": {
-    "Addr": "192.168.40.134:9092",
-    "ReadCap": 100,
-    "WriteCap": 100
+    "Node": 0,
+    "Pass": "dream"
   },
   "Mongo": {
     "Database": "mscoin",
@@ -15,11 +10,12 @@
     "Url": "mongodb://192.168.40.134:27017",
     "Username": "ambition"
   },
-  "Okx": {
-    "Apikey": "137aab10-839d-417f-9de8-28e8d63b7324",
-    "Host": "http://www.okx.com",
-    "Pass": "Ztynb680::",
-    "Proxy": "http://localhost:7890",
-    "SecretKey": "FB8078D5B1FBD14FD6A4E4993F859BCB"
+  "Mysql": {
+    "DataSource": "root:123456@tcp(127.0.0.1:3306)/mscoin?charset=utf8mb4\u0026parseTime=true\u0026loc=Asia%2FShanghai"
+  },
+  "Rocketmq": {
+    "Addr": "192.168.40.134:9876",
+    "ReadCap": 100,
+    "WriteCap": 100
   }
 }

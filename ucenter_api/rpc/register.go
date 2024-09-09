@@ -2,6 +2,7 @@ package rpc
 
 import (
 	"github.com/cloudwego/kitex/client"
+	"github.com/cloudwego/kitex/transport"
 	etcd "github.com/kitex-contrib/registry-etcd"
 	"grpc_common/kitex_gen/ucenter/register"
 	"ucenter/config"
@@ -14,12 +15,12 @@ func initRegister() {
 	if err != nil {
 		panic(err)
 	}
-	registerCli, err = register.NewClient(config.ServerName, client.WithResolver(r))
+	registerCli, err = register.NewClient(config.ServerName, client.WithResolver(r), client.WithTransportProtocol(transport.GRPC))
 	if err != nil {
 		panic(err)
 	}
 }
 
-func GetRegisterClient() *register.Client {
-	return &registerCli
+func GetRegisterClient() register.Client {
+	return registerCli
 }

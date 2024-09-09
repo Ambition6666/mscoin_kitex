@@ -128,6 +128,10 @@ message MemberWallet {
   double to_released = 10;
 }
 
+message MemberWalletList {
+  repeated MemberWallet list = 1;
+}
+
 message ApproveReq {
 }
 
@@ -182,6 +186,7 @@ message AddressSimple {
   string address = 2;
 }
 
+
 service Register {
   rpc Register(Request) returns (Response){
     option (api.post) = "/uc/register/phone";
@@ -195,4 +200,27 @@ service Login {
   rpc Login(LoginReq) returns (LoginRes) {
     option (api.post) = "/uc/login";
   };
+}
+
+
+//assetGroup.Use(middlerware.Auth(serverCtx.Config.JWT.AccessSecret))
+//assetGroup.Post("/uc/asset/wallet/:coinName", asset.FindWalletBySymbol)
+//
+//assetGroup.Post("/uc/asset/wallet", asset.FindWallet)
+//assetGroup.Post("/uc/asset/wallet/reset-address", asset.ResetWalletAddress)
+//assetGroup.Post("/uc/asset/transaction/all", asset.FindTransaction)
+
+service Asset {
+  rpc FindWalletBySymbol(AssetReq) returns(MemberWallet) {
+    option (api.post) = "/uc/asset/wallet/:coinName";
+  };
+  rpc FindWallet(AssetReq) returns (MemberWalletList) {
+    option (api.post) = "/uc/asset/wallet";
+  };
+  rpc ResetWalletAddress(AssetReq) returns (Response) {
+    option (api.post) = "/uc/asset/wallet/reset-address";
+  };
+  rpc FindTransaction(AssetReq) returns (NoRes) {
+    option (api.post) = "/uc/asset/transaction/all";
+  }
 }

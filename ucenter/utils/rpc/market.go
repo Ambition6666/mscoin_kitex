@@ -4,7 +4,7 @@ import (
 	"github.com/cloudwego/kitex/client"
 	etcd "github.com/kitex-contrib/registry-etcd"
 	"grpc_common/kitex_gen/market/market"
-	"market_api/config"
+	"ucenter/config"
 )
 
 var marketCli market.Client
@@ -14,7 +14,7 @@ func initMarket() {
 	if err != nil {
 		panic(err)
 	}
-	marketCli, err = market.NewClient(config.ServerName, client.WithResolver(r))
+	marketCli, err = market.NewClient("market", client.WithResolver(r))
 	if err != nil {
 		panic(err)
 	}

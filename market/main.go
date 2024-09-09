@@ -53,8 +53,14 @@ func main() {
 
 	svr := server.NewServer(server.WithServerBasicInfo(&rpcinfo.EndpointBasicInfo{ServiceName: config.ServerName}), server.WithRegistry(r), server.WithServiceAddr(addr), server.WithSuite(suite))
 
-	market.RegisterService(svr, handler.NewMarketImpl())
-	exchangerate.RegisterService(svr, handler.NewExchangeRateImpl())
+	err = market.RegisterService(svr, handler.NewMarketImpl())
+	if err != nil {
+		panic(err)
+	}
+	err = exchangerate.RegisterService(svr, handler.NewExchangeRateImpl())
+	if err != nil {
+		panic(err)
+	}
 
 	err = svr.Run()
 	if err != nil {

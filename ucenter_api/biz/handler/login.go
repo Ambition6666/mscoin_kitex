@@ -29,7 +29,7 @@ func Login(ctx context.Context, c *app.RequestContext) {
 	}
 	loginReq := new(ucenter.LoginReq)
 	copier.Copy(loginReq, &req)
-	data, err := (*rpc.GetLoginClient()).Login(ctx, loginReq)
+	data, err := rpc.GetLoginClient().Login(ctx, loginReq)
 	if err != nil {
 		klog.Error(err)
 	}

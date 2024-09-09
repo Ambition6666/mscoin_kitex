@@ -403,6 +403,764 @@ func (x *LoginRes) fastReadField11(buf []byte, _type int8) (offset int, err erro
 	return offset, err
 }
 
+func (x *AssetReq) FastRead(buf []byte, _type int8, number int32) (offset int, err error) {
+	switch number {
+	case 1:
+		offset, err = x.fastReadField1(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 2:
+		offset, err = x.fastReadField2(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 3:
+		offset, err = x.fastReadField3(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 4:
+		offset, err = x.fastReadField4(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 5:
+		offset, err = x.fastReadField5(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 6:
+		offset, err = x.fastReadField6(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 7:
+		offset, err = x.fastReadField7(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 8:
+		offset, err = x.fastReadField8(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 9:
+		offset, err = x.fastReadField9(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	default:
+		offset, err = fastpb.Skip(buf, _type, number)
+		if err != nil {
+			goto SkipFieldError
+		}
+	}
+	return offset, nil
+SkipFieldError:
+	return offset, fmt.Errorf("%T cannot parse invalid wire-format data, error: %s", x, err)
+ReadFieldError:
+	return offset, fmt.Errorf("%T read field %d '%s' error: %s", x, number, fieldIDToName_AssetReq[number], err)
+}
+
+func (x *AssetReq) fastReadField1(buf []byte, _type int8) (offset int, err error) {
+	x.CoinName, offset, err = fastpb.ReadString(buf, _type)
+	return offset, err
+}
+
+func (x *AssetReq) fastReadField2(buf []byte, _type int8) (offset int, err error) {
+	x.Ip, offset, err = fastpb.ReadString(buf, _type)
+	return offset, err
+}
+
+func (x *AssetReq) fastReadField3(buf []byte, _type int8) (offset int, err error) {
+	x.UserId, offset, err = fastpb.ReadInt64(buf, _type)
+	return offset, err
+}
+
+func (x *AssetReq) fastReadField4(buf []byte, _type int8) (offset int, err error) {
+	x.StartTime, offset, err = fastpb.ReadString(buf, _type)
+	return offset, err
+}
+
+func (x *AssetReq) fastReadField5(buf []byte, _type int8) (offset int, err error) {
+	x.EndTime, offset, err = fastpb.ReadString(buf, _type)
+	return offset, err
+}
+
+func (x *AssetReq) fastReadField6(buf []byte, _type int8) (offset int, err error) {
+	x.PageNo, offset, err = fastpb.ReadInt64(buf, _type)
+	return offset, err
+}
+
+func (x *AssetReq) fastReadField7(buf []byte, _type int8) (offset int, err error) {
+	x.PageSize, offset, err = fastpb.ReadInt64(buf, _type)
+	return offset, err
+}
+
+func (x *AssetReq) fastReadField8(buf []byte, _type int8) (offset int, err error) {
+	x.Type, offset, err = fastpb.ReadString(buf, _type)
+	return offset, err
+}
+
+func (x *AssetReq) fastReadField9(buf []byte, _type int8) (offset int, err error) {
+	x.Symbol, offset, err = fastpb.ReadString(buf, _type)
+	return offset, err
+}
+
+func (x *AssetResp) FastRead(buf []byte, _type int8, number int32) (offset int, err error) {
+	switch number {
+	default:
+		offset, err = fastpb.Skip(buf, _type, number)
+		if err != nil {
+			goto SkipFieldError
+		}
+	}
+	return offset, nil
+SkipFieldError:
+	return offset, fmt.Errorf("%T cannot parse invalid wire-format data, error: %s", x, err)
+}
+
+func (x *Coin) FastRead(buf []byte, _type int8, number int32) (offset int, err error) {
+	switch number {
+	case 1:
+		offset, err = x.fastReadField1(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 2:
+		offset, err = x.fastReadField2(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 3:
+		offset, err = x.fastReadField3(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 4:
+		offset, err = x.fastReadField4(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 5:
+		offset, err = x.fastReadField5(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 6:
+		offset, err = x.fastReadField6(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 7:
+		offset, err = x.fastReadField7(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 8:
+		offset, err = x.fastReadField8(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 9:
+		offset, err = x.fastReadField9(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 10:
+		offset, err = x.fastReadField10(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 11:
+		offset, err = x.fastReadField11(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 12:
+		offset, err = x.fastReadField12(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 13:
+		offset, err = x.fastReadField13(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 14:
+		offset, err = x.fastReadField14(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 15:
+		offset, err = x.fastReadField15(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 16:
+		offset, err = x.fastReadField16(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 17:
+		offset, err = x.fastReadField17(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 18:
+		offset, err = x.fastReadField18(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 19:
+		offset, err = x.fastReadField19(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 20:
+		offset, err = x.fastReadField20(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 21:
+		offset, err = x.fastReadField21(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 22:
+		offset, err = x.fastReadField22(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 23:
+		offset, err = x.fastReadField23(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 24:
+		offset, err = x.fastReadField24(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 25:
+		offset, err = x.fastReadField25(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 26:
+		offset, err = x.fastReadField26(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 27:
+		offset, err = x.fastReadField27(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 28:
+		offset, err = x.fastReadField28(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	default:
+		offset, err = fastpb.Skip(buf, _type, number)
+		if err != nil {
+			goto SkipFieldError
+		}
+	}
+	return offset, nil
+SkipFieldError:
+	return offset, fmt.Errorf("%T cannot parse invalid wire-format data, error: %s", x, err)
+ReadFieldError:
+	return offset, fmt.Errorf("%T read field %d '%s' error: %s", x, number, fieldIDToName_Coin[number], err)
+}
+
+func (x *Coin) fastReadField1(buf []byte, _type int8) (offset int, err error) {
+	x.Id, offset, err = fastpb.ReadInt32(buf, _type)
+	return offset, err
+}
+
+func (x *Coin) fastReadField2(buf []byte, _type int8) (offset int, err error) {
+	x.Name, offset, err = fastpb.ReadString(buf, _type)
+	return offset, err
+}
+
+func (x *Coin) fastReadField3(buf []byte, _type int8) (offset int, err error) {
+	x.CanAutoWithdraw, offset, err = fastpb.ReadInt32(buf, _type)
+	return offset, err
+}
+
+func (x *Coin) fastReadField4(buf []byte, _type int8) (offset int, err error) {
+	x.CanRecharge, offset, err = fastpb.ReadInt32(buf, _type)
+	return offset, err
+}
+
+func (x *Coin) fastReadField5(buf []byte, _type int8) (offset int, err error) {
+	x.CanTransfer, offset, err = fastpb.ReadInt32(buf, _type)
+	return offset, err
+}
+
+func (x *Coin) fastReadField6(buf []byte, _type int8) (offset int, err error) {
+	x.CanWithdraw, offset, err = fastpb.ReadInt32(buf, _type)
+	return offset, err
+}
+
+func (x *Coin) fastReadField7(buf []byte, _type int8) (offset int, err error) {
+	x.CnyRate, offset, err = fastpb.ReadDouble(buf, _type)
+	return offset, err
+}
+
+func (x *Coin) fastReadField8(buf []byte, _type int8) (offset int, err error) {
+	x.EnableRpc, offset, err = fastpb.ReadInt32(buf, _type)
+	return offset, err
+}
+
+func (x *Coin) fastReadField9(buf []byte, _type int8) (offset int, err error) {
+	x.IsPlatformCoin, offset, err = fastpb.ReadInt32(buf, _type)
+	return offset, err
+}
+
+func (x *Coin) fastReadField10(buf []byte, _type int8) (offset int, err error) {
+	x.MaxTxFee, offset, err = fastpb.ReadDouble(buf, _type)
+	return offset, err
+}
+
+func (x *Coin) fastReadField11(buf []byte, _type int8) (offset int, err error) {
+	x.MaxWithdrawAmount, offset, err = fastpb.ReadDouble(buf, _type)
+	return offset, err
+}
+
+func (x *Coin) fastReadField12(buf []byte, _type int8) (offset int, err error) {
+	x.MinTxFee, offset, err = fastpb.ReadDouble(buf, _type)
+	return offset, err
+}
+
+func (x *Coin) fastReadField13(buf []byte, _type int8) (offset int, err error) {
+	x.MinWithdrawAmount, offset, err = fastpb.ReadDouble(buf, _type)
+	return offset, err
+}
+
+func (x *Coin) fastReadField14(buf []byte, _type int8) (offset int, err error) {
+	x.NameCn, offset, err = fastpb.ReadString(buf, _type)
+	return offset, err
+}
+
+func (x *Coin) fastReadField15(buf []byte, _type int8) (offset int, err error) {
+	x.Sort, offset, err = fastpb.ReadInt32(buf, _type)
+	return offset, err
+}
+
+func (x *Coin) fastReadField16(buf []byte, _type int8) (offset int, err error) {
+	x.Status, offset, err = fastpb.ReadInt32(buf, _type)
+	return offset, err
+}
+
+func (x *Coin) fastReadField17(buf []byte, _type int8) (offset int, err error) {
+	x.Unit, offset, err = fastpb.ReadString(buf, _type)
+	return offset, err
+}
+
+func (x *Coin) fastReadField18(buf []byte, _type int8) (offset int, err error) {
+	x.UsdRate, offset, err = fastpb.ReadDouble(buf, _type)
+	return offset, err
+}
+
+func (x *Coin) fastReadField19(buf []byte, _type int8) (offset int, err error) {
+	x.WithdrawThreshold, offset, err = fastpb.ReadDouble(buf, _type)
+	return offset, err
+}
+
+func (x *Coin) fastReadField20(buf []byte, _type int8) (offset int, err error) {
+	x.HasLegal, offset, err = fastpb.ReadInt32(buf, _type)
+	return offset, err
+}
+
+func (x *Coin) fastReadField21(buf []byte, _type int8) (offset int, err error) {
+	x.ColdWalletAddress, offset, err = fastpb.ReadString(buf, _type)
+	return offset, err
+}
+
+func (x *Coin) fastReadField22(buf []byte, _type int8) (offset int, err error) {
+	x.MinerFee, offset, err = fastpb.ReadDouble(buf, _type)
+	return offset, err
+}
+
+func (x *Coin) fastReadField23(buf []byte, _type int8) (offset int, err error) {
+	x.WithdrawScale, offset, err = fastpb.ReadInt32(buf, _type)
+	return offset, err
+}
+
+func (x *Coin) fastReadField24(buf []byte, _type int8) (offset int, err error) {
+	x.AccountType, offset, err = fastpb.ReadInt32(buf, _type)
+	return offset, err
+}
+
+func (x *Coin) fastReadField25(buf []byte, _type int8) (offset int, err error) {
+	x.DepositAddress, offset, err = fastpb.ReadString(buf, _type)
+	return offset, err
+}
+
+func (x *Coin) fastReadField26(buf []byte, _type int8) (offset int, err error) {
+	x.Infolink, offset, err = fastpb.ReadString(buf, _type)
+	return offset, err
+}
+
+func (x *Coin) fastReadField27(buf []byte, _type int8) (offset int, err error) {
+	x.Information, offset, err = fastpb.ReadString(buf, _type)
+	return offset, err
+}
+
+func (x *Coin) fastReadField28(buf []byte, _type int8) (offset int, err error) {
+	x.MinRechargeAmount, offset, err = fastpb.ReadDouble(buf, _type)
+	return offset, err
+}
+
+func (x *MemberWallet) FastRead(buf []byte, _type int8, number int32) (offset int, err error) {
+	switch number {
+	case 1:
+		offset, err = x.fastReadField1(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 2:
+		offset, err = x.fastReadField2(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 3:
+		offset, err = x.fastReadField3(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 4:
+		offset, err = x.fastReadField4(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 5:
+		offset, err = x.fastReadField5(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 6:
+		offset, err = x.fastReadField6(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 7:
+		offset, err = x.fastReadField7(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 8:
+		offset, err = x.fastReadField8(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 9:
+		offset, err = x.fastReadField9(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 10:
+		offset, err = x.fastReadField10(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	default:
+		offset, err = fastpb.Skip(buf, _type, number)
+		if err != nil {
+			goto SkipFieldError
+		}
+	}
+	return offset, nil
+SkipFieldError:
+	return offset, fmt.Errorf("%T cannot parse invalid wire-format data, error: %s", x, err)
+ReadFieldError:
+	return offset, fmt.Errorf("%T read field %d '%s' error: %s", x, number, fieldIDToName_MemberWallet[number], err)
+}
+
+func (x *MemberWallet) fastReadField1(buf []byte, _type int8) (offset int, err error) {
+	x.Id, offset, err = fastpb.ReadInt64(buf, _type)
+	return offset, err
+}
+
+func (x *MemberWallet) fastReadField2(buf []byte, _type int8) (offset int, err error) {
+	x.Address, offset, err = fastpb.ReadString(buf, _type)
+	return offset, err
+}
+
+func (x *MemberWallet) fastReadField3(buf []byte, _type int8) (offset int, err error) {
+	x.Balance, offset, err = fastpb.ReadDouble(buf, _type)
+	return offset, err
+}
+
+func (x *MemberWallet) fastReadField4(buf []byte, _type int8) (offset int, err error) {
+	x.FrozenBalance, offset, err = fastpb.ReadDouble(buf, _type)
+	return offset, err
+}
+
+func (x *MemberWallet) fastReadField5(buf []byte, _type int8) (offset int, err error) {
+	x.ReleaseBalance, offset, err = fastpb.ReadDouble(buf, _type)
+	return offset, err
+}
+
+func (x *MemberWallet) fastReadField6(buf []byte, _type int8) (offset int, err error) {
+	x.IsLock, offset, err = fastpb.ReadInt32(buf, _type)
+	return offset, err
+}
+
+func (x *MemberWallet) fastReadField7(buf []byte, _type int8) (offset int, err error) {
+	x.MemberId, offset, err = fastpb.ReadInt64(buf, _type)
+	return offset, err
+}
+
+func (x *MemberWallet) fastReadField8(buf []byte, _type int8) (offset int, err error) {
+	x.Version, offset, err = fastpb.ReadInt32(buf, _type)
+	return offset, err
+}
+
+func (x *MemberWallet) fastReadField9(buf []byte, _type int8) (offset int, err error) {
+	var v Coin
+	offset, err = fastpb.ReadMessage(buf, _type, &v)
+	if err != nil {
+		return offset, err
+	}
+	x.Coin = &v
+	return offset, nil
+}
+
+func (x *MemberWallet) fastReadField10(buf []byte, _type int8) (offset int, err error) {
+	x.ToReleased, offset, err = fastpb.ReadDouble(buf, _type)
+	return offset, err
+}
+
+func (x *MemberTransaction) FastRead(buf []byte, _type int8, number int32) (offset int, err error) {
+	switch number {
+	case 1:
+		offset, err = x.fastReadField1(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 2:
+		offset, err = x.fastReadField2(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 3:
+		offset, err = x.fastReadField3(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 4:
+		offset, err = x.fastReadField4(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 5:
+		offset, err = x.fastReadField5(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 6:
+		offset, err = x.fastReadField6(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 7:
+		offset, err = x.fastReadField7(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 8:
+		offset, err = x.fastReadField8(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 9:
+		offset, err = x.fastReadField9(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 10:
+		offset, err = x.fastReadField10(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 11:
+		offset, err = x.fastReadField11(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	default:
+		offset, err = fastpb.Skip(buf, _type, number)
+		if err != nil {
+			goto SkipFieldError
+		}
+	}
+	return offset, nil
+SkipFieldError:
+	return offset, fmt.Errorf("%T cannot parse invalid wire-format data, error: %s", x, err)
+ReadFieldError:
+	return offset, fmt.Errorf("%T read field %d '%s' error: %s", x, number, fieldIDToName_MemberTransaction[number], err)
+}
+
+func (x *MemberTransaction) fastReadField1(buf []byte, _type int8) (offset int, err error) {
+	x.Id, offset, err = fastpb.ReadInt64(buf, _type)
+	return offset, err
+}
+
+func (x *MemberTransaction) fastReadField2(buf []byte, _type int8) (offset int, err error) {
+	x.Address, offset, err = fastpb.ReadString(buf, _type)
+	return offset, err
+}
+
+func (x *MemberTransaction) fastReadField3(buf []byte, _type int8) (offset int, err error) {
+	x.Amount, offset, err = fastpb.ReadDouble(buf, _type)
+	return offset, err
+}
+
+func (x *MemberTransaction) fastReadField4(buf []byte, _type int8) (offset int, err error) {
+	x.CreateTime, offset, err = fastpb.ReadString(buf, _type)
+	return offset, err
+}
+
+func (x *MemberTransaction) fastReadField5(buf []byte, _type int8) (offset int, err error) {
+	x.Fee, offset, err = fastpb.ReadDouble(buf, _type)
+	return offset, err
+}
+
+func (x *MemberTransaction) fastReadField6(buf []byte, _type int8) (offset int, err error) {
+	x.Flag, offset, err = fastpb.ReadInt32(buf, _type)
+	return offset, err
+}
+
+func (x *MemberTransaction) fastReadField7(buf []byte, _type int8) (offset int, err error) {
+	x.MemberId, offset, err = fastpb.ReadInt64(buf, _type)
+	return offset, err
+}
+
+func (x *MemberTransaction) fastReadField8(buf []byte, _type int8) (offset int, err error) {
+	x.Symbol, offset, err = fastpb.ReadString(buf, _type)
+	return offset, err
+}
+
+func (x *MemberTransaction) fastReadField9(buf []byte, _type int8) (offset int, err error) {
+	x.Type, offset, err = fastpb.ReadString(buf, _type)
+	return offset, err
+}
+
+func (x *MemberTransaction) fastReadField10(buf []byte, _type int8) (offset int, err error) {
+	x.DiscountFee, offset, err = fastpb.ReadString(buf, _type)
+	return offset, err
+}
+
+func (x *MemberTransaction) fastReadField11(buf []byte, _type int8) (offset int, err error) {
+	x.RealFee, offset, err = fastpb.ReadString(buf, _type)
+	return offset, err
+}
+
+func (x *MemberTransactionList) FastRead(buf []byte, _type int8, number int32) (offset int, err error) {
+	switch number {
+	case 1:
+		offset, err = x.fastReadField1(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 2:
+		offset, err = x.fastReadField2(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	default:
+		offset, err = fastpb.Skip(buf, _type, number)
+		if err != nil {
+			goto SkipFieldError
+		}
+	}
+	return offset, nil
+SkipFieldError:
+	return offset, fmt.Errorf("%T cannot parse invalid wire-format data, error: %s", x, err)
+ReadFieldError:
+	return offset, fmt.Errorf("%T read field %d '%s' error: %s", x, number, fieldIDToName_MemberTransactionList[number], err)
+}
+
+func (x *MemberTransactionList) fastReadField1(buf []byte, _type int8) (offset int, err error) {
+	var v MemberTransaction
+	offset, err = fastpb.ReadMessage(buf, _type, &v)
+	if err != nil {
+		return offset, err
+	}
+	x.List = append(x.List, &v)
+	return offset, nil
+}
+
+func (x *MemberTransactionList) fastReadField2(buf []byte, _type int8) (offset int, err error) {
+	x.Total, offset, err = fastpb.ReadInt64(buf, _type)
+	return offset, err
+}
+
+func (x *MemberWalletList) FastRead(buf []byte, _type int8, number int32) (offset int, err error) {
+	switch number {
+	case 1:
+		offset, err = x.fastReadField1(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	default:
+		offset, err = fastpb.Skip(buf, _type, number)
+		if err != nil {
+			goto SkipFieldError
+		}
+	}
+	return offset, nil
+SkipFieldError:
+	return offset, fmt.Errorf("%T cannot parse invalid wire-format data, error: %s", x, err)
+ReadFieldError:
+	return offset, fmt.Errorf("%T read field %d '%s' error: %s", x, number, fieldIDToName_MemberWalletList[number], err)
+}
+
+func (x *MemberWalletList) fastReadField1(buf []byte, _type int8) (offset int, err error) {
+	var v MemberWallet
+	offset, err = fastpb.ReadMessage(buf, _type, &v)
+	if err != nil {
+		return offset, err
+	}
+	x.List = append(x.List, &v)
+	return offset, nil
+}
+
+func (x *AddressList) FastRead(buf []byte, _type int8, number int32) (offset int, err error) {
+	switch number {
+	case 1:
+		offset, err = x.fastReadField1(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	default:
+		offset, err = fastpb.Skip(buf, _type, number)
+		if err != nil {
+			goto SkipFieldError
+		}
+	}
+	return offset, nil
+SkipFieldError:
+	return offset, fmt.Errorf("%T cannot parse invalid wire-format data, error: %s", x, err)
+ReadFieldError:
+	return offset, fmt.Errorf("%T read field %d '%s' error: %s", x, number, fieldIDToName_AddressList[number], err)
+}
+
+func (x *AddressList) fastReadField1(buf []byte, _type int8) (offset int, err error) {
+	var v string
+	v, offset, err = fastpb.ReadString(buf, _type)
+	if err != nil {
+		return offset, err
+	}
+	x.List = append(x.List, v)
+	return offset, err
+}
+
 func (x *RegReq) FastWrite(buf []byte) (offset int) {
 	if x == nil {
 		return offset
@@ -701,6 +1459,626 @@ func (x *LoginRes) fastWriteField11(buf []byte) (offset int) {
 		return offset
 	}
 	offset += fastpb.WriteInt32(buf[offset:], 11, x.GetMemberRate())
+	return offset
+}
+
+func (x *AssetReq) FastWrite(buf []byte) (offset int) {
+	if x == nil {
+		return offset
+	}
+	offset += x.fastWriteField1(buf[offset:])
+	offset += x.fastWriteField2(buf[offset:])
+	offset += x.fastWriteField3(buf[offset:])
+	offset += x.fastWriteField4(buf[offset:])
+	offset += x.fastWriteField5(buf[offset:])
+	offset += x.fastWriteField6(buf[offset:])
+	offset += x.fastWriteField7(buf[offset:])
+	offset += x.fastWriteField8(buf[offset:])
+	offset += x.fastWriteField9(buf[offset:])
+	return offset
+}
+
+func (x *AssetReq) fastWriteField1(buf []byte) (offset int) {
+	if x.CoinName == "" {
+		return offset
+	}
+	offset += fastpb.WriteString(buf[offset:], 1, x.GetCoinName())
+	return offset
+}
+
+func (x *AssetReq) fastWriteField2(buf []byte) (offset int) {
+	if x.Ip == "" {
+		return offset
+	}
+	offset += fastpb.WriteString(buf[offset:], 2, x.GetIp())
+	return offset
+}
+
+func (x *AssetReq) fastWriteField3(buf []byte) (offset int) {
+	if x.UserId == 0 {
+		return offset
+	}
+	offset += fastpb.WriteInt64(buf[offset:], 3, x.GetUserId())
+	return offset
+}
+
+func (x *AssetReq) fastWriteField4(buf []byte) (offset int) {
+	if x.StartTime == "" {
+		return offset
+	}
+	offset += fastpb.WriteString(buf[offset:], 4, x.GetStartTime())
+	return offset
+}
+
+func (x *AssetReq) fastWriteField5(buf []byte) (offset int) {
+	if x.EndTime == "" {
+		return offset
+	}
+	offset += fastpb.WriteString(buf[offset:], 5, x.GetEndTime())
+	return offset
+}
+
+func (x *AssetReq) fastWriteField6(buf []byte) (offset int) {
+	if x.PageNo == 0 {
+		return offset
+	}
+	offset += fastpb.WriteInt64(buf[offset:], 6, x.GetPageNo())
+	return offset
+}
+
+func (x *AssetReq) fastWriteField7(buf []byte) (offset int) {
+	if x.PageSize == 0 {
+		return offset
+	}
+	offset += fastpb.WriteInt64(buf[offset:], 7, x.GetPageSize())
+	return offset
+}
+
+func (x *AssetReq) fastWriteField8(buf []byte) (offset int) {
+	if x.Type == "" {
+		return offset
+	}
+	offset += fastpb.WriteString(buf[offset:], 8, x.GetType())
+	return offset
+}
+
+func (x *AssetReq) fastWriteField9(buf []byte) (offset int) {
+	if x.Symbol == "" {
+		return offset
+	}
+	offset += fastpb.WriteString(buf[offset:], 9, x.GetSymbol())
+	return offset
+}
+
+func (x *AssetResp) FastWrite(buf []byte) (offset int) {
+	if x == nil {
+		return offset
+	}
+	return offset
+}
+
+func (x *Coin) FastWrite(buf []byte) (offset int) {
+	if x == nil {
+		return offset
+	}
+	offset += x.fastWriteField1(buf[offset:])
+	offset += x.fastWriteField2(buf[offset:])
+	offset += x.fastWriteField3(buf[offset:])
+	offset += x.fastWriteField4(buf[offset:])
+	offset += x.fastWriteField5(buf[offset:])
+	offset += x.fastWriteField6(buf[offset:])
+	offset += x.fastWriteField7(buf[offset:])
+	offset += x.fastWriteField8(buf[offset:])
+	offset += x.fastWriteField9(buf[offset:])
+	offset += x.fastWriteField10(buf[offset:])
+	offset += x.fastWriteField11(buf[offset:])
+	offset += x.fastWriteField12(buf[offset:])
+	offset += x.fastWriteField13(buf[offset:])
+	offset += x.fastWriteField14(buf[offset:])
+	offset += x.fastWriteField15(buf[offset:])
+	offset += x.fastWriteField16(buf[offset:])
+	offset += x.fastWriteField17(buf[offset:])
+	offset += x.fastWriteField18(buf[offset:])
+	offset += x.fastWriteField19(buf[offset:])
+	offset += x.fastWriteField20(buf[offset:])
+	offset += x.fastWriteField21(buf[offset:])
+	offset += x.fastWriteField22(buf[offset:])
+	offset += x.fastWriteField23(buf[offset:])
+	offset += x.fastWriteField24(buf[offset:])
+	offset += x.fastWriteField25(buf[offset:])
+	offset += x.fastWriteField26(buf[offset:])
+	offset += x.fastWriteField27(buf[offset:])
+	offset += x.fastWriteField28(buf[offset:])
+	return offset
+}
+
+func (x *Coin) fastWriteField1(buf []byte) (offset int) {
+	if x.Id == 0 {
+		return offset
+	}
+	offset += fastpb.WriteInt32(buf[offset:], 1, x.GetId())
+	return offset
+}
+
+func (x *Coin) fastWriteField2(buf []byte) (offset int) {
+	if x.Name == "" {
+		return offset
+	}
+	offset += fastpb.WriteString(buf[offset:], 2, x.GetName())
+	return offset
+}
+
+func (x *Coin) fastWriteField3(buf []byte) (offset int) {
+	if x.CanAutoWithdraw == 0 {
+		return offset
+	}
+	offset += fastpb.WriteInt32(buf[offset:], 3, x.GetCanAutoWithdraw())
+	return offset
+}
+
+func (x *Coin) fastWriteField4(buf []byte) (offset int) {
+	if x.CanRecharge == 0 {
+		return offset
+	}
+	offset += fastpb.WriteInt32(buf[offset:], 4, x.GetCanRecharge())
+	return offset
+}
+
+func (x *Coin) fastWriteField5(buf []byte) (offset int) {
+	if x.CanTransfer == 0 {
+		return offset
+	}
+	offset += fastpb.WriteInt32(buf[offset:], 5, x.GetCanTransfer())
+	return offset
+}
+
+func (x *Coin) fastWriteField6(buf []byte) (offset int) {
+	if x.CanWithdraw == 0 {
+		return offset
+	}
+	offset += fastpb.WriteInt32(buf[offset:], 6, x.GetCanWithdraw())
+	return offset
+}
+
+func (x *Coin) fastWriteField7(buf []byte) (offset int) {
+	if x.CnyRate == 0 {
+		return offset
+	}
+	offset += fastpb.WriteDouble(buf[offset:], 7, x.GetCnyRate())
+	return offset
+}
+
+func (x *Coin) fastWriteField8(buf []byte) (offset int) {
+	if x.EnableRpc == 0 {
+		return offset
+	}
+	offset += fastpb.WriteInt32(buf[offset:], 8, x.GetEnableRpc())
+	return offset
+}
+
+func (x *Coin) fastWriteField9(buf []byte) (offset int) {
+	if x.IsPlatformCoin == 0 {
+		return offset
+	}
+	offset += fastpb.WriteInt32(buf[offset:], 9, x.GetIsPlatformCoin())
+	return offset
+}
+
+func (x *Coin) fastWriteField10(buf []byte) (offset int) {
+	if x.MaxTxFee == 0 {
+		return offset
+	}
+	offset += fastpb.WriteDouble(buf[offset:], 10, x.GetMaxTxFee())
+	return offset
+}
+
+func (x *Coin) fastWriteField11(buf []byte) (offset int) {
+	if x.MaxWithdrawAmount == 0 {
+		return offset
+	}
+	offset += fastpb.WriteDouble(buf[offset:], 11, x.GetMaxWithdrawAmount())
+	return offset
+}
+
+func (x *Coin) fastWriteField12(buf []byte) (offset int) {
+	if x.MinTxFee == 0 {
+		return offset
+	}
+	offset += fastpb.WriteDouble(buf[offset:], 12, x.GetMinTxFee())
+	return offset
+}
+
+func (x *Coin) fastWriteField13(buf []byte) (offset int) {
+	if x.MinWithdrawAmount == 0 {
+		return offset
+	}
+	offset += fastpb.WriteDouble(buf[offset:], 13, x.GetMinWithdrawAmount())
+	return offset
+}
+
+func (x *Coin) fastWriteField14(buf []byte) (offset int) {
+	if x.NameCn == "" {
+		return offset
+	}
+	offset += fastpb.WriteString(buf[offset:], 14, x.GetNameCn())
+	return offset
+}
+
+func (x *Coin) fastWriteField15(buf []byte) (offset int) {
+	if x.Sort == 0 {
+		return offset
+	}
+	offset += fastpb.WriteInt32(buf[offset:], 15, x.GetSort())
+	return offset
+}
+
+func (x *Coin) fastWriteField16(buf []byte) (offset int) {
+	if x.Status == 0 {
+		return offset
+	}
+	offset += fastpb.WriteInt32(buf[offset:], 16, x.GetStatus())
+	return offset
+}
+
+func (x *Coin) fastWriteField17(buf []byte) (offset int) {
+	if x.Unit == "" {
+		return offset
+	}
+	offset += fastpb.WriteString(buf[offset:], 17, x.GetUnit())
+	return offset
+}
+
+func (x *Coin) fastWriteField18(buf []byte) (offset int) {
+	if x.UsdRate == 0 {
+		return offset
+	}
+	offset += fastpb.WriteDouble(buf[offset:], 18, x.GetUsdRate())
+	return offset
+}
+
+func (x *Coin) fastWriteField19(buf []byte) (offset int) {
+	if x.WithdrawThreshold == 0 {
+		return offset
+	}
+	offset += fastpb.WriteDouble(buf[offset:], 19, x.GetWithdrawThreshold())
+	return offset
+}
+
+func (x *Coin) fastWriteField20(buf []byte) (offset int) {
+	if x.HasLegal == 0 {
+		return offset
+	}
+	offset += fastpb.WriteInt32(buf[offset:], 20, x.GetHasLegal())
+	return offset
+}
+
+func (x *Coin) fastWriteField21(buf []byte) (offset int) {
+	if x.ColdWalletAddress == "" {
+		return offset
+	}
+	offset += fastpb.WriteString(buf[offset:], 21, x.GetColdWalletAddress())
+	return offset
+}
+
+func (x *Coin) fastWriteField22(buf []byte) (offset int) {
+	if x.MinerFee == 0 {
+		return offset
+	}
+	offset += fastpb.WriteDouble(buf[offset:], 22, x.GetMinerFee())
+	return offset
+}
+
+func (x *Coin) fastWriteField23(buf []byte) (offset int) {
+	if x.WithdrawScale == 0 {
+		return offset
+	}
+	offset += fastpb.WriteInt32(buf[offset:], 23, x.GetWithdrawScale())
+	return offset
+}
+
+func (x *Coin) fastWriteField24(buf []byte) (offset int) {
+	if x.AccountType == 0 {
+		return offset
+	}
+	offset += fastpb.WriteInt32(buf[offset:], 24, x.GetAccountType())
+	return offset
+}
+
+func (x *Coin) fastWriteField25(buf []byte) (offset int) {
+	if x.DepositAddress == "" {
+		return offset
+	}
+	offset += fastpb.WriteString(buf[offset:], 25, x.GetDepositAddress())
+	return offset
+}
+
+func (x *Coin) fastWriteField26(buf []byte) (offset int) {
+	if x.Infolink == "" {
+		return offset
+	}
+	offset += fastpb.WriteString(buf[offset:], 26, x.GetInfolink())
+	return offset
+}
+
+func (x *Coin) fastWriteField27(buf []byte) (offset int) {
+	if x.Information == "" {
+		return offset
+	}
+	offset += fastpb.WriteString(buf[offset:], 27, x.GetInformation())
+	return offset
+}
+
+func (x *Coin) fastWriteField28(buf []byte) (offset int) {
+	if x.MinRechargeAmount == 0 {
+		return offset
+	}
+	offset += fastpb.WriteDouble(buf[offset:], 28, x.GetMinRechargeAmount())
+	return offset
+}
+
+func (x *MemberWallet) FastWrite(buf []byte) (offset int) {
+	if x == nil {
+		return offset
+	}
+	offset += x.fastWriteField1(buf[offset:])
+	offset += x.fastWriteField2(buf[offset:])
+	offset += x.fastWriteField3(buf[offset:])
+	offset += x.fastWriteField4(buf[offset:])
+	offset += x.fastWriteField5(buf[offset:])
+	offset += x.fastWriteField6(buf[offset:])
+	offset += x.fastWriteField7(buf[offset:])
+	offset += x.fastWriteField8(buf[offset:])
+	offset += x.fastWriteField9(buf[offset:])
+	offset += x.fastWriteField10(buf[offset:])
+	return offset
+}
+
+func (x *MemberWallet) fastWriteField1(buf []byte) (offset int) {
+	if x.Id == 0 {
+		return offset
+	}
+	offset += fastpb.WriteInt64(buf[offset:], 1, x.GetId())
+	return offset
+}
+
+func (x *MemberWallet) fastWriteField2(buf []byte) (offset int) {
+	if x.Address == "" {
+		return offset
+	}
+	offset += fastpb.WriteString(buf[offset:], 2, x.GetAddress())
+	return offset
+}
+
+func (x *MemberWallet) fastWriteField3(buf []byte) (offset int) {
+	if x.Balance == 0 {
+		return offset
+	}
+	offset += fastpb.WriteDouble(buf[offset:], 3, x.GetBalance())
+	return offset
+}
+
+func (x *MemberWallet) fastWriteField4(buf []byte) (offset int) {
+	if x.FrozenBalance == 0 {
+		return offset
+	}
+	offset += fastpb.WriteDouble(buf[offset:], 4, x.GetFrozenBalance())
+	return offset
+}
+
+func (x *MemberWallet) fastWriteField5(buf []byte) (offset int) {
+	if x.ReleaseBalance == 0 {
+		return offset
+	}
+	offset += fastpb.WriteDouble(buf[offset:], 5, x.GetReleaseBalance())
+	return offset
+}
+
+func (x *MemberWallet) fastWriteField6(buf []byte) (offset int) {
+	if x.IsLock == 0 {
+		return offset
+	}
+	offset += fastpb.WriteInt32(buf[offset:], 6, x.GetIsLock())
+	return offset
+}
+
+func (x *MemberWallet) fastWriteField7(buf []byte) (offset int) {
+	if x.MemberId == 0 {
+		return offset
+	}
+	offset += fastpb.WriteInt64(buf[offset:], 7, x.GetMemberId())
+	return offset
+}
+
+func (x *MemberWallet) fastWriteField8(buf []byte) (offset int) {
+	if x.Version == 0 {
+		return offset
+	}
+	offset += fastpb.WriteInt32(buf[offset:], 8, x.GetVersion())
+	return offset
+}
+
+func (x *MemberWallet) fastWriteField9(buf []byte) (offset int) {
+	if x.Coin == nil {
+		return offset
+	}
+	offset += fastpb.WriteMessage(buf[offset:], 9, x.GetCoin())
+	return offset
+}
+
+func (x *MemberWallet) fastWriteField10(buf []byte) (offset int) {
+	if x.ToReleased == 0 {
+		return offset
+	}
+	offset += fastpb.WriteDouble(buf[offset:], 10, x.GetToReleased())
+	return offset
+}
+
+func (x *MemberTransaction) FastWrite(buf []byte) (offset int) {
+	if x == nil {
+		return offset
+	}
+	offset += x.fastWriteField1(buf[offset:])
+	offset += x.fastWriteField2(buf[offset:])
+	offset += x.fastWriteField3(buf[offset:])
+	offset += x.fastWriteField4(buf[offset:])
+	offset += x.fastWriteField5(buf[offset:])
+	offset += x.fastWriteField6(buf[offset:])
+	offset += x.fastWriteField7(buf[offset:])
+	offset += x.fastWriteField8(buf[offset:])
+	offset += x.fastWriteField9(buf[offset:])
+	offset += x.fastWriteField10(buf[offset:])
+	offset += x.fastWriteField11(buf[offset:])
+	return offset
+}
+
+func (x *MemberTransaction) fastWriteField1(buf []byte) (offset int) {
+	if x.Id == 0 {
+		return offset
+	}
+	offset += fastpb.WriteInt64(buf[offset:], 1, x.GetId())
+	return offset
+}
+
+func (x *MemberTransaction) fastWriteField2(buf []byte) (offset int) {
+	if x.Address == "" {
+		return offset
+	}
+	offset += fastpb.WriteString(buf[offset:], 2, x.GetAddress())
+	return offset
+}
+
+func (x *MemberTransaction) fastWriteField3(buf []byte) (offset int) {
+	if x.Amount == 0 {
+		return offset
+	}
+	offset += fastpb.WriteDouble(buf[offset:], 3, x.GetAmount())
+	return offset
+}
+
+func (x *MemberTransaction) fastWriteField4(buf []byte) (offset int) {
+	if x.CreateTime == "" {
+		return offset
+	}
+	offset += fastpb.WriteString(buf[offset:], 4, x.GetCreateTime())
+	return offset
+}
+
+func (x *MemberTransaction) fastWriteField5(buf []byte) (offset int) {
+	if x.Fee == 0 {
+		return offset
+	}
+	offset += fastpb.WriteDouble(buf[offset:], 5, x.GetFee())
+	return offset
+}
+
+func (x *MemberTransaction) fastWriteField6(buf []byte) (offset int) {
+	if x.Flag == 0 {
+		return offset
+	}
+	offset += fastpb.WriteInt32(buf[offset:], 6, x.GetFlag())
+	return offset
+}
+
+func (x *MemberTransaction) fastWriteField7(buf []byte) (offset int) {
+	if x.MemberId == 0 {
+		return offset
+	}
+	offset += fastpb.WriteInt64(buf[offset:], 7, x.GetMemberId())
+	return offset
+}
+
+func (x *MemberTransaction) fastWriteField8(buf []byte) (offset int) {
+	if x.Symbol == "" {
+		return offset
+	}
+	offset += fastpb.WriteString(buf[offset:], 8, x.GetSymbol())
+	return offset
+}
+
+func (x *MemberTransaction) fastWriteField9(buf []byte) (offset int) {
+	if x.Type == "" {
+		return offset
+	}
+	offset += fastpb.WriteString(buf[offset:], 9, x.GetType())
+	return offset
+}
+
+func (x *MemberTransaction) fastWriteField10(buf []byte) (offset int) {
+	if x.DiscountFee == "" {
+		return offset
+	}
+	offset += fastpb.WriteString(buf[offset:], 10, x.GetDiscountFee())
+	return offset
+}
+
+func (x *MemberTransaction) fastWriteField11(buf []byte) (offset int) {
+	if x.RealFee == "" {
+		return offset
+	}
+	offset += fastpb.WriteString(buf[offset:], 11, x.GetRealFee())
+	return offset
+}
+
+func (x *MemberTransactionList) FastWrite(buf []byte) (offset int) {
+	if x == nil {
+		return offset
+	}
+	offset += x.fastWriteField1(buf[offset:])
+	offset += x.fastWriteField2(buf[offset:])
+	return offset
+}
+
+func (x *MemberTransactionList) fastWriteField1(buf []byte) (offset int) {
+	if x.List == nil {
+		return offset
+	}
+	for i := range x.GetList() {
+		offset += fastpb.WriteMessage(buf[offset:], 1, x.GetList()[i])
+	}
+	return offset
+}
+
+func (x *MemberTransactionList) fastWriteField2(buf []byte) (offset int) {
+	if x.Total == 0 {
+		return offset
+	}
+	offset += fastpb.WriteInt64(buf[offset:], 2, x.GetTotal())
+	return offset
+}
+
+func (x *MemberWalletList) FastWrite(buf []byte) (offset int) {
+	if x == nil {
+		return offset
+	}
+	offset += x.fastWriteField1(buf[offset:])
+	return offset
+}
+
+func (x *MemberWalletList) fastWriteField1(buf []byte) (offset int) {
+	if x.List == nil {
+		return offset
+	}
+	for i := range x.GetList() {
+		offset += fastpb.WriteMessage(buf[offset:], 1, x.GetList()[i])
+	}
+	return offset
+}
+
+func (x *AddressList) FastWrite(buf []byte) (offset int) {
+	if x == nil {
+		return offset
+	}
+	offset += x.fastWriteField1(buf[offset:])
+	return offset
+}
+
+func (x *AddressList) fastWriteField1(buf []byte) (offset int) {
+	if len(x.List) == 0 {
+		return offset
+	}
+	for i := range x.GetList() {
+		offset += fastpb.WriteString(buf[offset:], 1, x.GetList()[i])
+	}
 	return offset
 }
 
@@ -1005,6 +2383,626 @@ func (x *LoginRes) sizeField11() (n int) {
 	return n
 }
 
+func (x *AssetReq) Size() (n int) {
+	if x == nil {
+		return n
+	}
+	n += x.sizeField1()
+	n += x.sizeField2()
+	n += x.sizeField3()
+	n += x.sizeField4()
+	n += x.sizeField5()
+	n += x.sizeField6()
+	n += x.sizeField7()
+	n += x.sizeField8()
+	n += x.sizeField9()
+	return n
+}
+
+func (x *AssetReq) sizeField1() (n int) {
+	if x.CoinName == "" {
+		return n
+	}
+	n += fastpb.SizeString(1, x.GetCoinName())
+	return n
+}
+
+func (x *AssetReq) sizeField2() (n int) {
+	if x.Ip == "" {
+		return n
+	}
+	n += fastpb.SizeString(2, x.GetIp())
+	return n
+}
+
+func (x *AssetReq) sizeField3() (n int) {
+	if x.UserId == 0 {
+		return n
+	}
+	n += fastpb.SizeInt64(3, x.GetUserId())
+	return n
+}
+
+func (x *AssetReq) sizeField4() (n int) {
+	if x.StartTime == "" {
+		return n
+	}
+	n += fastpb.SizeString(4, x.GetStartTime())
+	return n
+}
+
+func (x *AssetReq) sizeField5() (n int) {
+	if x.EndTime == "" {
+		return n
+	}
+	n += fastpb.SizeString(5, x.GetEndTime())
+	return n
+}
+
+func (x *AssetReq) sizeField6() (n int) {
+	if x.PageNo == 0 {
+		return n
+	}
+	n += fastpb.SizeInt64(6, x.GetPageNo())
+	return n
+}
+
+func (x *AssetReq) sizeField7() (n int) {
+	if x.PageSize == 0 {
+		return n
+	}
+	n += fastpb.SizeInt64(7, x.GetPageSize())
+	return n
+}
+
+func (x *AssetReq) sizeField8() (n int) {
+	if x.Type == "" {
+		return n
+	}
+	n += fastpb.SizeString(8, x.GetType())
+	return n
+}
+
+func (x *AssetReq) sizeField9() (n int) {
+	if x.Symbol == "" {
+		return n
+	}
+	n += fastpb.SizeString(9, x.GetSymbol())
+	return n
+}
+
+func (x *AssetResp) Size() (n int) {
+	if x == nil {
+		return n
+	}
+	return n
+}
+
+func (x *Coin) Size() (n int) {
+	if x == nil {
+		return n
+	}
+	n += x.sizeField1()
+	n += x.sizeField2()
+	n += x.sizeField3()
+	n += x.sizeField4()
+	n += x.sizeField5()
+	n += x.sizeField6()
+	n += x.sizeField7()
+	n += x.sizeField8()
+	n += x.sizeField9()
+	n += x.sizeField10()
+	n += x.sizeField11()
+	n += x.sizeField12()
+	n += x.sizeField13()
+	n += x.sizeField14()
+	n += x.sizeField15()
+	n += x.sizeField16()
+	n += x.sizeField17()
+	n += x.sizeField18()
+	n += x.sizeField19()
+	n += x.sizeField20()
+	n += x.sizeField21()
+	n += x.sizeField22()
+	n += x.sizeField23()
+	n += x.sizeField24()
+	n += x.sizeField25()
+	n += x.sizeField26()
+	n += x.sizeField27()
+	n += x.sizeField28()
+	return n
+}
+
+func (x *Coin) sizeField1() (n int) {
+	if x.Id == 0 {
+		return n
+	}
+	n += fastpb.SizeInt32(1, x.GetId())
+	return n
+}
+
+func (x *Coin) sizeField2() (n int) {
+	if x.Name == "" {
+		return n
+	}
+	n += fastpb.SizeString(2, x.GetName())
+	return n
+}
+
+func (x *Coin) sizeField3() (n int) {
+	if x.CanAutoWithdraw == 0 {
+		return n
+	}
+	n += fastpb.SizeInt32(3, x.GetCanAutoWithdraw())
+	return n
+}
+
+func (x *Coin) sizeField4() (n int) {
+	if x.CanRecharge == 0 {
+		return n
+	}
+	n += fastpb.SizeInt32(4, x.GetCanRecharge())
+	return n
+}
+
+func (x *Coin) sizeField5() (n int) {
+	if x.CanTransfer == 0 {
+		return n
+	}
+	n += fastpb.SizeInt32(5, x.GetCanTransfer())
+	return n
+}
+
+func (x *Coin) sizeField6() (n int) {
+	if x.CanWithdraw == 0 {
+		return n
+	}
+	n += fastpb.SizeInt32(6, x.GetCanWithdraw())
+	return n
+}
+
+func (x *Coin) sizeField7() (n int) {
+	if x.CnyRate == 0 {
+		return n
+	}
+	n += fastpb.SizeDouble(7, x.GetCnyRate())
+	return n
+}
+
+func (x *Coin) sizeField8() (n int) {
+	if x.EnableRpc == 0 {
+		return n
+	}
+	n += fastpb.SizeInt32(8, x.GetEnableRpc())
+	return n
+}
+
+func (x *Coin) sizeField9() (n int) {
+	if x.IsPlatformCoin == 0 {
+		return n
+	}
+	n += fastpb.SizeInt32(9, x.GetIsPlatformCoin())
+	return n
+}
+
+func (x *Coin) sizeField10() (n int) {
+	if x.MaxTxFee == 0 {
+		return n
+	}
+	n += fastpb.SizeDouble(10, x.GetMaxTxFee())
+	return n
+}
+
+func (x *Coin) sizeField11() (n int) {
+	if x.MaxWithdrawAmount == 0 {
+		return n
+	}
+	n += fastpb.SizeDouble(11, x.GetMaxWithdrawAmount())
+	return n
+}
+
+func (x *Coin) sizeField12() (n int) {
+	if x.MinTxFee == 0 {
+		return n
+	}
+	n += fastpb.SizeDouble(12, x.GetMinTxFee())
+	return n
+}
+
+func (x *Coin) sizeField13() (n int) {
+	if x.MinWithdrawAmount == 0 {
+		return n
+	}
+	n += fastpb.SizeDouble(13, x.GetMinWithdrawAmount())
+	return n
+}
+
+func (x *Coin) sizeField14() (n int) {
+	if x.NameCn == "" {
+		return n
+	}
+	n += fastpb.SizeString(14, x.GetNameCn())
+	return n
+}
+
+func (x *Coin) sizeField15() (n int) {
+	if x.Sort == 0 {
+		return n
+	}
+	n += fastpb.SizeInt32(15, x.GetSort())
+	return n
+}
+
+func (x *Coin) sizeField16() (n int) {
+	if x.Status == 0 {
+		return n
+	}
+	n += fastpb.SizeInt32(16, x.GetStatus())
+	return n
+}
+
+func (x *Coin) sizeField17() (n int) {
+	if x.Unit == "" {
+		return n
+	}
+	n += fastpb.SizeString(17, x.GetUnit())
+	return n
+}
+
+func (x *Coin) sizeField18() (n int) {
+	if x.UsdRate == 0 {
+		return n
+	}
+	n += fastpb.SizeDouble(18, x.GetUsdRate())
+	return n
+}
+
+func (x *Coin) sizeField19() (n int) {
+	if x.WithdrawThreshold == 0 {
+		return n
+	}
+	n += fastpb.SizeDouble(19, x.GetWithdrawThreshold())
+	return n
+}
+
+func (x *Coin) sizeField20() (n int) {
+	if x.HasLegal == 0 {
+		return n
+	}
+	n += fastpb.SizeInt32(20, x.GetHasLegal())
+	return n
+}
+
+func (x *Coin) sizeField21() (n int) {
+	if x.ColdWalletAddress == "" {
+		return n
+	}
+	n += fastpb.SizeString(21, x.GetColdWalletAddress())
+	return n
+}
+
+func (x *Coin) sizeField22() (n int) {
+	if x.MinerFee == 0 {
+		return n
+	}
+	n += fastpb.SizeDouble(22, x.GetMinerFee())
+	return n
+}
+
+func (x *Coin) sizeField23() (n int) {
+	if x.WithdrawScale == 0 {
+		return n
+	}
+	n += fastpb.SizeInt32(23, x.GetWithdrawScale())
+	return n
+}
+
+func (x *Coin) sizeField24() (n int) {
+	if x.AccountType == 0 {
+		return n
+	}
+	n += fastpb.SizeInt32(24, x.GetAccountType())
+	return n
+}
+
+func (x *Coin) sizeField25() (n int) {
+	if x.DepositAddress == "" {
+		return n
+	}
+	n += fastpb.SizeString(25, x.GetDepositAddress())
+	return n
+}
+
+func (x *Coin) sizeField26() (n int) {
+	if x.Infolink == "" {
+		return n
+	}
+	n += fastpb.SizeString(26, x.GetInfolink())
+	return n
+}
+
+func (x *Coin) sizeField27() (n int) {
+	if x.Information == "" {
+		return n
+	}
+	n += fastpb.SizeString(27, x.GetInformation())
+	return n
+}
+
+func (x *Coin) sizeField28() (n int) {
+	if x.MinRechargeAmount == 0 {
+		return n
+	}
+	n += fastpb.SizeDouble(28, x.GetMinRechargeAmount())
+	return n
+}
+
+func (x *MemberWallet) Size() (n int) {
+	if x == nil {
+		return n
+	}
+	n += x.sizeField1()
+	n += x.sizeField2()
+	n += x.sizeField3()
+	n += x.sizeField4()
+	n += x.sizeField5()
+	n += x.sizeField6()
+	n += x.sizeField7()
+	n += x.sizeField8()
+	n += x.sizeField9()
+	n += x.sizeField10()
+	return n
+}
+
+func (x *MemberWallet) sizeField1() (n int) {
+	if x.Id == 0 {
+		return n
+	}
+	n += fastpb.SizeInt64(1, x.GetId())
+	return n
+}
+
+func (x *MemberWallet) sizeField2() (n int) {
+	if x.Address == "" {
+		return n
+	}
+	n += fastpb.SizeString(2, x.GetAddress())
+	return n
+}
+
+func (x *MemberWallet) sizeField3() (n int) {
+	if x.Balance == 0 {
+		return n
+	}
+	n += fastpb.SizeDouble(3, x.GetBalance())
+	return n
+}
+
+func (x *MemberWallet) sizeField4() (n int) {
+	if x.FrozenBalance == 0 {
+		return n
+	}
+	n += fastpb.SizeDouble(4, x.GetFrozenBalance())
+	return n
+}
+
+func (x *MemberWallet) sizeField5() (n int) {
+	if x.ReleaseBalance == 0 {
+		return n
+	}
+	n += fastpb.SizeDouble(5, x.GetReleaseBalance())
+	return n
+}
+
+func (x *MemberWallet) sizeField6() (n int) {
+	if x.IsLock == 0 {
+		return n
+	}
+	n += fastpb.SizeInt32(6, x.GetIsLock())
+	return n
+}
+
+func (x *MemberWallet) sizeField7() (n int) {
+	if x.MemberId == 0 {
+		return n
+	}
+	n += fastpb.SizeInt64(7, x.GetMemberId())
+	return n
+}
+
+func (x *MemberWallet) sizeField8() (n int) {
+	if x.Version == 0 {
+		return n
+	}
+	n += fastpb.SizeInt32(8, x.GetVersion())
+	return n
+}
+
+func (x *MemberWallet) sizeField9() (n int) {
+	if x.Coin == nil {
+		return n
+	}
+	n += fastpb.SizeMessage(9, x.GetCoin())
+	return n
+}
+
+func (x *MemberWallet) sizeField10() (n int) {
+	if x.ToReleased == 0 {
+		return n
+	}
+	n += fastpb.SizeDouble(10, x.GetToReleased())
+	return n
+}
+
+func (x *MemberTransaction) Size() (n int) {
+	if x == nil {
+		return n
+	}
+	n += x.sizeField1()
+	n += x.sizeField2()
+	n += x.sizeField3()
+	n += x.sizeField4()
+	n += x.sizeField5()
+	n += x.sizeField6()
+	n += x.sizeField7()
+	n += x.sizeField8()
+	n += x.sizeField9()
+	n += x.sizeField10()
+	n += x.sizeField11()
+	return n
+}
+
+func (x *MemberTransaction) sizeField1() (n int) {
+	if x.Id == 0 {
+		return n
+	}
+	n += fastpb.SizeInt64(1, x.GetId())
+	return n
+}
+
+func (x *MemberTransaction) sizeField2() (n int) {
+	if x.Address == "" {
+		return n
+	}
+	n += fastpb.SizeString(2, x.GetAddress())
+	return n
+}
+
+func (x *MemberTransaction) sizeField3() (n int) {
+	if x.Amount == 0 {
+		return n
+	}
+	n += fastpb.SizeDouble(3, x.GetAmount())
+	return n
+}
+
+func (x *MemberTransaction) sizeField4() (n int) {
+	if x.CreateTime == "" {
+		return n
+	}
+	n += fastpb.SizeString(4, x.GetCreateTime())
+	return n
+}
+
+func (x *MemberTransaction) sizeField5() (n int) {
+	if x.Fee == 0 {
+		return n
+	}
+	n += fastpb.SizeDouble(5, x.GetFee())
+	return n
+}
+
+func (x *MemberTransaction) sizeField6() (n int) {
+	if x.Flag == 0 {
+		return n
+	}
+	n += fastpb.SizeInt32(6, x.GetFlag())
+	return n
+}
+
+func (x *MemberTransaction) sizeField7() (n int) {
+	if x.MemberId == 0 {
+		return n
+	}
+	n += fastpb.SizeInt64(7, x.GetMemberId())
+	return n
+}
+
+func (x *MemberTransaction) sizeField8() (n int) {
+	if x.Symbol == "" {
+		return n
+	}
+	n += fastpb.SizeString(8, x.GetSymbol())
+	return n
+}
+
+func (x *MemberTransaction) sizeField9() (n int) {
+	if x.Type == "" {
+		return n
+	}
+	n += fastpb.SizeString(9, x.GetType())
+	return n
+}
+
+func (x *MemberTransaction) sizeField10() (n int) {
+	if x.DiscountFee == "" {
+		return n
+	}
+	n += fastpb.SizeString(10, x.GetDiscountFee())
+	return n
+}
+
+func (x *MemberTransaction) sizeField11() (n int) {
+	if x.RealFee == "" {
+		return n
+	}
+	n += fastpb.SizeString(11, x.GetRealFee())
+	return n
+}
+
+func (x *MemberTransactionList) Size() (n int) {
+	if x == nil {
+		return n
+	}
+	n += x.sizeField1()
+	n += x.sizeField2()
+	return n
+}
+
+func (x *MemberTransactionList) sizeField1() (n int) {
+	if x.List == nil {
+		return n
+	}
+	for i := range x.GetList() {
+		n += fastpb.SizeMessage(1, x.GetList()[i])
+	}
+	return n
+}
+
+func (x *MemberTransactionList) sizeField2() (n int) {
+	if x.Total == 0 {
+		return n
+	}
+	n += fastpb.SizeInt64(2, x.GetTotal())
+	return n
+}
+
+func (x *MemberWalletList) Size() (n int) {
+	if x == nil {
+		return n
+	}
+	n += x.sizeField1()
+	return n
+}
+
+func (x *MemberWalletList) sizeField1() (n int) {
+	if x.List == nil {
+		return n
+	}
+	for i := range x.GetList() {
+		n += fastpb.SizeMessage(1, x.GetList()[i])
+	}
+	return n
+}
+
+func (x *AddressList) Size() (n int) {
+	if x == nil {
+		return n
+	}
+	n += x.sizeField1()
+	return n
+}
+
+func (x *AddressList) sizeField1() (n int) {
+	if len(x.List) == 0 {
+		return n
+	}
+	for i := range x.GetList() {
+		n += fastpb.SizeString(1, x.GetList()[i])
+	}
+	return n
+}
+
 var fieldIDToName_RegReq = map[int32]string{
 	1: "Username",
 	2: "Password",
@@ -1050,4 +3048,89 @@ var fieldIDToName_LoginRes = map[int32]string{
 	9:  "LoginCount",
 	10: "SuperPartner",
 	11: "MemberRate",
+}
+
+var fieldIDToName_AssetReq = map[int32]string{
+	1: "CoinName",
+	2: "Ip",
+	3: "UserId",
+	4: "StartTime",
+	5: "EndTime",
+	6: "PageNo",
+	7: "PageSize",
+	8: "Type",
+	9: "Symbol",
+}
+
+var fieldIDToName_AssetResp = map[int32]string{}
+
+var fieldIDToName_Coin = map[int32]string{
+	1:  "Id",
+	2:  "Name",
+	3:  "CanAutoWithdraw",
+	4:  "CanRecharge",
+	5:  "CanTransfer",
+	6:  "CanWithdraw",
+	7:  "CnyRate",
+	8:  "EnableRpc",
+	9:  "IsPlatformCoin",
+	10: "MaxTxFee",
+	11: "MaxWithdrawAmount",
+	12: "MinTxFee",
+	13: "MinWithdrawAmount",
+	14: "NameCn",
+	15: "Sort",
+	16: "Status",
+	17: "Unit",
+	18: "UsdRate",
+	19: "WithdrawThreshold",
+	20: "HasLegal",
+	21: "ColdWalletAddress",
+	22: "MinerFee",
+	23: "WithdrawScale",
+	24: "AccountType",
+	25: "DepositAddress",
+	26: "Infolink",
+	27: "Information",
+	28: "MinRechargeAmount",
+}
+
+var fieldIDToName_MemberWallet = map[int32]string{
+	1:  "Id",
+	2:  "Address",
+	3:  "Balance",
+	4:  "FrozenBalance",
+	5:  "ReleaseBalance",
+	6:  "IsLock",
+	7:  "MemberId",
+	8:  "Version",
+	9:  "Coin",
+	10: "ToReleased",
+}
+
+var fieldIDToName_MemberTransaction = map[int32]string{
+	1:  "Id",
+	2:  "Address",
+	3:  "Amount",
+	4:  "CreateTime",
+	5:  "Fee",
+	6:  "Flag",
+	7:  "MemberId",
+	8:  "Symbol",
+	9:  "Type",
+	10: "DiscountFee",
+	11: "RealFee",
+}
+
+var fieldIDToName_MemberTransactionList = map[int32]string{
+	1: "List",
+	2: "Total",
+}
+
+var fieldIDToName_MemberWalletList = map[int32]string{
+	1: "List",
+}
+
+var fieldIDToName_AddressList = map[int32]string{
+	1: "List",
 }

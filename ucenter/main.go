@@ -8,6 +8,7 @@ import (
 	"github.com/kitex-contrib/obs-opentelemetry/logging/zap"
 	etcd "github.com/kitex-contrib/registry-etcd"
 	"github.com/kitex-contrib/registry-etcd/retry"
+	"grpc_common/kitex_gen/ucenter/asset"
 	"grpc_common/kitex_gen/ucenter/login"
 	"grpc_common/kitex_gen/ucenter/register"
 	"net"
@@ -50,7 +51,7 @@ func main() {
 		panic(err)
 	}
 
-	svr := server.NewServer(server.WithServerBasicInfo(&rpcinfo.EndpointBasicInfo{ServiceName: config.ServerName}), server.WithRegistry(r), server.WithServiceAddr(addr), server.WithSuite(suite))
+	svr := server.NewServer(server.WithServerBasicInfo(&rpcinfo.EndpointBasicInfo{ServiceName: config.ServerName}), server.WithRegistry(r), server.WithServiceAddr(addr), server.WithSuite(suite), server.WithRefuseTrafficWithoutServiceName())
 
 	err = login.RegisterService(svr, handler.NewLoginImpl())
 	if err != nil {
@@ -61,6 +62,8 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+
+	err = asset.RegisterService(svr, handler.NewAssetImpl())
 
 	err = svr.Run()
 	if err != nil {

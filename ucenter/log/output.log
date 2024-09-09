@@ -49,3 +49,38 @@
 {"level":"debug","ts":1725779654.7829533,"msg":"[etcd] /KitexConfig/ucenter/limit server etcd limiter updater init, config {0 0 0x1c4c120}"}
 {"level":"info","ts":1725779654.783686,"msg":"KITEX: server listen at addr=192.168.40.1:8081"}
 {"level":"info","ts":1725779655.813579,"msg":"start keepalive lease 694d91cb21bb4677 for etcd registry"}
+{"level":"warn","ts":1725785503.797813,"msg":"keep register get /ucenter/192.168.40.1:8081 failed with err: context deadline exceeded"}
+{"level":"warn","ts":1725785511.8302476,"msg":"keep register get /ucenter/192.168.40.1:8081 failed with err: context deadline exceeded"}
+{"level":"warn","ts":1725785519.8593411,"msg":"keep register get /ucenter/192.168.40.1:8081 failed with err: context deadline exceeded"}
+{"level":"info","ts":1725785544.9045494,"msg":"keep register service /ucenter/192.168.40.1:8081"}
+{"level":"info","ts":1725785544.9181297,"msg":"start keepalive lease 694d91cb21bb47a4 for etcd registry"}
+{"level":"info","ts":1725787090.145261,"msg":"stop keep register service /ucenter/192.168.40.1:8081"}
+{"level":"error","ts":1725787090.149035,"msg":"KITEX: BootstrapServer accept failed, err=accept tcp 192.168.40.1:8081: use of closed network connection"}
+{"level":"debug","ts":1725787149.7410822,"msg":"[etcd] /KitexConfig/ucenter/limit server etcd limiter updater init, config {0 0 0x1c8c120}"}
+{"level":"info","ts":1725787149.741617,"msg":"KITEX: server listen at addr=192.168.40.1:8081"}
+{"level":"info","ts":1725787150.7656932,"msg":"start keepalive lease 694d91cb21bb484a for etcd registry"}
+{"level":"info","ts":1725787351.694723,"msg":"stop keep register service /ucenter/192.168.40.1:8081"}
+{"level":"error","ts":1725787351.694723,"msg":"KITEX: BootstrapServer accept failed, err=accept tcp 192.168.40.1:8081: use of closed network connection"}
+{"level":"debug","ts":1725787365.4343145,"msg":"[etcd] /KitexConfig/uccenter/limit server etcd limiter updater init, config {0 0 0x203c120}"}
+{"level":"info","ts":1725787365.4353297,"msg":"KITEX: server listen at addr=192.168.40.1:8081"}
+{"level":"info","ts":1725787366.6181161,"msg":"start keepalive lease 694d91cb21bb4867 for etcd registry"}
+{"level":"warn","ts":1725787929.882407,"msg":"keep register get /uccenter/192.168.40.1:8081 failed with err: context deadline exceeded"}
+{"level":"info","ts":1725790560.0559342,"msg":"keep register service /uccenter/192.168.40.1:8081"}
+{"level":"info","ts":1725790560.081478,"msg":"start keepalive lease 694d91cb21bb4901 for etcd registry"}
+{"level":"info","ts":1725791224.3318157,"msg":"stop keep register service /uccenter/192.168.40.1:8081"}
+{"level":"error","ts":1725791224.3409297,"msg":"KITEX: BootstrapServer accept failed, err=accept tcp 192.168.40.1:8081: use of closed network connection"}
+{"level":"debug","ts":1725791237.1078985,"msg":"[etcd] /KitexConfig/uccenter/limit server etcd limiter updater init, config {0 0 0x1ffc120}"}
+{"level":"info","ts":1725791237.1084273,"msg":"KITEX: server listen at addr=192.168.40.1:8081"}
+{"level":"info","ts":1725791238.1457984,"msg":"start keepalive lease 694d91cb21bb494a for etcd registry"}
+{"level":"info","ts":1725791342.3252437,"msg":"stop keep register service /uccenter/192.168.40.1:8081"}
+{"level":"debug","ts":1725791354.3762891,"msg":"[etcd] /KitexConfig/ucenter/limit server etcd limiter updater init, config {0 0 0x219c120}"}
+{"level":"info","ts":1725791354.3768337,"msg":"KITEX: server listen at addr=192.168.40.1:8081"}
+{"level":"info","ts":1725791355.3849483,"msg":"start keepalive lease 694d91cb21bb495c for etcd registry"}
+{"level":"debug","ts":1725791952.180376,"msg":"[etcd] /KitexConfig/ucenter/limit server etcd limiter updater init, config {0 0 0x1e3c120}"}
+{"level":"info","ts":1725791952.181511,"msg":"KITEX: server listen at addr=192.168.40.1:8081"}
+{"level":"info","ts":1725791953.2081504,"msg":"start keepalive lease 694d91cb21bb49a3 for etcd registry"}
+{"level":"info","ts":1725794530.2611217,"msg":"keep register service /ucenter/192.168.40.1:8081"}
+{"level":"info","ts":1725794530.2969658,"msg":"start keepalive lease 694d91cb21bb4a96 for etcd registry"}
+{"level":"warn","ts":1725794848.9478889,"msg":"transport: http2Server.HandleStreams failed to read frame: read tcp 192.168.40.1:8081->192.168.40.1:54315: wsarecv: An existing connection was forcibly closed by the remote host."}
+{"level":"warn","ts":1725794848.9498277,"msg":"transport: http2Server.HandleStreams failed to read frame: read tcp 192.168.40.1:8081->192.168.40.1:54315: use of closed network connection"}
+{"level":"debug","ts":1725794848.9503438,"msg":"KITEX: grpc transport loopyWriter.run returning, error=connection error: desc = \"transport is closing\", remoteAddr=192.168.40.1:54315"}

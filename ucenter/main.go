@@ -64,6 +64,9 @@ func main() {
 	}
 
 	err = asset.RegisterService(svr, handler.NewAssetImpl())
+	if err != nil {
+		panic(err)
+	}
 
 	err = svr.Run()
 	if err != nil {

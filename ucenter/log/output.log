@@ -84,3 +84,24 @@
 {"level":"warn","ts":1725794848.9478889,"msg":"transport: http2Server.HandleStreams failed to read frame: read tcp 192.168.40.1:8081->192.168.40.1:54315: wsarecv: An existing connection was forcibly closed by the remote host."}
 {"level":"warn","ts":1725794848.9498277,"msg":"transport: http2Server.HandleStreams failed to read frame: read tcp 192.168.40.1:8081->192.168.40.1:54315: use of closed network connection"}
 {"level":"debug","ts":1725794848.9503438,"msg":"KITEX: grpc transport loopyWriter.run returning, error=connection error: desc = \"transport is closing\", remoteAddr=192.168.40.1:54315"}
+{"level":"debug","ts":1725951961.9031794,"msg":"[etcd] /KitexConfig/ucenter/limit server etcd limiter updater init, config {0 0 0x18de340}"}
+{"level":"info","ts":1725951961.903741,"msg":"KITEX: server listen at addr=192.168.40.1:8081"}
+{"level":"info","ts":1725951962.9204192,"msg":"start keepalive lease 694d91cb21bb4b8d for etcd registry"}
+{"level":"info","ts":1725952633.0969157,"msg":"stop keep register service /ucenter/192.168.40.1:8081"}
+{"level":"info","ts":1725952742.7924988,"msg":"KITEX: server listen at addr=192.168.40.1:8081"}
+{"level":"info","ts":1725952743.826126,"msg":"start keepalive lease 694d91cb21bb4bdd for etcd registry"}
+{"level":"info","ts":1725953070.9313488,"msg":"stop keep register service /ucenter/192.168.40.1:8081"}
+{"level":"error","ts":1725953070.9313488,"msg":"KITEX: BootstrapServer accept failed, err=accept tcp 192.168.40.1:8081: use of closed network connection"}
+{"level":"debug","ts":1725953081.7527263,"msg":"[etcd] /KitexConfig/ucenter/limit server etcd limiter updater init, config {0 0 0x216e340}"}
+{"level":"info","ts":1725953081.7537713,"msg":"KITEX: server listen at addr=192.168.40.1:8081"}
+{"level":"info","ts":1725953082.7722607,"msg":"start keepalive lease 694d91cb21bb4c05 for etcd registry"}
+{"level":"info","ts":1725953488.1114082,"msg":"stop keep register service /ucenter/192.168.40.1:8081"}
+{"level":"debug","ts":1725953503.0773163,"msg":"[etcd] /KitexConfig/ucenter/limit server etcd limiter updater init, config {0 0 0x1e2e340}"}
+{"level":"info","ts":1725953503.0790749,"msg":"KITEX: server listen at addr=192.168.40.1:8081"}
+{"level":"info","ts":1725953504.109722,"msg":"start keepalive lease 694d91cb21bb4c38 for etcd registry"}
+{"level":"info","ts":1725953643.9451716,"msg":"stop keep register service /ucenter/192.168.40.1:8081"}
+{"level":"info","ts":1725953656.3028188,"msg":"KITEX: server listen at addr=192.168.40.1:8081"}
+{"level":"info","ts":1725953657.32289,"msg":"start keepalive lease 694d91cb21bb4c4b for etcd registry"}
+{"level":"warn","ts":1725953963.4460993,"msg":"keep register get /ucenter/192.168.40.1:8081 failed with err: context deadline exceeded"}
+{"level":"info","ts":1725954161.1839502,"msg":"stop keep register service /ucenter/192.168.40.1:8081"}
+{"level":"error","ts":1725954161.188218,"msg":"KITEX: BootstrapServer accept failed, err=accept tcp 192.168.40.1:8081: use of closed network connection"}

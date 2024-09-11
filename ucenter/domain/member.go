@@ -12,7 +12,7 @@ type MemberDomain struct {
 	MemberDao *dao.MemberDao
 }
 
-func (d MemberDomain) FindMemberByPhone(ctx context.Context, phone string) *model.Member {
+func (d *MemberDomain) FindMemberByPhone(ctx context.Context, phone string) *model.Member {
 	mem, err := d.MemberDao.FindByPhone(ctx, phone)
 	if err != nil {
 		return nil
@@ -20,7 +20,7 @@ func (d MemberDomain) FindMemberByPhone(ctx context.Context, phone string) *mode
 	return mem
 }
 
-func (d MemberDomain) Register(ctx context.Context, username string, phone string, password string, country string, promotion string, partner string) error {
+func (d *MemberDomain) Register(ctx context.Context, username string, phone string, password string, country string, promotion string, partner string) error {
 	mem := model.NewMember()
 	tools.Default(mem)
 	mem.Id = 0
@@ -46,6 +46,14 @@ func (d *MemberDomain) UpdateLoginCount(id int64, incr int) {
 	if err != nil {
 		klog.Error(err)
 	}
+}
+
+func (d *MemberDomain) FindMemberById(ctx context.Context, id int64) *model.Member {
+	mem, err := d.MemberDao.FindById(ctx, id)
+	if err != nil {
+		return nil
+	}
+	return mem
 }
 
 func NewMemberDomain() *MemberDomain {

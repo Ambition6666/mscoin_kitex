@@ -105,3 +105,21 @@
 {"level":"warn","ts":1725953963.4460993,"msg":"keep register get /ucenter/192.168.40.1:8081 failed with err: context deadline exceeded"}
 {"level":"info","ts":1725954161.1839502,"msg":"stop keep register service /ucenter/192.168.40.1:8081"}
 {"level":"error","ts":1725954161.188218,"msg":"KITEX: BootstrapServer accept failed, err=accept tcp 192.168.40.1:8081: use of closed network connection"}
+{"level":"debug","ts":1726051640.2958713,"msg":"[etcd] key: /KitexConfig/ucenter/limit config get value failed"}
+{"level":"debug","ts":1726051640.2964034,"msg":"[etcd] /KitexConfig/ucenter/limit server etcd limiter updater init, config {0 0 0x21240c0}"}
+{"level":"info","ts":1726051640.2969477,"msg":"KITEX: server listen at addr=192.168.40.1:8081"}
+{"level":"error","ts":1726051644.3076348,"msg":"KITEX: received error and exit: error=context deadline exceeded"}
+{"level":"error","ts":1726051647.318379,"msg":"KITEX: BootstrapServer accept failed, err=accept tcp 192.168.40.1:8081: use of closed network connection"}
+{"level":"debug","ts":1726052423.2356114,"msg":"[etcd] /KitexConfig/ucenter/limit server etcd limiter updater init, config {0 0 0x22140c0}"}
+{"level":"info","ts":1726052423.2361429,"msg":"KITEX: server listen at addr=192.168.40.1:8081"}
+{"level":"info","ts":1726052424.2675688,"msg":"start keepalive lease 694d91e0bb143006 for etcd registry"}
+{"level":"error","ts":1726053732.0329614,"msg":"KITEX: processing request error, remoteService=, remoteAddr=192.168.40.1:64481, error=unknown service , method login"}
+{"level":"error","ts":1726054301.093243,"msg":"KITEX: processing request error, remoteService=, remoteAddr=192.168.40.1:65288, error=unknown service , method login"}
+{"level":"info","ts":1726063570.0839794,"msg":"keep register service kitex/registry-etcd/ucenter/192.168.40.1:8081"}
+{"level":"info","ts":1726063570.1182206,"msg":"start keepalive lease 694d91e0bb1431a1 for etcd registry"}
+{"level":"warn","ts":1726067116.893614,"msg":"keep register get kitex/registry-etcd/ucenter/192.168.40.1:8081 failed with err: context deadline exceeded"}
+{"level":"info","ts":1726067157.0000007,"msg":"keep register service kitex/registry-etcd/ucenter/192.168.40.1:8081"}
+{"level":"info","ts":1726067157.01256,"msg":"start keepalive lease 694d91e0bb1431c3 for etcd registry"}
+{"level":"warn","ts":1726067240.0616045,"msg":"keep register get kitex/registry-etcd/ucenter/192.168.40.1:8081 failed with err: context deadline exceeded"}
+{"level":"info","ts":1726067402.0800066,"msg":"stop keep register service kitex/registry-etcd/ucenter/192.168.40.1:8081"}
+{"level":"error","ts":1726067402.081441,"msg":"KITEX: BootstrapServer accept failed, err=accept tcp 192.168.40.1:8081: use of closed network connection"}

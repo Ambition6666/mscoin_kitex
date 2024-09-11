@@ -1161,6 +1161,686 @@ func (x *AddressList) fastReadField1(buf []byte, _type int8) (offset int, err er
 	return offset, err
 }
 
+func (x *MemberReq) FastRead(buf []byte, _type int8, number int32) (offset int, err error) {
+	switch number {
+	case 1:
+		offset, err = x.fastReadField1(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	default:
+		offset, err = fastpb.Skip(buf, _type, number)
+		if err != nil {
+			goto SkipFieldError
+		}
+	}
+	return offset, nil
+SkipFieldError:
+	return offset, fmt.Errorf("%T cannot parse invalid wire-format data, error: %s", x, err)
+ReadFieldError:
+	return offset, fmt.Errorf("%T read field %d '%s' error: %s", x, number, fieldIDToName_MemberReq[number], err)
+}
+
+func (x *MemberReq) fastReadField1(buf []byte, _type int8) (offset int, err error) {
+	x.MemberId, offset, err = fastpb.ReadInt64(buf, _type)
+	return offset, err
+}
+
+func (x *MemberRes) FastRead(buf []byte, _type int8, number int32) (offset int, err error) {
+	switch number {
+	case 1:
+		offset, err = x.fastReadField1(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 2:
+		offset, err = x.fastReadField2(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 3:
+		offset, err = x.fastReadField3(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 4:
+		offset, err = x.fastReadField4(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 5:
+		offset, err = x.fastReadField5(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 6:
+		offset, err = x.fastReadField6(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 7:
+		offset, err = x.fastReadField7(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 8:
+		offset, err = x.fastReadField8(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 9:
+		offset, err = x.fastReadField9(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 10:
+		offset, err = x.fastReadField10(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 11:
+		offset, err = x.fastReadField11(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 12:
+		offset, err = x.fastReadField12(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 13:
+		offset, err = x.fastReadField13(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 14:
+		offset, err = x.fastReadField14(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 15:
+		offset, err = x.fastReadField15(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 16:
+		offset, err = x.fastReadField16(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 17:
+		offset, err = x.fastReadField17(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 18:
+		offset, err = x.fastReadField18(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 19:
+		offset, err = x.fastReadField19(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 20:
+		offset, err = x.fastReadField20(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 21:
+		offset, err = x.fastReadField21(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 22:
+		offset, err = x.fastReadField22(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 23:
+		offset, err = x.fastReadField23(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 24:
+		offset, err = x.fastReadField24(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 25:
+		offset, err = x.fastReadField25(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 26:
+		offset, err = x.fastReadField26(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 27:
+		offset, err = x.fastReadField27(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 28:
+		offset, err = x.fastReadField28(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 29:
+		offset, err = x.fastReadField29(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 30:
+		offset, err = x.fastReadField30(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 31:
+		offset, err = x.fastReadField31(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 32:
+		offset, err = x.fastReadField32(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 33:
+		offset, err = x.fastReadField33(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 34:
+		offset, err = x.fastReadField34(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 35:
+		offset, err = x.fastReadField35(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 36:
+		offset, err = x.fastReadField36(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 37:
+		offset, err = x.fastReadField37(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 38:
+		offset, err = x.fastReadField38(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 39:
+		offset, err = x.fastReadField39(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 40:
+		offset, err = x.fastReadField40(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 41:
+		offset, err = x.fastReadField41(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 42:
+		offset, err = x.fastReadField42(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 43:
+		offset, err = x.fastReadField43(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 44:
+		offset, err = x.fastReadField44(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 45:
+		offset, err = x.fastReadField45(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 46:
+		offset, err = x.fastReadField46(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 47:
+		offset, err = x.fastReadField47(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 48:
+		offset, err = x.fastReadField48(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 49:
+		offset, err = x.fastReadField49(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 50:
+		offset, err = x.fastReadField50(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 51:
+		offset, err = x.fastReadField51(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 52:
+		offset, err = x.fastReadField52(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 53:
+		offset, err = x.fastReadField53(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 54:
+		offset, err = x.fastReadField54(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 55:
+		offset, err = x.fastReadField55(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 56:
+		offset, err = x.fastReadField56(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 57:
+		offset, err = x.fastReadField57(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 58:
+		offset, err = x.fastReadField58(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 59:
+		offset, err = x.fastReadField59(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 60:
+		offset, err = x.fastReadField60(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 61:
+		offset, err = x.fastReadField61(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 62:
+		offset, err = x.fastReadField62(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 63:
+		offset, err = x.fastReadField63(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	case 64:
+		offset, err = x.fastReadField64(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	default:
+		offset, err = fastpb.Skip(buf, _type, number)
+		if err != nil {
+			goto SkipFieldError
+		}
+	}
+	return offset, nil
+SkipFieldError:
+	return offset, fmt.Errorf("%T cannot parse invalid wire-format data, error: %s", x, err)
+ReadFieldError:
+	return offset, fmt.Errorf("%T read field %d '%s' error: %s", x, number, fieldIDToName_MemberRes[number], err)
+}
+
+func (x *MemberRes) fastReadField1(buf []byte, _type int8) (offset int, err error) {
+	x.Id, offset, err = fastpb.ReadInt64(buf, _type)
+	return offset, err
+}
+
+func (x *MemberRes) fastReadField2(buf []byte, _type int8) (offset int, err error) {
+	x.AliNo, offset, err = fastpb.ReadString(buf, _type)
+	return offset, err
+}
+
+func (x *MemberRes) fastReadField3(buf []byte, _type int8) (offset int, err error) {
+	x.QrCodeUrl, offset, err = fastpb.ReadString(buf, _type)
+	return offset, err
+}
+
+func (x *MemberRes) fastReadField4(buf []byte, _type int8) (offset int, err error) {
+	x.AppealSuccessTimes, offset, err = fastpb.ReadInt32(buf, _type)
+	return offset, err
+}
+
+func (x *MemberRes) fastReadField5(buf []byte, _type int8) (offset int, err error) {
+	x.AppealTimes, offset, err = fastpb.ReadInt32(buf, _type)
+	return offset, err
+}
+
+func (x *MemberRes) fastReadField6(buf []byte, _type int8) (offset int, err error) {
+	x.ApplicationTime, offset, err = fastpb.ReadInt64(buf, _type)
+	return offset, err
+}
+
+func (x *MemberRes) fastReadField7(buf []byte, _type int8) (offset int, err error) {
+	x.Avatar, offset, err = fastpb.ReadString(buf, _type)
+	return offset, err
+}
+
+func (x *MemberRes) fastReadField8(buf []byte, _type int8) (offset int, err error) {
+	x.Bank, offset, err = fastpb.ReadString(buf, _type)
+	return offset, err
+}
+
+func (x *MemberRes) fastReadField9(buf []byte, _type int8) (offset int, err error) {
+	x.Branch, offset, err = fastpb.ReadString(buf, _type)
+	return offset, err
+}
+
+func (x *MemberRes) fastReadField10(buf []byte, _type int8) (offset int, err error) {
+	x.CardNo, offset, err = fastpb.ReadString(buf, _type)
+	return offset, err
+}
+
+func (x *MemberRes) fastReadField11(buf []byte, _type int8) (offset int, err error) {
+	x.CertifiedBusinessApplyTime, offset, err = fastpb.ReadInt64(buf, _type)
+	return offset, err
+}
+
+func (x *MemberRes) fastReadField12(buf []byte, _type int8) (offset int, err error) {
+	x.CertifiedBusinessCheckTime, offset, err = fastpb.ReadInt64(buf, _type)
+	return offset, err
+}
+
+func (x *MemberRes) fastReadField13(buf []byte, _type int8) (offset int, err error) {
+	x.CertifiedBusinessStatus, offset, err = fastpb.ReadInt32(buf, _type)
+	return offset, err
+}
+
+func (x *MemberRes) fastReadField14(buf []byte, _type int8) (offset int, err error) {
+	x.ChannelId, offset, err = fastpb.ReadInt32(buf, _type)
+	return offset, err
+}
+
+func (x *MemberRes) fastReadField15(buf []byte, _type int8) (offset int, err error) {
+	x.Email, offset, err = fastpb.ReadString(buf, _type)
+	return offset, err
+}
+
+func (x *MemberRes) fastReadField16(buf []byte, _type int8) (offset int, err error) {
+	x.FirstLevel, offset, err = fastpb.ReadInt32(buf, _type)
+	return offset, err
+}
+
+func (x *MemberRes) fastReadField17(buf []byte, _type int8) (offset int, err error) {
+	x.GoogleDate, offset, err = fastpb.ReadInt64(buf, _type)
+	return offset, err
+}
+
+func (x *MemberRes) fastReadField18(buf []byte, _type int8) (offset int, err error) {
+	x.GoogleKey, offset, err = fastpb.ReadString(buf, _type)
+	return offset, err
+}
+
+func (x *MemberRes) fastReadField19(buf []byte, _type int8) (offset int, err error) {
+	x.GoogleState, offset, err = fastpb.ReadInt32(buf, _type)
+	return offset, err
+}
+
+func (x *MemberRes) fastReadField20(buf []byte, _type int8) (offset int, err error) {
+	x.IdNumber, offset, err = fastpb.ReadString(buf, _type)
+	return offset, err
+}
+
+func (x *MemberRes) fastReadField21(buf []byte, _type int8) (offset int, err error) {
+	x.InviterId, offset, err = fastpb.ReadInt64(buf, _type)
+	return offset, err
+}
+
+func (x *MemberRes) fastReadField22(buf []byte, _type int8) (offset int, err error) {
+	x.IsChannel, offset, err = fastpb.ReadInt32(buf, _type)
+	return offset, err
+}
+
+func (x *MemberRes) fastReadField23(buf []byte, _type int8) (offset int, err error) {
+	x.JyPassword, offset, err = fastpb.ReadString(buf, _type)
+	return offset, err
+}
+
+func (x *MemberRes) fastReadField24(buf []byte, _type int8) (offset int, err error) {
+	x.LastLoginTime, offset, err = fastpb.ReadInt64(buf, _type)
+	return offset, err
+}
+
+func (x *MemberRes) fastReadField25(buf []byte, _type int8) (offset int, err error) {
+	x.City, offset, err = fastpb.ReadString(buf, _type)
+	return offset, err
+}
+
+func (x *MemberRes) fastReadField26(buf []byte, _type int8) (offset int, err error) {
+	x.Country, offset, err = fastpb.ReadString(buf, _type)
+	return offset, err
+}
+
+func (x *MemberRes) fastReadField27(buf []byte, _type int8) (offset int, err error) {
+	x.District, offset, err = fastpb.ReadString(buf, _type)
+	return offset, err
+}
+
+func (x *MemberRes) fastReadField28(buf []byte, _type int8) (offset int, err error) {
+	x.Province, offset, err = fastpb.ReadString(buf, _type)
+	return offset, err
+}
+
+func (x *MemberRes) fastReadField29(buf []byte, _type int8) (offset int, err error) {
+	x.LoginCount, offset, err = fastpb.ReadInt32(buf, _type)
+	return offset, err
+}
+
+func (x *MemberRes) fastReadField30(buf []byte, _type int8) (offset int, err error) {
+	x.LoginLock, offset, err = fastpb.ReadInt32(buf, _type)
+	return offset, err
+}
+
+func (x *MemberRes) fastReadField31(buf []byte, _type int8) (offset int, err error) {
+	x.Margin, offset, err = fastpb.ReadString(buf, _type)
+	return offset, err
+}
+
+func (x *MemberRes) fastReadField32(buf []byte, _type int8) (offset int, err error) {
+	x.MemberLevel, offset, err = fastpb.ReadInt32(buf, _type)
+	return offset, err
+}
+
+func (x *MemberRes) fastReadField33(buf []byte, _type int8) (offset int, err error) {
+	x.MobilePhone, offset, err = fastpb.ReadString(buf, _type)
+	return offset, err
+}
+
+func (x *MemberRes) fastReadField34(buf []byte, _type int8) (offset int, err error) {
+	x.Password, offset, err = fastpb.ReadString(buf, _type)
+	return offset, err
+}
+
+func (x *MemberRes) fastReadField35(buf []byte, _type int8) (offset int, err error) {
+	x.PromotionCode, offset, err = fastpb.ReadString(buf, _type)
+	return offset, err
+}
+
+func (x *MemberRes) fastReadField36(buf []byte, _type int8) (offset int, err error) {
+	x.PublishAdvertise, offset, err = fastpb.ReadInt32(buf, _type)
+	return offset, err
+}
+
+func (x *MemberRes) fastReadField37(buf []byte, _type int8) (offset int, err error) {
+	x.RealName, offset, err = fastpb.ReadString(buf, _type)
+	return offset, err
+}
+
+func (x *MemberRes) fastReadField38(buf []byte, _type int8) (offset int, err error) {
+	x.RealNameStatus, offset, err = fastpb.ReadInt32(buf, _type)
+	return offset, err
+}
+
+func (x *MemberRes) fastReadField39(buf []byte, _type int8) (offset int, err error) {
+	x.RegistrationTime, offset, err = fastpb.ReadInt64(buf, _type)
+	return offset, err
+}
+
+func (x *MemberRes) fastReadField40(buf []byte, _type int8) (offset int, err error) {
+	x.Salt, offset, err = fastpb.ReadString(buf, _type)
+	return offset, err
+}
+
+func (x *MemberRes) fastReadField41(buf []byte, _type int8) (offset int, err error) {
+	x.SecondLevel, offset, err = fastpb.ReadInt32(buf, _type)
+	return offset, err
+}
+
+func (x *MemberRes) fastReadField42(buf []byte, _type int8) (offset int, err error) {
+	x.SignInAbility, offset, err = fastpb.ReadInt32(buf, _type)
+	return offset, err
+}
+
+func (x *MemberRes) fastReadField43(buf []byte, _type int8) (offset int, err error) {
+	x.Status, offset, err = fastpb.ReadInt32(buf, _type)
+	return offset, err
+}
+
+func (x *MemberRes) fastReadField44(buf []byte, _type int8) (offset int, err error) {
+	x.ThirdLevel, offset, err = fastpb.ReadInt32(buf, _type)
+	return offset, err
+}
+
+func (x *MemberRes) fastReadField45(buf []byte, _type int8) (offset int, err error) {
+	x.Token, offset, err = fastpb.ReadString(buf, _type)
+	return offset, err
+}
+
+func (x *MemberRes) fastReadField46(buf []byte, _type int8) (offset int, err error) {
+	x.TokenExpireTime, offset, err = fastpb.ReadInt64(buf, _type)
+	return offset, err
+}
+
+func (x *MemberRes) fastReadField47(buf []byte, _type int8) (offset int, err error) {
+	x.TransactionStatus, offset, err = fastpb.ReadInt32(buf, _type)
+	return offset, err
+}
+
+func (x *MemberRes) fastReadField48(buf []byte, _type int8) (offset int, err error) {
+	x.TransactionTime, offset, err = fastpb.ReadInt64(buf, _type)
+	return offset, err
+}
+
+func (x *MemberRes) fastReadField49(buf []byte, _type int8) (offset int, err error) {
+	x.Transactions, offset, err = fastpb.ReadInt32(buf, _type)
+	return offset, err
+}
+
+func (x *MemberRes) fastReadField50(buf []byte, _type int8) (offset int, err error) {
+	x.Username, offset, err = fastpb.ReadString(buf, _type)
+	return offset, err
+}
+
+func (x *MemberRes) fastReadField51(buf []byte, _type int8) (offset int, err error) {
+	x.QrWeCodeUrl, offset, err = fastpb.ReadString(buf, _type)
+	return offset, err
+}
+
+func (x *MemberRes) fastReadField52(buf []byte, _type int8) (offset int, err error) {
+	x.Wechat, offset, err = fastpb.ReadString(buf, _type)
+	return offset, err
+}
+
+func (x *MemberRes) fastReadField53(buf []byte, _type int8) (offset int, err error) {
+	x.Local, offset, err = fastpb.ReadString(buf, _type)
+	return offset, err
+}
+
+func (x *MemberRes) fastReadField54(buf []byte, _type int8) (offset int, err error) {
+	x.Integration, offset, err = fastpb.ReadInt64(buf, _type)
+	return offset, err
+}
+
+func (x *MemberRes) fastReadField55(buf []byte, _type int8) (offset int, err error) {
+	x.MemberGradeId, offset, err = fastpb.ReadInt64(buf, _type)
+	return offset, err
+}
+
+func (x *MemberRes) fastReadField56(buf []byte, _type int8) (offset int, err error) {
+	x.KycStatus, offset, err = fastpb.ReadInt32(buf, _type)
+	return offset, err
+}
+
+func (x *MemberRes) fastReadField57(buf []byte, _type int8) (offset int, err error) {
+	x.GeneralizeTotal, offset, err = fastpb.ReadInt64(buf, _type)
+	return offset, err
+}
+
+func (x *MemberRes) fastReadField58(buf []byte, _type int8) (offset int, err error) {
+	x.InviterParentId, offset, err = fastpb.ReadInt64(buf, _type)
+	return offset, err
+}
+
+func (x *MemberRes) fastReadField59(buf []byte, _type int8) (offset int, err error) {
+	x.SuperPartner, offset, err = fastpb.ReadString(buf, _type)
+	return offset, err
+}
+
+func (x *MemberRes) fastReadField60(buf []byte, _type int8) (offset int, err error) {
+	x.KickFee, offset, err = fastpb.ReadDouble(buf, _type)
+	return offset, err
+}
+
+func (x *MemberRes) fastReadField61(buf []byte, _type int8) (offset int, err error) {
+	x.Power, offset, err = fastpb.ReadDouble(buf, _type)
+	return offset, err
+}
+
+func (x *MemberRes) fastReadField62(buf []byte, _type int8) (offset int, err error) {
+	x.TeamLevel, offset, err = fastpb.ReadInt32(buf, _type)
+	return offset, err
+}
+
+func (x *MemberRes) fastReadField63(buf []byte, _type int8) (offset int, err error) {
+	x.TeamPower, offset, err = fastpb.ReadDouble(buf, _type)
+	return offset, err
+}
+
+func (x *MemberRes) fastReadField64(buf []byte, _type int8) (offset int, err error) {
+	x.MemberLevelId, offset, err = fastpb.ReadInt64(buf, _type)
+	return offset, err
+}
+
 func (x *RegReq) FastWrite(buf []byte) (offset int) {
 	if x == nil {
 		return offset
@@ -2079,6 +2759,605 @@ func (x *AddressList) fastWriteField1(buf []byte) (offset int) {
 	for i := range x.GetList() {
 		offset += fastpb.WriteString(buf[offset:], 1, x.GetList()[i])
 	}
+	return offset
+}
+
+func (x *MemberReq) FastWrite(buf []byte) (offset int) {
+	if x == nil {
+		return offset
+	}
+	offset += x.fastWriteField1(buf[offset:])
+	return offset
+}
+
+func (x *MemberReq) fastWriteField1(buf []byte) (offset int) {
+	if x.MemberId == 0 {
+		return offset
+	}
+	offset += fastpb.WriteInt64(buf[offset:], 1, x.GetMemberId())
+	return offset
+}
+
+func (x *MemberRes) FastWrite(buf []byte) (offset int) {
+	if x == nil {
+		return offset
+	}
+	offset += x.fastWriteField1(buf[offset:])
+	offset += x.fastWriteField2(buf[offset:])
+	offset += x.fastWriteField3(buf[offset:])
+	offset += x.fastWriteField4(buf[offset:])
+	offset += x.fastWriteField5(buf[offset:])
+	offset += x.fastWriteField6(buf[offset:])
+	offset += x.fastWriteField7(buf[offset:])
+	offset += x.fastWriteField8(buf[offset:])
+	offset += x.fastWriteField9(buf[offset:])
+	offset += x.fastWriteField10(buf[offset:])
+	offset += x.fastWriteField11(buf[offset:])
+	offset += x.fastWriteField12(buf[offset:])
+	offset += x.fastWriteField13(buf[offset:])
+	offset += x.fastWriteField14(buf[offset:])
+	offset += x.fastWriteField15(buf[offset:])
+	offset += x.fastWriteField16(buf[offset:])
+	offset += x.fastWriteField17(buf[offset:])
+	offset += x.fastWriteField18(buf[offset:])
+	offset += x.fastWriteField19(buf[offset:])
+	offset += x.fastWriteField20(buf[offset:])
+	offset += x.fastWriteField21(buf[offset:])
+	offset += x.fastWriteField22(buf[offset:])
+	offset += x.fastWriteField23(buf[offset:])
+	offset += x.fastWriteField24(buf[offset:])
+	offset += x.fastWriteField25(buf[offset:])
+	offset += x.fastWriteField26(buf[offset:])
+	offset += x.fastWriteField27(buf[offset:])
+	offset += x.fastWriteField28(buf[offset:])
+	offset += x.fastWriteField29(buf[offset:])
+	offset += x.fastWriteField30(buf[offset:])
+	offset += x.fastWriteField31(buf[offset:])
+	offset += x.fastWriteField32(buf[offset:])
+	offset += x.fastWriteField33(buf[offset:])
+	offset += x.fastWriteField34(buf[offset:])
+	offset += x.fastWriteField35(buf[offset:])
+	offset += x.fastWriteField36(buf[offset:])
+	offset += x.fastWriteField37(buf[offset:])
+	offset += x.fastWriteField38(buf[offset:])
+	offset += x.fastWriteField39(buf[offset:])
+	offset += x.fastWriteField40(buf[offset:])
+	offset += x.fastWriteField41(buf[offset:])
+	offset += x.fastWriteField42(buf[offset:])
+	offset += x.fastWriteField43(buf[offset:])
+	offset += x.fastWriteField44(buf[offset:])
+	offset += x.fastWriteField45(buf[offset:])
+	offset += x.fastWriteField46(buf[offset:])
+	offset += x.fastWriteField47(buf[offset:])
+	offset += x.fastWriteField48(buf[offset:])
+	offset += x.fastWriteField49(buf[offset:])
+	offset += x.fastWriteField50(buf[offset:])
+	offset += x.fastWriteField51(buf[offset:])
+	offset += x.fastWriteField52(buf[offset:])
+	offset += x.fastWriteField53(buf[offset:])
+	offset += x.fastWriteField54(buf[offset:])
+	offset += x.fastWriteField55(buf[offset:])
+	offset += x.fastWriteField56(buf[offset:])
+	offset += x.fastWriteField57(buf[offset:])
+	offset += x.fastWriteField58(buf[offset:])
+	offset += x.fastWriteField59(buf[offset:])
+	offset += x.fastWriteField60(buf[offset:])
+	offset += x.fastWriteField61(buf[offset:])
+	offset += x.fastWriteField62(buf[offset:])
+	offset += x.fastWriteField63(buf[offset:])
+	offset += x.fastWriteField64(buf[offset:])
+	return offset
+}
+
+func (x *MemberRes) fastWriteField1(buf []byte) (offset int) {
+	if x.Id == 0 {
+		return offset
+	}
+	offset += fastpb.WriteInt64(buf[offset:], 1, x.GetId())
+	return offset
+}
+
+func (x *MemberRes) fastWriteField2(buf []byte) (offset int) {
+	if x.AliNo == "" {
+		return offset
+	}
+	offset += fastpb.WriteString(buf[offset:], 2, x.GetAliNo())
+	return offset
+}
+
+func (x *MemberRes) fastWriteField3(buf []byte) (offset int) {
+	if x.QrCodeUrl == "" {
+		return offset
+	}
+	offset += fastpb.WriteString(buf[offset:], 3, x.GetQrCodeUrl())
+	return offset
+}
+
+func (x *MemberRes) fastWriteField4(buf []byte) (offset int) {
+	if x.AppealSuccessTimes == 0 {
+		return offset
+	}
+	offset += fastpb.WriteInt32(buf[offset:], 4, x.GetAppealSuccessTimes())
+	return offset
+}
+
+func (x *MemberRes) fastWriteField5(buf []byte) (offset int) {
+	if x.AppealTimes == 0 {
+		return offset
+	}
+	offset += fastpb.WriteInt32(buf[offset:], 5, x.GetAppealTimes())
+	return offset
+}
+
+func (x *MemberRes) fastWriteField6(buf []byte) (offset int) {
+	if x.ApplicationTime == 0 {
+		return offset
+	}
+	offset += fastpb.WriteInt64(buf[offset:], 6, x.GetApplicationTime())
+	return offset
+}
+
+func (x *MemberRes) fastWriteField7(buf []byte) (offset int) {
+	if x.Avatar == "" {
+		return offset
+	}
+	offset += fastpb.WriteString(buf[offset:], 7, x.GetAvatar())
+	return offset
+}
+
+func (x *MemberRes) fastWriteField8(buf []byte) (offset int) {
+	if x.Bank == "" {
+		return offset
+	}
+	offset += fastpb.WriteString(buf[offset:], 8, x.GetBank())
+	return offset
+}
+
+func (x *MemberRes) fastWriteField9(buf []byte) (offset int) {
+	if x.Branch == "" {
+		return offset
+	}
+	offset += fastpb.WriteString(buf[offset:], 9, x.GetBranch())
+	return offset
+}
+
+func (x *MemberRes) fastWriteField10(buf []byte) (offset int) {
+	if x.CardNo == "" {
+		return offset
+	}
+	offset += fastpb.WriteString(buf[offset:], 10, x.GetCardNo())
+	return offset
+}
+
+func (x *MemberRes) fastWriteField11(buf []byte) (offset int) {
+	if x.CertifiedBusinessApplyTime == 0 {
+		return offset
+	}
+	offset += fastpb.WriteInt64(buf[offset:], 11, x.GetCertifiedBusinessApplyTime())
+	return offset
+}
+
+func (x *MemberRes) fastWriteField12(buf []byte) (offset int) {
+	if x.CertifiedBusinessCheckTime == 0 {
+		return offset
+	}
+	offset += fastpb.WriteInt64(buf[offset:], 12, x.GetCertifiedBusinessCheckTime())
+	return offset
+}
+
+func (x *MemberRes) fastWriteField13(buf []byte) (offset int) {
+	if x.CertifiedBusinessStatus == 0 {
+		return offset
+	}
+	offset += fastpb.WriteInt32(buf[offset:], 13, x.GetCertifiedBusinessStatus())
+	return offset
+}
+
+func (x *MemberRes) fastWriteField14(buf []byte) (offset int) {
+	if x.ChannelId == 0 {
+		return offset
+	}
+	offset += fastpb.WriteInt32(buf[offset:], 14, x.GetChannelId())
+	return offset
+}
+
+func (x *MemberRes) fastWriteField15(buf []byte) (offset int) {
+	if x.Email == "" {
+		return offset
+	}
+	offset += fastpb.WriteString(buf[offset:], 15, x.GetEmail())
+	return offset
+}
+
+func (x *MemberRes) fastWriteField16(buf []byte) (offset int) {
+	if x.FirstLevel == 0 {
+		return offset
+	}
+	offset += fastpb.WriteInt32(buf[offset:], 16, x.GetFirstLevel())
+	return offset
+}
+
+func (x *MemberRes) fastWriteField17(buf []byte) (offset int) {
+	if x.GoogleDate == 0 {
+		return offset
+	}
+	offset += fastpb.WriteInt64(buf[offset:], 17, x.GetGoogleDate())
+	return offset
+}
+
+func (x *MemberRes) fastWriteField18(buf []byte) (offset int) {
+	if x.GoogleKey == "" {
+		return offset
+	}
+	offset += fastpb.WriteString(buf[offset:], 18, x.GetGoogleKey())
+	return offset
+}
+
+func (x *MemberRes) fastWriteField19(buf []byte) (offset int) {
+	if x.GoogleState == 0 {
+		return offset
+	}
+	offset += fastpb.WriteInt32(buf[offset:], 19, x.GetGoogleState())
+	return offset
+}
+
+func (x *MemberRes) fastWriteField20(buf []byte) (offset int) {
+	if x.IdNumber == "" {
+		return offset
+	}
+	offset += fastpb.WriteString(buf[offset:], 20, x.GetIdNumber())
+	return offset
+}
+
+func (x *MemberRes) fastWriteField21(buf []byte) (offset int) {
+	if x.InviterId == 0 {
+		return offset
+	}
+	offset += fastpb.WriteInt64(buf[offset:], 21, x.GetInviterId())
+	return offset
+}
+
+func (x *MemberRes) fastWriteField22(buf []byte) (offset int) {
+	if x.IsChannel == 0 {
+		return offset
+	}
+	offset += fastpb.WriteInt32(buf[offset:], 22, x.GetIsChannel())
+	return offset
+}
+
+func (x *MemberRes) fastWriteField23(buf []byte) (offset int) {
+	if x.JyPassword == "" {
+		return offset
+	}
+	offset += fastpb.WriteString(buf[offset:], 23, x.GetJyPassword())
+	return offset
+}
+
+func (x *MemberRes) fastWriteField24(buf []byte) (offset int) {
+	if x.LastLoginTime == 0 {
+		return offset
+	}
+	offset += fastpb.WriteInt64(buf[offset:], 24, x.GetLastLoginTime())
+	return offset
+}
+
+func (x *MemberRes) fastWriteField25(buf []byte) (offset int) {
+	if x.City == "" {
+		return offset
+	}
+	offset += fastpb.WriteString(buf[offset:], 25, x.GetCity())
+	return offset
+}
+
+func (x *MemberRes) fastWriteField26(buf []byte) (offset int) {
+	if x.Country == "" {
+		return offset
+	}
+	offset += fastpb.WriteString(buf[offset:], 26, x.GetCountry())
+	return offset
+}
+
+func (x *MemberRes) fastWriteField27(buf []byte) (offset int) {
+	if x.District == "" {
+		return offset
+	}
+	offset += fastpb.WriteString(buf[offset:], 27, x.GetDistrict())
+	return offset
+}
+
+func (x *MemberRes) fastWriteField28(buf []byte) (offset int) {
+	if x.Province == "" {
+		return offset
+	}
+	offset += fastpb.WriteString(buf[offset:], 28, x.GetProvince())
+	return offset
+}
+
+func (x *MemberRes) fastWriteField29(buf []byte) (offset int) {
+	if x.LoginCount == 0 {
+		return offset
+	}
+	offset += fastpb.WriteInt32(buf[offset:], 29, x.GetLoginCount())
+	return offset
+}
+
+func (x *MemberRes) fastWriteField30(buf []byte) (offset int) {
+	if x.LoginLock == 0 {
+		return offset
+	}
+	offset += fastpb.WriteInt32(buf[offset:], 30, x.GetLoginLock())
+	return offset
+}
+
+func (x *MemberRes) fastWriteField31(buf []byte) (offset int) {
+	if x.Margin == "" {
+		return offset
+	}
+	offset += fastpb.WriteString(buf[offset:], 31, x.GetMargin())
+	return offset
+}
+
+func (x *MemberRes) fastWriteField32(buf []byte) (offset int) {
+	if x.MemberLevel == 0 {
+		return offset
+	}
+	offset += fastpb.WriteInt32(buf[offset:], 32, x.GetMemberLevel())
+	return offset
+}
+
+func (x *MemberRes) fastWriteField33(buf []byte) (offset int) {
+	if x.MobilePhone == "" {
+		return offset
+	}
+	offset += fastpb.WriteString(buf[offset:], 33, x.GetMobilePhone())
+	return offset
+}
+
+func (x *MemberRes) fastWriteField34(buf []byte) (offset int) {
+	if x.Password == "" {
+		return offset
+	}
+	offset += fastpb.WriteString(buf[offset:], 34, x.GetPassword())
+	return offset
+}
+
+func (x *MemberRes) fastWriteField35(buf []byte) (offset int) {
+	if x.PromotionCode == "" {
+		return offset
+	}
+	offset += fastpb.WriteString(buf[offset:], 35, x.GetPromotionCode())
+	return offset
+}
+
+func (x *MemberRes) fastWriteField36(buf []byte) (offset int) {
+	if x.PublishAdvertise == 0 {
+		return offset
+	}
+	offset += fastpb.WriteInt32(buf[offset:], 36, x.GetPublishAdvertise())
+	return offset
+}
+
+func (x *MemberRes) fastWriteField37(buf []byte) (offset int) {
+	if x.RealName == "" {
+		return offset
+	}
+	offset += fastpb.WriteString(buf[offset:], 37, x.GetRealName())
+	return offset
+}
+
+func (x *MemberRes) fastWriteField38(buf []byte) (offset int) {
+	if x.RealNameStatus == 0 {
+		return offset
+	}
+	offset += fastpb.WriteInt32(buf[offset:], 38, x.GetRealNameStatus())
+	return offset
+}
+
+func (x *MemberRes) fastWriteField39(buf []byte) (offset int) {
+	if x.RegistrationTime == 0 {
+		return offset
+	}
+	offset += fastpb.WriteInt64(buf[offset:], 39, x.GetRegistrationTime())
+	return offset
+}
+
+func (x *MemberRes) fastWriteField40(buf []byte) (offset int) {
+	if x.Salt == "" {
+		return offset
+	}
+	offset += fastpb.WriteString(buf[offset:], 40, x.GetSalt())
+	return offset
+}
+
+func (x *MemberRes) fastWriteField41(buf []byte) (offset int) {
+	if x.SecondLevel == 0 {
+		return offset
+	}
+	offset += fastpb.WriteInt32(buf[offset:], 41, x.GetSecondLevel())
+	return offset
+}
+
+func (x *MemberRes) fastWriteField42(buf []byte) (offset int) {
+	if x.SignInAbility == 0 {
+		return offset
+	}
+	offset += fastpb.WriteInt32(buf[offset:], 42, x.GetSignInAbility())
+	return offset
+}
+
+func (x *MemberRes) fastWriteField43(buf []byte) (offset int) {
+	if x.Status == 0 {
+		return offset
+	}
+	offset += fastpb.WriteInt32(buf[offset:], 43, x.GetStatus())
+	return offset
+}
+
+func (x *MemberRes) fastWriteField44(buf []byte) (offset int) {
+	if x.ThirdLevel == 0 {
+		return offset
+	}
+	offset += fastpb.WriteInt32(buf[offset:], 44, x.GetThirdLevel())
+	return offset
+}
+
+func (x *MemberRes) fastWriteField45(buf []byte) (offset int) {
+	if x.Token == "" {
+		return offset
+	}
+	offset += fastpb.WriteString(buf[offset:], 45, x.GetToken())
+	return offset
+}
+
+func (x *MemberRes) fastWriteField46(buf []byte) (offset int) {
+	if x.TokenExpireTime == 0 {
+		return offset
+	}
+	offset += fastpb.WriteInt64(buf[offset:], 46, x.GetTokenExpireTime())
+	return offset
+}
+
+func (x *MemberRes) fastWriteField47(buf []byte) (offset int) {
+	if x.TransactionStatus == 0 {
+		return offset
+	}
+	offset += fastpb.WriteInt32(buf[offset:], 47, x.GetTransactionStatus())
+	return offset
+}
+
+func (x *MemberRes) fastWriteField48(buf []byte) (offset int) {
+	if x.TransactionTime == 0 {
+		return offset
+	}
+	offset += fastpb.WriteInt64(buf[offset:], 48, x.GetTransactionTime())
+	return offset
+}
+
+func (x *MemberRes) fastWriteField49(buf []byte) (offset int) {
+	if x.Transactions == 0 {
+		return offset
+	}
+	offset += fastpb.WriteInt32(buf[offset:], 49, x.GetTransactions())
+	return offset
+}
+
+func (x *MemberRes) fastWriteField50(buf []byte) (offset int) {
+	if x.Username == "" {
+		return offset
+	}
+	offset += fastpb.WriteString(buf[offset:], 50, x.GetUsername())
+	return offset
+}
+
+func (x *MemberRes) fastWriteField51(buf []byte) (offset int) {
+	if x.QrWeCodeUrl == "" {
+		return offset
+	}
+	offset += fastpb.WriteString(buf[offset:], 51, x.GetQrWeCodeUrl())
+	return offset
+}
+
+func (x *MemberRes) fastWriteField52(buf []byte) (offset int) {
+	if x.Wechat == "" {
+		return offset
+	}
+	offset += fastpb.WriteString(buf[offset:], 52, x.GetWechat())
+	return offset
+}
+
+func (x *MemberRes) fastWriteField53(buf []byte) (offset int) {
+	if x.Local == "" {
+		return offset
+	}
+	offset += fastpb.WriteString(buf[offset:], 53, x.GetLocal())
+	return offset
+}
+
+func (x *MemberRes) fastWriteField54(buf []byte) (offset int) {
+	if x.Integration == 0 {
+		return offset
+	}
+	offset += fastpb.WriteInt64(buf[offset:], 54, x.GetIntegration())
+	return offset
+}
+
+func (x *MemberRes) fastWriteField55(buf []byte) (offset int) {
+	if x.MemberGradeId == 0 {
+		return offset
+	}
+	offset += fastpb.WriteInt64(buf[offset:], 55, x.GetMemberGradeId())
+	return offset
+}
+
+func (x *MemberRes) fastWriteField56(buf []byte) (offset int) {
+	if x.KycStatus == 0 {
+		return offset
+	}
+	offset += fastpb.WriteInt32(buf[offset:], 56, x.GetKycStatus())
+	return offset
+}
+
+func (x *MemberRes) fastWriteField57(buf []byte) (offset int) {
+	if x.GeneralizeTotal == 0 {
+		return offset
+	}
+	offset += fastpb.WriteInt64(buf[offset:], 57, x.GetGeneralizeTotal())
+	return offset
+}
+
+func (x *MemberRes) fastWriteField58(buf []byte) (offset int) {
+	if x.InviterParentId == 0 {
+		return offset
+	}
+	offset += fastpb.WriteInt64(buf[offset:], 58, x.GetInviterParentId())
+	return offset
+}
+
+func (x *MemberRes) fastWriteField59(buf []byte) (offset int) {
+	if x.SuperPartner == "" {
+		return offset
+	}
+	offset += fastpb.WriteString(buf[offset:], 59, x.GetSuperPartner())
+	return offset
+}
+
+func (x *MemberRes) fastWriteField60(buf []byte) (offset int) {
+	if x.KickFee == 0 {
+		return offset
+	}
+	offset += fastpb.WriteDouble(buf[offset:], 60, x.GetKickFee())
+	return offset
+}
+
+func (x *MemberRes) fastWriteField61(buf []byte) (offset int) {
+	if x.Power == 0 {
+		return offset
+	}
+	offset += fastpb.WriteDouble(buf[offset:], 61, x.GetPower())
+	return offset
+}
+
+func (x *MemberRes) fastWriteField62(buf []byte) (offset int) {
+	if x.TeamLevel == 0 {
+		return offset
+	}
+	offset += fastpb.WriteInt32(buf[offset:], 62, x.GetTeamLevel())
+	return offset
+}
+
+func (x *MemberRes) fastWriteField63(buf []byte) (offset int) {
+	if x.TeamPower == 0 {
+		return offset
+	}
+	offset += fastpb.WriteDouble(buf[offset:], 63, x.GetTeamPower())
+	return offset
+}
+
+func (x *MemberRes) fastWriteField64(buf []byte) (offset int) {
+	if x.MemberLevelId == 0 {
+		return offset
+	}
+	offset += fastpb.WriteInt64(buf[offset:], 64, x.GetMemberLevelId())
 	return offset
 }
 
@@ -3003,6 +4282,605 @@ func (x *AddressList) sizeField1() (n int) {
 	return n
 }
 
+func (x *MemberReq) Size() (n int) {
+	if x == nil {
+		return n
+	}
+	n += x.sizeField1()
+	return n
+}
+
+func (x *MemberReq) sizeField1() (n int) {
+	if x.MemberId == 0 {
+		return n
+	}
+	n += fastpb.SizeInt64(1, x.GetMemberId())
+	return n
+}
+
+func (x *MemberRes) Size() (n int) {
+	if x == nil {
+		return n
+	}
+	n += x.sizeField1()
+	n += x.sizeField2()
+	n += x.sizeField3()
+	n += x.sizeField4()
+	n += x.sizeField5()
+	n += x.sizeField6()
+	n += x.sizeField7()
+	n += x.sizeField8()
+	n += x.sizeField9()
+	n += x.sizeField10()
+	n += x.sizeField11()
+	n += x.sizeField12()
+	n += x.sizeField13()
+	n += x.sizeField14()
+	n += x.sizeField15()
+	n += x.sizeField16()
+	n += x.sizeField17()
+	n += x.sizeField18()
+	n += x.sizeField19()
+	n += x.sizeField20()
+	n += x.sizeField21()
+	n += x.sizeField22()
+	n += x.sizeField23()
+	n += x.sizeField24()
+	n += x.sizeField25()
+	n += x.sizeField26()
+	n += x.sizeField27()
+	n += x.sizeField28()
+	n += x.sizeField29()
+	n += x.sizeField30()
+	n += x.sizeField31()
+	n += x.sizeField32()
+	n += x.sizeField33()
+	n += x.sizeField34()
+	n += x.sizeField35()
+	n += x.sizeField36()
+	n += x.sizeField37()
+	n += x.sizeField38()
+	n += x.sizeField39()
+	n += x.sizeField40()
+	n += x.sizeField41()
+	n += x.sizeField42()
+	n += x.sizeField43()
+	n += x.sizeField44()
+	n += x.sizeField45()
+	n += x.sizeField46()
+	n += x.sizeField47()
+	n += x.sizeField48()
+	n += x.sizeField49()
+	n += x.sizeField50()
+	n += x.sizeField51()
+	n += x.sizeField52()
+	n += x.sizeField53()
+	n += x.sizeField54()
+	n += x.sizeField55()
+	n += x.sizeField56()
+	n += x.sizeField57()
+	n += x.sizeField58()
+	n += x.sizeField59()
+	n += x.sizeField60()
+	n += x.sizeField61()
+	n += x.sizeField62()
+	n += x.sizeField63()
+	n += x.sizeField64()
+	return n
+}
+
+func (x *MemberRes) sizeField1() (n int) {
+	if x.Id == 0 {
+		return n
+	}
+	n += fastpb.SizeInt64(1, x.GetId())
+	return n
+}
+
+func (x *MemberRes) sizeField2() (n int) {
+	if x.AliNo == "" {
+		return n
+	}
+	n += fastpb.SizeString(2, x.GetAliNo())
+	return n
+}
+
+func (x *MemberRes) sizeField3() (n int) {
+	if x.QrCodeUrl == "" {
+		return n
+	}
+	n += fastpb.SizeString(3, x.GetQrCodeUrl())
+	return n
+}
+
+func (x *MemberRes) sizeField4() (n int) {
+	if x.AppealSuccessTimes == 0 {
+		return n
+	}
+	n += fastpb.SizeInt32(4, x.GetAppealSuccessTimes())
+	return n
+}
+
+func (x *MemberRes) sizeField5() (n int) {
+	if x.AppealTimes == 0 {
+		return n
+	}
+	n += fastpb.SizeInt32(5, x.GetAppealTimes())
+	return n
+}
+
+func (x *MemberRes) sizeField6() (n int) {
+	if x.ApplicationTime == 0 {
+		return n
+	}
+	n += fastpb.SizeInt64(6, x.GetApplicationTime())
+	return n
+}
+
+func (x *MemberRes) sizeField7() (n int) {
+	if x.Avatar == "" {
+		return n
+	}
+	n += fastpb.SizeString(7, x.GetAvatar())
+	return n
+}
+
+func (x *MemberRes) sizeField8() (n int) {
+	if x.Bank == "" {
+		return n
+	}
+	n += fastpb.SizeString(8, x.GetBank())
+	return n
+}
+
+func (x *MemberRes) sizeField9() (n int) {
+	if x.Branch == "" {
+		return n
+	}
+	n += fastpb.SizeString(9, x.GetBranch())
+	return n
+}
+
+func (x *MemberRes) sizeField10() (n int) {
+	if x.CardNo == "" {
+		return n
+	}
+	n += fastpb.SizeString(10, x.GetCardNo())
+	return n
+}
+
+func (x *MemberRes) sizeField11() (n int) {
+	if x.CertifiedBusinessApplyTime == 0 {
+		return n
+	}
+	n += fastpb.SizeInt64(11, x.GetCertifiedBusinessApplyTime())
+	return n
+}
+
+func (x *MemberRes) sizeField12() (n int) {
+	if x.CertifiedBusinessCheckTime == 0 {
+		return n
+	}
+	n += fastpb.SizeInt64(12, x.GetCertifiedBusinessCheckTime())
+	return n
+}
+
+func (x *MemberRes) sizeField13() (n int) {
+	if x.CertifiedBusinessStatus == 0 {
+		return n
+	}
+	n += fastpb.SizeInt32(13, x.GetCertifiedBusinessStatus())
+	return n
+}
+
+func (x *MemberRes) sizeField14() (n int) {
+	if x.ChannelId == 0 {
+		return n
+	}
+	n += fastpb.SizeInt32(14, x.GetChannelId())
+	return n
+}
+
+func (x *MemberRes) sizeField15() (n int) {
+	if x.Email == "" {
+		return n
+	}
+	n += fastpb.SizeString(15, x.GetEmail())
+	return n
+}
+
+func (x *MemberRes) sizeField16() (n int) {
+	if x.FirstLevel == 0 {
+		return n
+	}
+	n += fastpb.SizeInt32(16, x.GetFirstLevel())
+	return n
+}
+
+func (x *MemberRes) sizeField17() (n int) {
+	if x.GoogleDate == 0 {
+		return n
+	}
+	n += fastpb.SizeInt64(17, x.GetGoogleDate())
+	return n
+}
+
+func (x *MemberRes) sizeField18() (n int) {
+	if x.GoogleKey == "" {
+		return n
+	}
+	n += fastpb.SizeString(18, x.GetGoogleKey())
+	return n
+}
+
+func (x *MemberRes) sizeField19() (n int) {
+	if x.GoogleState == 0 {
+		return n
+	}
+	n += fastpb.SizeInt32(19, x.GetGoogleState())
+	return n
+}
+
+func (x *MemberRes) sizeField20() (n int) {
+	if x.IdNumber == "" {
+		return n
+	}
+	n += fastpb.SizeString(20, x.GetIdNumber())
+	return n
+}
+
+func (x *MemberRes) sizeField21() (n int) {
+	if x.InviterId == 0 {
+		return n
+	}
+	n += fastpb.SizeInt64(21, x.GetInviterId())
+	return n
+}
+
+func (x *MemberRes) sizeField22() (n int) {
+	if x.IsChannel == 0 {
+		return n
+	}
+	n += fastpb.SizeInt32(22, x.GetIsChannel())
+	return n
+}
+
+func (x *MemberRes) sizeField23() (n int) {
+	if x.JyPassword == "" {
+		return n
+	}
+	n += fastpb.SizeString(23, x.GetJyPassword())
+	return n
+}
+
+func (x *MemberRes) sizeField24() (n int) {
+	if x.LastLoginTime == 0 {
+		return n
+	}
+	n += fastpb.SizeInt64(24, x.GetLastLoginTime())
+	return n
+}
+
+func (x *MemberRes) sizeField25() (n int) {
+	if x.City == "" {
+		return n
+	}
+	n += fastpb.SizeString(25, x.GetCity())
+	return n
+}
+
+func (x *MemberRes) sizeField26() (n int) {
+	if x.Country == "" {
+		return n
+	}
+	n += fastpb.SizeString(26, x.GetCountry())
+	return n
+}
+
+func (x *MemberRes) sizeField27() (n int) {
+	if x.District == "" {
+		return n
+	}
+	n += fastpb.SizeString(27, x.GetDistrict())
+	return n
+}
+
+func (x *MemberRes) sizeField28() (n int) {
+	if x.Province == "" {
+		return n
+	}
+	n += fastpb.SizeString(28, x.GetProvince())
+	return n
+}
+
+func (x *MemberRes) sizeField29() (n int) {
+	if x.LoginCount == 0 {
+		return n
+	}
+	n += fastpb.SizeInt32(29, x.GetLoginCount())
+	return n
+}
+
+func (x *MemberRes) sizeField30() (n int) {
+	if x.LoginLock == 0 {
+		return n
+	}
+	n += fastpb.SizeInt32(30, x.GetLoginLock())
+	return n
+}
+
+func (x *MemberRes) sizeField31() (n int) {
+	if x.Margin == "" {
+		return n
+	}
+	n += fastpb.SizeString(31, x.GetMargin())
+	return n
+}
+
+func (x *MemberRes) sizeField32() (n int) {
+	if x.MemberLevel == 0 {
+		return n
+	}
+	n += fastpb.SizeInt32(32, x.GetMemberLevel())
+	return n
+}
+
+func (x *MemberRes) sizeField33() (n int) {
+	if x.MobilePhone == "" {
+		return n
+	}
+	n += fastpb.SizeString(33, x.GetMobilePhone())
+	return n
+}
+
+func (x *MemberRes) sizeField34() (n int) {
+	if x.Password == "" {
+		return n
+	}
+	n += fastpb.SizeString(34, x.GetPassword())
+	return n
+}
+
+func (x *MemberRes) sizeField35() (n int) {
+	if x.PromotionCode == "" {
+		return n
+	}
+	n += fastpb.SizeString(35, x.GetPromotionCode())
+	return n
+}
+
+func (x *MemberRes) sizeField36() (n int) {
+	if x.PublishAdvertise == 0 {
+		return n
+	}
+	n += fastpb.SizeInt32(36, x.GetPublishAdvertise())
+	return n
+}
+
+func (x *MemberRes) sizeField37() (n int) {
+	if x.RealName == "" {
+		return n
+	}
+	n += fastpb.SizeString(37, x.GetRealName())
+	return n
+}
+
+func (x *MemberRes) sizeField38() (n int) {
+	if x.RealNameStatus == 0 {
+		return n
+	}
+	n += fastpb.SizeInt32(38, x.GetRealNameStatus())
+	return n
+}
+
+func (x *MemberRes) sizeField39() (n int) {
+	if x.RegistrationTime == 0 {
+		return n
+	}
+	n += fastpb.SizeInt64(39, x.GetRegistrationTime())
+	return n
+}
+
+func (x *MemberRes) sizeField40() (n int) {
+	if x.Salt == "" {
+		return n
+	}
+	n += fastpb.SizeString(40, x.GetSalt())
+	return n
+}
+
+func (x *MemberRes) sizeField41() (n int) {
+	if x.SecondLevel == 0 {
+		return n
+	}
+	n += fastpb.SizeInt32(41, x.GetSecondLevel())
+	return n
+}
+
+func (x *MemberRes) sizeField42() (n int) {
+	if x.SignInAbility == 0 {
+		return n
+	}
+	n += fastpb.SizeInt32(42, x.GetSignInAbility())
+	return n
+}
+
+func (x *MemberRes) sizeField43() (n int) {
+	if x.Status == 0 {
+		return n
+	}
+	n += fastpb.SizeInt32(43, x.GetStatus())
+	return n
+}
+
+func (x *MemberRes) sizeField44() (n int) {
+	if x.ThirdLevel == 0 {
+		return n
+	}
+	n += fastpb.SizeInt32(44, x.GetThirdLevel())
+	return n
+}
+
+func (x *MemberRes) sizeField45() (n int) {
+	if x.Token == "" {
+		return n
+	}
+	n += fastpb.SizeString(45, x.GetToken())
+	return n
+}
+
+func (x *MemberRes) sizeField46() (n int) {
+	if x.TokenExpireTime == 0 {
+		return n
+	}
+	n += fastpb.SizeInt64(46, x.GetTokenExpireTime())
+	return n
+}
+
+func (x *MemberRes) sizeField47() (n int) {
+	if x.TransactionStatus == 0 {
+		return n
+	}
+	n += fastpb.SizeInt32(47, x.GetTransactionStatus())
+	return n
+}
+
+func (x *MemberRes) sizeField48() (n int) {
+	if x.TransactionTime == 0 {
+		return n
+	}
+	n += fastpb.SizeInt64(48, x.GetTransactionTime())
+	return n
+}
+
+func (x *MemberRes) sizeField49() (n int) {
+	if x.Transactions == 0 {
+		return n
+	}
+	n += fastpb.SizeInt32(49, x.GetTransactions())
+	return n
+}
+
+func (x *MemberRes) sizeField50() (n int) {
+	if x.Username == "" {
+		return n
+	}
+	n += fastpb.SizeString(50, x.GetUsername())
+	return n
+}
+
+func (x *MemberRes) sizeField51() (n int) {
+	if x.QrWeCodeUrl == "" {
+		return n
+	}
+	n += fastpb.SizeString(51, x.GetQrWeCodeUrl())
+	return n
+}
+
+func (x *MemberRes) sizeField52() (n int) {
+	if x.Wechat == "" {
+		return n
+	}
+	n += fastpb.SizeString(52, x.GetWechat())
+	return n
+}
+
+func (x *MemberRes) sizeField53() (n int) {
+	if x.Local == "" {
+		return n
+	}
+	n += fastpb.SizeString(53, x.GetLocal())
+	return n
+}
+
+func (x *MemberRes) sizeField54() (n int) {
+	if x.Integration == 0 {
+		return n
+	}
+	n += fastpb.SizeInt64(54, x.GetIntegration())
+	return n
+}
+
+func (x *MemberRes) sizeField55() (n int) {
+	if x.MemberGradeId == 0 {
+		return n
+	}
+	n += fastpb.SizeInt64(55, x.GetMemberGradeId())
+	return n
+}
+
+func (x *MemberRes) sizeField56() (n int) {
+	if x.KycStatus == 0 {
+		return n
+	}
+	n += fastpb.SizeInt32(56, x.GetKycStatus())
+	return n
+}
+
+func (x *MemberRes) sizeField57() (n int) {
+	if x.GeneralizeTotal == 0 {
+		return n
+	}
+	n += fastpb.SizeInt64(57, x.GetGeneralizeTotal())
+	return n
+}
+
+func (x *MemberRes) sizeField58() (n int) {
+	if x.InviterParentId == 0 {
+		return n
+	}
+	n += fastpb.SizeInt64(58, x.GetInviterParentId())
+	return n
+}
+
+func (x *MemberRes) sizeField59() (n int) {
+	if x.SuperPartner == "" {
+		return n
+	}
+	n += fastpb.SizeString(59, x.GetSuperPartner())
+	return n
+}
+
+func (x *MemberRes) sizeField60() (n int) {
+	if x.KickFee == 0 {
+		return n
+	}
+	n += fastpb.SizeDouble(60, x.GetKickFee())
+	return n
+}
+
+func (x *MemberRes) sizeField61() (n int) {
+	if x.Power == 0 {
+		return n
+	}
+	n += fastpb.SizeDouble(61, x.GetPower())
+	return n
+}
+
+func (x *MemberRes) sizeField62() (n int) {
+	if x.TeamLevel == 0 {
+		return n
+	}
+	n += fastpb.SizeInt32(62, x.GetTeamLevel())
+	return n
+}
+
+func (x *MemberRes) sizeField63() (n int) {
+	if x.TeamPower == 0 {
+		return n
+	}
+	n += fastpb.SizeDouble(63, x.GetTeamPower())
+	return n
+}
+
+func (x *MemberRes) sizeField64() (n int) {
+	if x.MemberLevelId == 0 {
+		return n
+	}
+	n += fastpb.SizeInt64(64, x.GetMemberLevelId())
+	return n
+}
+
 var fieldIDToName_RegReq = map[int32]string{
 	1: "Username",
 	2: "Password",
@@ -3133,4 +5011,75 @@ var fieldIDToName_MemberWalletList = map[int32]string{
 
 var fieldIDToName_AddressList = map[int32]string{
 	1: "List",
+}
+
+var fieldIDToName_MemberReq = map[int32]string{
+	1: "MemberId",
+}
+
+var fieldIDToName_MemberRes = map[int32]string{
+	1:  "Id",
+	2:  "AliNo",
+	3:  "QrCodeUrl",
+	4:  "AppealSuccessTimes",
+	5:  "AppealTimes",
+	6:  "ApplicationTime",
+	7:  "Avatar",
+	8:  "Bank",
+	9:  "Branch",
+	10: "CardNo",
+	11: "CertifiedBusinessApplyTime",
+	12: "CertifiedBusinessCheckTime",
+	13: "CertifiedBusinessStatus",
+	14: "ChannelId",
+	15: "Email",
+	16: "FirstLevel",
+	17: "GoogleDate",
+	18: "GoogleKey",
+	19: "GoogleState",
+	20: "IdNumber",
+	21: "InviterId",
+	22: "IsChannel",
+	23: "JyPassword",
+	24: "LastLoginTime",
+	25: "City",
+	26: "Country",
+	27: "District",
+	28: "Province",
+	29: "LoginCount",
+	30: "LoginLock",
+	31: "Margin",
+	32: "MemberLevel",
+	33: "MobilePhone",
+	34: "Password",
+	35: "PromotionCode",
+	36: "PublishAdvertise",
+	37: "RealName",
+	38: "RealNameStatus",
+	39: "RegistrationTime",
+	40: "Salt",
+	41: "SecondLevel",
+	42: "SignInAbility",
+	43: "Status",
+	44: "ThirdLevel",
+	45: "Token",
+	46: "TokenExpireTime",
+	47: "TransactionStatus",
+	48: "TransactionTime",
+	49: "Transactions",
+	50: "Username",
+	51: "QrWeCodeUrl",
+	52: "Wechat",
+	53: "Local",
+	54: "Integration",
+	55: "MemberGradeId",
+	56: "KycStatus",
+	57: "GeneralizeTotal",
+	58: "InviterParentId",
+	59: "SuperPartner",
+	60: "KickFee",
+	61: "Power",
+	62: "TeamLevel",
+	63: "TeamPower",
+	64: "MemberLevelId",
 }

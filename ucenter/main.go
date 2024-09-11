@@ -10,6 +10,7 @@ import (
 	"github.com/kitex-contrib/registry-etcd/retry"
 	"grpc_common/kitex_gen/ucenter/asset"
 	"grpc_common/kitex_gen/ucenter/login"
+	"grpc_common/kitex_gen/ucenter/member"
 	"grpc_common/kitex_gen/ucenter/register"
 	"net"
 	"os"
@@ -67,6 +68,8 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+
+	err = member.RegisterService(svr, handler.NewMemberImpl())
 
 	err = svr.Run()
 	if err != nil {

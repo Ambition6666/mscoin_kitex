@@ -5,10 +5,12 @@ import (
 	"exchange/domain"
 	"exchange/model"
 	"exchange/rpc"
+	"exchange/utils"
 	"fmt"
 	"github.com/cloudwego/kitex/pkg/kerrors"
 	"github.com/cloudwego/kitex/pkg/klog"
 	"github.com/jinzhu/copier"
+	"gorm.io/gorm"
 	exchange "grpc_common/kitex_gen/exchange"
 	"grpc_common/kitex_gen/market"
 	"grpc_common/kitex_gen/ucenter"
@@ -17,6 +19,7 @@ import (
 // OrderImpl implements the last service interface defined in the IDL.
 type OrderImpl struct {
 	exchangeOrderDomain *domain.ExchangeOrderDomain
+	rocketMQDomain      *domain.RocketmqDomain
 }
 
 // FindOrderHistory implements the OrderImpl interface.
@@ -146,6 +149,61 @@ func (s *OrderImpl) Add(ctx context.Context, req *exchange.OrderReq) (resp *exch
 			return nil, kerrors.NewBizStatusError(-1, "不支持市价出售")
 		}
 	}
+
+	//限制委托数量
+	count, err := s.exchangeOrderDomain.FindCurrentTradingCount(ctx, req.UserId, req.Symbol, req.Direction)
+	if err != nil {
+		klog.Error("Add: ", err)
+		return nil, kerrors.NewBizStatusError(-1, "添加失败")
+	}
+	if exchangeCoin.GetMaxTradingOrder() > 0 && count >= int64(exchangeCoin.GetMaxTradingOrder()) {
+		return nil, kerrors.NewBizStatusError(-1, "超过最大挂单数量 "+fmt.Sprintf("%d", exchangeCoin.GetMaxTradingOrder()))
+	}
+
+	//开始生成订单
+	exchangeOrder := model.NewOrder()
+	exchangeOrder.MemberId = req.UserId
+	exchangeOrder.Symbol = req.Symbol
+	exchangeOrder.BaseSymbol = baseSymbol
+	exchangeOrder.CoinSymbol = coinSymbol
+	typeCode := model.TypeMap.Code(req.Type)
+	exchangeOrder.Type = typeCode
+	directionCode := model.DirectionMap.Code(req.Direction)
+	exchangeOrder.Direction = directionCode
+	if exchangeOrder.Type == model.MarketPrice {
+		exchangeOrder.Price = 0
+	} else {
+		exchangeOrder.Price = req.Price
+	}
+	exchangeOrder.UseDiscount = "0"
+	exchangeOrder.Amount = req.Amount
+	err = utils.GetMysql().Transaction(func(tx *gorm.DB) error {
+		money, err := s.exchangeOrderDomain.AddOrder(ctx, tx, exchangeOrder, exchangeCoin, baseWallet, exCoinWallet)
+		if err != nil {
+			return kerrors.NewBizStatusError(-1, "订单提交失败")
+		}
+		//通过kafka发送订单消息，进行钱包货币扣除 同步发送 要保证发送成功
+		ok := s.rocketMQDomain.Send(
+			"add-exchange-asset",
+			req.UserId,
+			exchangeOrder.OrderId,
+			money,
+			req.Symbol,
+			exchangeOrder.Direction,
+			baseSymbol,
+			coinSymbol,
+			model.Init)
+		if !ok {
+			return kerrors.NewBizStatusError(-1, "消息队列出现故障，未能扣款")
+		}
+		klog.Info("发送成功，订单id:", exchangeOrder.OrderId)
+		return nil
+	})
+
+	if err != nil {
+		klog.Error("AddOrder: ", err)
+		return nil, kerrors.NewBizStatusError(-1, "添加失败")
+	}
 	resp.OrderId = req.OrderId
 	return
 }
@@ -178,7 +236,9 @@ func (s *OrderImpl) CancelOrder(ctx context.Context, req *exchange.OrderReq) (re
 }
 
 func NewOrderImpl() *OrderImpl {
+	order := domain.NewExchangeOrderDomain()
 	return &OrderImpl{
-		exchangeOrderDomain: domain.NewExchangeOrderDomain(),
+		exchangeOrderDomain: order,
+		rocketMQDomain:      domain.NewRocketmqDomain(order),
 	}
 }

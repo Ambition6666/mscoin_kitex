@@ -6,7 +6,6 @@ import (
 	"errors"
 	"exchange/dao"
 	"exchange/model"
-	"exchange/utils"
 	"fmt"
 	"gorm.io/gorm"
 	"grpc_common/kitex_gen/market"
@@ -69,7 +68,7 @@ func (d *ExchangeOrderDomain) FindTrading(
 }
 
 // 添加交易
-func (d *ExchangeOrderDomain) AddOrder(ctx context.Context, exchangeOrder *model.ExchangeOrder, coin *market.ExchangeCoin, wallet *ucenter.MemberWallet, coinWallet *ucenter.MemberWallet) (float64, error) {
+func (d *ExchangeOrderDomain) AddOrder(ctx context.Context, tx *gorm.DB, exchangeOrder *model.ExchangeOrder, coin *market.ExchangeCoin, wallet *ucenter.MemberWallet, coinWallet *ucenter.MemberWallet) (float64, error) {
 	exchangeOrder.Status = model.Init
 	exchangeOrder.TradedAmount = 0
 	exchangeOrder.Time = time.Now().UnixMilli()
@@ -102,17 +101,9 @@ func (d *ExchangeOrderDomain) AddOrder(ctx context.Context, exchangeOrder *model
 		}
 		money = tools.AddN(exchangeOrder.Amount, fee, 5)
 	}
-	err := utils.GetMysql().Transaction(func(tx *gorm.DB) error {
-		err := d.exchangeOrderDao.Save(ctx, tx, exchangeOrder)
-		if err != nil {
-			return err
-		}
-		err = d.exchangeOrderDao.Save(ctx, tx, exchangeOrder)
-		if err != nil {
-			return err
-		}
-		return nil
-	})
+
+	err := d.exchangeOrderDao.Save(ctx, tx, exchangeOrder)
+
 	if err != nil {
 		return 0, err
 	}

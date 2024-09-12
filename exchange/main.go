@@ -3,7 +3,9 @@ package main
 import (
 	cc "common/config"
 	"exchange/config"
+	"exchange/consumer"
 	"exchange/handler"
+	"exchange/processor"
 	"exchange/rpc"
 	"exchange/utils"
 	"github.com/cloudwego/kitex/pkg/klog"
@@ -25,9 +27,16 @@ func main() {
 
 	// 工具初始化
 	utils.Init()
+	defer utils.Close()
 
 	// rpc服务注册
 	rpc.Init()
+
+	// 启动消费者
+	factory := processor.InitCoinTradeFactory()
+	factory.Init()
+	con := consumer.NewRocketmqConsumer(factory)
+	con.Run()
 
 	// 日志注册
 	klog.SetLogger(zap.NewLogger())

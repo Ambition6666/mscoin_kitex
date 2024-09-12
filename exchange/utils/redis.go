@@ -2,8 +2,8 @@ package utils
 
 import (
 	"common/database"
+	"exchange/config"
 	"github.com/redis/go-redis/v9"
-	"market/config"
 )
 
 var rdb *redis.Client

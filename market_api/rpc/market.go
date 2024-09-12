@@ -2,6 +2,8 @@ package rpc
 
 import (
 	"github.com/cloudwego/kitex/client"
+	"github.com/cloudwego/kitex/pkg/transmeta"
+	"github.com/cloudwego/kitex/transport"
 	etcd "github.com/kitex-contrib/registry-etcd"
 	"grpc_common/kitex_gen/market/market"
 	"market_api/config"
@@ -14,7 +16,7 @@ func initMarket() {
 	if err != nil {
 		panic(err)
 	}
-	marketCli, err = market.NewClient(config.ServerName, client.WithResolver(r))
+	marketCli, err = market.NewClient(config.ServerName, client.WithResolver(r), client.WithTransportProtocol(transport.TTHeader), client.WithMetaHandler(transmeta.ClientTTHeaderHandler))
 	if err != nil {
 		panic(err)
 	}

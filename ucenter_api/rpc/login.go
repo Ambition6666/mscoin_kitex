@@ -16,7 +16,7 @@ func initLogin() {
 	if err != nil {
 		panic(err)
 	}
-	loginCli, err = login.NewClient(config.ServerName, client.WithResolver(r), client.WithTransportProtocol(transport.GRPC), client.WithMetaHandler(transmeta.ClientHTTP2Handler))
+	loginCli, err = login.NewClient(config.ServerName, client.WithResolver(r), client.WithTransportProtocol(transport.TTHeader), client.WithMetaHandler(transmeta.ClientTTHeaderHandler))
 
 	if err != nil {
 		panic(err)

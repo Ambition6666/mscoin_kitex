@@ -4,7 +4,7 @@ package order
 
 import (
 	"context"
-	exchange "exchange/kitex_gen/exchange"
+	exchange "grpc_common/kitex_gen/exchange"
 	client "github.com/cloudwego/kitex/client"
 	callopt "github.com/cloudwego/kitex/client/callopt"
 )

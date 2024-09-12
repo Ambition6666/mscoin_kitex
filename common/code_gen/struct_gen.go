@@ -1,16 +1,13 @@
 package code_gen
 
-type CacheRedis struct {
-	Host string `yaml:"Host"`
-	Node int `yaml:"Node"`
-	Pass string `yaml:"Pass"`
+type Mysql struct {
+	DataSource string `yaml:"DataSource"`
 }
 
-type Mongo struct {
-	Url string `yaml:"Url"`
-	Username string `yaml:"Username"`
-	Password string `yaml:"Password"`
-	Database string `yaml:"Database"`
+type CacheRedis struct {
+	Host string `yaml:"Host"`
+	Type string `yaml:"Type"`
+	Pass string `yaml:"Pass"`
 }
 
 type Rocketmq struct {
@@ -19,13 +16,8 @@ type Rocketmq struct {
 	ReadCap int `yaml:"ReadCap"`
 }
 
-type Mysql struct {
-	DataSource string `yaml:"DataSource"`
-}
-
 type config struct {
-	CacheRedis CacheRedis `yaml:"CacheRedis"`
-	Mongo Mongo `yaml:"Mongo"`
-	Rocketmq Rocketmq `yaml:"Rocketmq"`
 	Mysql Mysql `yaml:"Mysql"`
+	CacheRedis CacheRedis `yaml:"CacheRedis"`
+	Rocketmq Rocketmq `yaml:"Rocketmq"`
 }

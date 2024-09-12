@@ -2,8 +2,8 @@ package utils
 
 import (
 	"common/database"
+	"exchange/config"
 	"gorm.io/gorm"
-	"market/config"
 )
 
 var db *gorm.DB

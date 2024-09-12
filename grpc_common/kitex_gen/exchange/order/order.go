@@ -5,7 +5,7 @@ package order
 import (
 	"context"
 	"errors"
-	exchange "exchange/kitex_gen/exchange"
+	exchange "grpc_common/kitex_gen/exchange"
 	client "github.com/cloudwego/kitex/client"
 	kitex "github.com/cloudwego/kitex/pkg/serviceinfo"
 	streaming "github.com/cloudwego/kitex/pkg/streaming"

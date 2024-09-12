@@ -1,24 +1,7 @@
-{"level":"error","ts":1725778783.3011336,"msg":"service discovery error: no instance remains for ucenter"}
-{"level":"error","ts":1725779708.1747663,"msg":"service discovery error: no instance remains for ucenter"}
-{"level":"error","ts":1725779999.136316,"msg":"service discovery error: no instance remains for ucenter"}
-{"level":"error","ts":1725780912.720417,"msg":"service discovery error: no instance remains for ucenter"}
-{"level":"error","ts":1725781519.9556885,"msg":"service discovery error: no instance remains for /ucenter/192.168.40.1:8888"}
-{"level":"error","ts":1725787236.8215137,"msg":"service discovery error: no instance remains for /ucenter/192.168.40.1:8888"}
-{"level":"error","ts":1725787317.6017091,"msg":"service discovery error: no instance remains for ucenter"}
-{"level":"error","ts":1725787403.4626067,"msg":"service discovery error: no instance remains for uccenter"}
-{"level":"error","ts":1725791167.6904855,"msg":"service discovery error: no instance remains for uccenter"}
-{"level":"error","ts":1725791536.331704,"msg":"service discovery error: no instance remains for ucenter"}
-{"level":"error","ts":1725791975.736172,"msg":"service discovery error: no instance remains for ucenter"}
-{"level":"error","ts":1725792220.69221,"msg":"service discovery error: no instance remains for login"}
-{"level":"error","ts":1725792344.9314046,"msg":"service discovery error: no instance remains for login"}
-{"level":"error","ts":1725792348.3898616,"msg":"service discovery error: no instance remains for login"}
-{"level":"error","ts":1725793317.5213666,"msg":"service discovery error: no instance remains for ucenter"}
-{"level":"debug","ts":1725793612.3707297,"msg":"KITEX: New grpc client connection succeed, network=tcp, address=192.168.40.1:8888"}
-{"level":"warn","ts":1725793612.3743386,"msg":"KITEX: auto retry retryable error, retry=1 error=remote or network error: get connection error: connection error: desc = \"transport is closing\""}
-{"level":"debug","ts":1725793612.3758624,"msg":"KITEX: New grpc client connection succeed, network=tcp, address=192.168.40.1:8888"}
-{"level":"error","ts":1725793612.3775012,"msg":"remote or network error: the stream is done"}
-{"level":"debug","ts":1725793612.3793762,"msg":"KITEX: grpc transport loopyWriter.run returning, error=connection error: desc = \"transport is closing\", remoteAddr=192.168.40.1:8888"}
-{"level":"debug","ts":1725793612.3793762,"msg":"KITEX: grpc transport loopyWriter.run returning, error=connection error: desc = \"transport is closing\", remoteAddr=192.168.40.1:8888"}
-{"level":"debug","ts":1725793735.7250235,"msg":"KITEX: New grpc client connection succeed, network=tcp, address=192.168.40.1:8081"}
-{"level":"error","ts":1725793736.5445008,"msg":"biz error: code=-1, msg=人机验证不通过"}
-{"level":"error","ts":1725794886.8642902,"msg":"service discovery error: no instance remains for ucenter"}
+
+{"level":"error","ts":1725953862.554901,"msg":"service discovery error: no instance remains for ucenter"}
+{"level":"error","ts":1726053307.0020401,"msg":"service discovery error: no instance remains for jobcenter"}
+{"level":"error","ts":1726053570.7857494,"msg":"service discovery error: no instance remains for jobcenter"}
+{"level":"error","ts":1726053647.8776333,"msg":"service discovery error: no instance remains for jobcenter"}
+{"level":"error","ts":1726053732.0315146,"msg":"remote or network error[remote]: unknown service , method login"}
+{"level":"error","ts":1726054301.0880759,"msg":"remote or network error[remote]: unknown service , method login"}

@@ -3,7 +3,7 @@
 package order
 
 import (
-	exchange "exchange/kitex_gen/exchange"
+	exchange "grpc_common/kitex_gen/exchange"
 	server "github.com/cloudwego/kitex/server"
 )
 

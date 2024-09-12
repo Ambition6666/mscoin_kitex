@@ -12,6 +12,7 @@ import (
 )
 
 func main() {
+
 	// rpc服务注册
 	rpc.Init()
 
@@ -29,4 +30,5 @@ func main() {
 	h := server.Default(server.WithHostPorts(config.ServerAddr))
 	register(h)
 	h.Spin()
+
 }

@@ -21,6 +21,7 @@ func Register(r *server.Hertz) {
 	{
 		_uc := root.Group("/uc", _ucMw()...)
 		_uc.POST("/login", append(_loginMw(), model.Login)...)
+		_uc.POST("/check/login", append(_registerMw(), model.CheckLogin)...)
 		{
 			_asset := _uc.Group("/asset", _assetMw()...)
 			_asset.POST("/wallet", append(_findwalletMw(), handler.FindWallet)...)

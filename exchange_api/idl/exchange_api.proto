@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+package exchange_api;
+
+// protoc-gen-go 版本大于1.4.0, proto文件需要加上go_package,否则无法生成
+option go_package = "/exchange_api";
+
+import "api.proto";
+
+message ExchangeReq {
+	string ip = 1;
+	string symbol = 2;
+	int64 page_no = 3;
+	int64 page_size = 4;
+	double price = 5;
+	double amount = 6;
+	string direction = 7;
+	string type = 8;
+	double use_discount = 9;
+}
+
+message ExchangeOrder {
+	int64 id = 1;
+	string order_id = 2;
+	double amount = 3;
+	string base_symbol = 4;
+	int64 canceled_time = 5;
+	string coin_symbol = 6;
+	int64 completed_time = 7;
+	int32 direction = 8;
+	int64 member_id = 9;
+	string price = 10;
+	string status = 11;
+	string symbol = 12;
+	int64 time = 13;
+	double traded_amount = 14;
+	double turnover = 15;
+	string type = 16;
+	string use_discount = 17;
+}
+
+message noRes {
+
+}
+//	orderGroup.Post("/exchange/asset/history", order.History)
+//	orderGroup.Post("/exchange/asset/current", order.Current)
+//	orderGroup.Post("/exchange/asset/add", order.Add)
+service exchange_api {
+	rpc history(ExchangeReq) returns(noRes) {
+		option(api.post) = "/exchange/asset/history";
+	};
+	rpc current(ExchangeReq) returns(noRes) {
+		option(api.post) = "/exchange/asset/current";
+	};
+	rpc add(ExchangeReq) returns(noRes) {
+		option(api.post) = "/exchange/asset/add";
+	};
+ }

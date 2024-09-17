@@ -26,7 +26,7 @@ type RateRequest struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Unit string `protobuf:"bytes,1,opt,name=unit,proto3" form:"unit" json:"unit,omitempty" query:"unit"`
+	Unit string `protobuf:"bytes,1,opt,name=unit,proto3" form:"unit" json:"unit,omitempty" query:"unit" path:"unit"`
 	Ip   string `protobuf:"bytes,2,opt,name=ip,proto3" form:"ip" json:"ip,omitempty" query:"ip"`
 }
 

@@ -17,7 +17,7 @@ type MarketImpl struct {
 }
 
 // FindSymbolThumb 查找可见交易币种的缩略图列表
-func (m MarketImpl) FindSymbolThumb(ctx context.Context, req *market.MarketReq) (res *market.SymbolThumbRes, err error) {
+func (m *MarketImpl) FindSymbolThumb(ctx context.Context, req *market.MarketReq) (res *market.SymbolThumbRes, err error) {
 	//TODO implement me
 	exchangeCoins := m.exchangeCoinDomain.FindVisible(ctx)
 	coinThumbs := make([]*market.CoinThumb, len(exchangeCoins))
@@ -32,7 +32,7 @@ func (m MarketImpl) FindSymbolThumb(ctx context.Context, req *market.MarketReq) 
 }
 
 // FindSymbolThumbTrend 查找可见交易币种的趋势缩略图列表
-func (m MarketImpl) FindSymbolThumbTrend(ctx context.Context, req *market.MarketReq) (res *market.SymbolThumbRes, err error) {
+func (m *MarketImpl) FindSymbolThumbTrend(ctx context.Context, req *market.MarketReq) (res *market.SymbolThumbRes, err error) {
 	//TODO implement me
 	exchangeCoins := m.exchangeCoinDomain.FindVisible(ctx)
 	coinThumbs := m.marketDomain.SymbolThumbTrend(ctx, exchangeCoins)
@@ -42,7 +42,7 @@ func (m MarketImpl) FindSymbolThumbTrend(ctx context.Context, req *market.Market
 }
 
 // FindSymbolInfo 查找指定符号的交易币种信息
-func (m MarketImpl) FindSymbolInfo(ctx context.Context, req *market.MarketReq) (res *market.ExchangeCoin, err error) {
+func (m *MarketImpl) FindSymbolInfo(ctx context.Context, req *market.MarketReq) (res *market.ExchangeCoin, err error) {
 	//TODO implement me
 	exchangeCoin, err := m.exchangeCoinDomain.FindSymbol(ctx, req.Symbol)
 	if err != nil {
@@ -56,7 +56,7 @@ func (m MarketImpl) FindSymbolInfo(ctx context.Context, req *market.MarketReq) (
 }
 
 // FindCoinInfo 查找指定单位的币种信息
-func (m MarketImpl) FindCoinInfo(ctx context.Context, req *market.MarketReq) (res *market.Coin, err error) {
+func (m *MarketImpl) FindCoinInfo(ctx context.Context, req *market.MarketReq) (res *market.Coin, err error) {
 	//TODO implement me
 	coin, err := m.coinDomain.FindCoinInfo(ctx, req.Unit)
 	if err != nil {
@@ -70,7 +70,7 @@ func (m MarketImpl) FindCoinInfo(ctx context.Context, req *market.MarketReq) (re
 }
 
 // HistoryKline 获取历史 K 线数据，根据请求的分辨率选择相应的时间周期
-func (m MarketImpl) HistoryKline(ctx context.Context, req *market.MarketReq) (res *market.HistoryRes, err error) {
+func (m *MarketImpl) HistoryKline(ctx context.Context, req *market.MarketReq) (res *market.HistoryRes, err error) {
 	//TODO implement me
 	period := "1H"
 	if req.Resolution == "60" {
@@ -100,9 +100,9 @@ func (m MarketImpl) HistoryKline(ctx context.Context, req *market.MarketReq) (re
 }
 
 // FindVisibleExchangeCoins 查找所有可见的交易币种
-func (m MarketImpl) FindVisibleExchangeCoins(ctx context.Context, req *market.MarketReq) (res *market.ExchangeCoinRes, err error) {
+func (m *MarketImpl) FindVisibleExchangeCoins(ctx context.Context, req *market.MarketReq) (res *market.ExchangeCoinRes, err error) {
 	//TODO implement me
-
+	res = new(market.ExchangeCoinRes)
 	list := m.exchangeCoinDomain.FindVisible(ctx)
 	err = copier.Copy(&res.List, list)
 
@@ -115,7 +115,7 @@ func (m MarketImpl) FindVisibleExchangeCoins(ctx context.Context, req *market.Ma
 }
 
 // FindAllCoin 查找所有币种列表
-func (m MarketImpl) FindAllCoin(ctx context.Context, req *market.MarketReq) (res *market.CoinList, err error) {
+func (m *MarketImpl) FindAllCoin(ctx context.Context, req *market.MarketReq) (res *market.CoinList, err error) {
 	//TODO implement me
 	coinList, err := m.coinDomain.FindAllCoin(ctx)
 	if err != nil {
@@ -129,7 +129,7 @@ func (m MarketImpl) FindAllCoin(ctx context.Context, req *market.MarketReq) (res
 }
 
 // FindCoinById 根据 ID 查找币种信息
-func (m MarketImpl) FindCoinById(ctx context.Context, req *market.MarketReq) (res *market.Coin, err error) {
+func (m *MarketImpl) FindCoinById(ctx context.Context, req *market.MarketReq) (res *market.Coin, err error) {
 	//TODO implement me
 	coin, err := m.coinDomain.FindCoinById(ctx, req.Id)
 	if err != nil {

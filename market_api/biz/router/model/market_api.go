@@ -73,7 +73,7 @@ func Register(r *server.Hertz) {
 
 func RegisterWS(r *server.Hertz, wsServer *ws.WebSocketServer) {
 	// 处理 WebSocket 请求并将其转发到 WebSocket 服务器
-	r.GET("/socket.io/*any", func(c context.Context, ctx *app.RequestContext) {
+	r.GET("/socket.io/", func(c context.Context, ctx *app.RequestContext) {
 		req, err := adaptor.GetCompatRequest(&ctx.Request)
 		if err != nil {
 			klog.Error(err)
@@ -85,7 +85,7 @@ func RegisterWS(r *server.Hertz, wsServer *ws.WebSocketServer) {
 		wsServer.Serve(req, rw)
 	})
 
-	r.POST("/socket.io/*any", func(c context.Context, ctx *app.RequestContext) {
+	r.POST("/socket.io/", func(c context.Context, ctx *app.RequestContext) {
 		req, err := adaptor.GetCompatRequest(&ctx.Request)
 		if err != nil {
 			klog.Error(err)

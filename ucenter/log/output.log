@@ -123,3 +123,149 @@
 {"level":"warn","ts":1726067240.0616045,"msg":"keep register get kitex/registry-etcd/ucenter/192.168.40.1:8081 failed with err: context deadline exceeded"}
 {"level":"info","ts":1726067402.0800066,"msg":"stop keep register service kitex/registry-etcd/ucenter/192.168.40.1:8081"}
 {"level":"error","ts":1726067402.081441,"msg":"KITEX: BootstrapServer accept failed, err=accept tcp 192.168.40.1:8081: use of closed network connection"}
+{"level":"debug","ts":1726194743.396037,"msg":"[etcd] /KitexConfig/ucenter/limit server etcd limiter updater init, config {0 0 0x1be40c0}"}
+{"level":"info","ts":1726194743.3971512,"msg":"KITEX: server listen at addr=192.168.40.1:8081"}
+{"level":"info","ts":1726194744.4778144,"msg":"start keepalive lease 694d91e93440140c for etcd registry"}
+{"level":"error","ts":1726194804.9003842,"msg":"KITEX: processing request error, remoteService=, remoteAddr=192.168.40.1:52849, error=unknown service Market, method FindVisibleExchangeCoins"}
+{"level":"error","ts":1726194867.957509,"msg":"KITEX: processing request error, remoteService=, remoteAddr=192.168.40.1:52988, error=unknown service Market, method FindVisibleExchangeCoins"}
+{"level":"error","ts":1726194937.0256028,"msg":"KITEX: processing request error, remoteService=, remoteAddr=192.168.40.1:53165, error=unknown service Market, method FindVisibleExchangeCoins"}
+{"level":"info","ts":1726197119.5333261,"msg":"keep register service kitex/registry-etcd/ucenter/192.168.40.1:8081"}
+{"level":"info","ts":1726197119.5476673,"msg":"start keepalive lease 694d91e93440158f for etcd registry"}
+{"level":"warn","ts":1726197839.1501098,"msg":"keep register get kitex/registry-etcd/ucenter/192.168.40.1:8081 failed with err: context deadline exceeded"}
+{"level":"warn","ts":1726197847.1752262,"msg":"keep register get kitex/registry-etcd/ucenter/192.168.40.1:8081 failed with err: context deadline exceeded"}
+{"level":"info","ts":1726197882.2332468,"msg":"keep register service kitex/registry-etcd/ucenter/192.168.40.1:8081"}
+{"level":"info","ts":1726197882.2399402,"msg":"start keepalive lease 694d91e9344015f0 for etcd registry"}
+{"level":"info","ts":1726198174.3392074,"msg":"stop keep register service kitex/registry-etcd/ucenter/192.168.40.1:8081"}
+{"level":"error","ts":1726198174.3397217,"msg":"KITEX: BootstrapServer accept failed, err=accept tcp 192.168.40.1:8081: use of closed network connection"}
+{"level":"debug","ts":1726198991.036626,"msg":"[etcd] /KitexConfig/ucenter/limit server etcd limiter updater init, config {0 0 0x23d40c0}"}
+{"level":"info","ts":1726198991.0379121,"msg":"KITEX: server listen at addr=192.168.40.1:8081"}
+{"level":"info","ts":1726198992.0822644,"msg":"start keepalive lease 694d91e93440168e for etcd registry"}
+{"level":"info","ts":1726200884.3972628,"msg":"keep register service kitex/registry-etcd/ucenter/192.168.40.1:8081"}
+{"level":"info","ts":1726200884.4155772,"msg":"start keepalive lease 694d91e934401749 for etcd registry"}
+{"level":"info","ts":1726200930.1907427,"msg":"stop keep register service kitex/registry-etcd/ucenter/192.168.40.1:8081"}
+{"level":"error","ts":1726200930.1933365,"msg":"KITEX: BootstrapServer accept failed, err=accept tcp 192.168.40.1:8081: use of closed network connection"}
+{"level":"debug","ts":1726201129.1317396,"msg":"[etcd] /KitexConfig/ucenter/limit server etcd limiter updater init, config {0 0 0x21e40c0}"}
+{"level":"info","ts":1726201129.1327903,"msg":"KITEX: server listen at addr=192.168.40.1:8081"}
+{"level":"info","ts":1726201130.1480675,"msg":"start keepalive lease 694d91e934401759 for etcd registry"}
+{"level":"info","ts":1726201282.8580294,"msg":"stop keep register service kitex/registry-etcd/ucenter/192.168.40.1:8081"}
+{"level":"error","ts":1726201282.8580294,"msg":"KITEX: BootstrapServer accept failed, err=accept tcp 192.168.40.1:8081: use of closed network connection"}
+{"level":"debug","ts":1726201296.0740519,"msg":"[etcd] /KitexConfig/ucenter/limit server etcd limiter updater init, config {0 0 0x21040c0}"}
+{"level":"info","ts":1726201296.0745838,"msg":"KITEX: server listen at addr=192.168.40.1:8081"}
+{"level":"info","ts":1726201297.096266,"msg":"start keepalive lease 694d91e93440176c for etcd registry"}
+{"level":"info","ts":1726201371.7592304,"msg":"username:\"13322751159\" password:\"666666\" captcha:{server:\"https://0.vaptcha.com/verify\" token:\"172620122931vIGFb638e\"}"}
+{"level":"error","ts":1726201444.880232,"msg":"KITEX: processing request error, remoteService=, remoteAddr=192.168.40.1:54064, error=default codec read failed: read tcp 192.168.40.1:8081->192.168.40.1:54064: wsarecv: An existing connection was forcibly closed by the remote host."}
+{"level":"info","ts":1726201689.1222792,"msg":"username:\"13322751159\" password:\"666666\" captcha:{server:\"https://0.vaptcha.com/verify\" token:\"1726201687Hx2Z4Pe663c\"}"}
+{"level":"info","ts":1726202415.2284856,"msg":"username:\"13322751159\" password:\"666666\" captcha:{server:\"https://0.vaptcha.com/verify\" token:\"1726202412eloR808fdcd\"} ip:\"192.168.40.1\""}
+{"level":"info","ts":1726202415.6967099,"msg":"CaptchaDomain Verify success\n"}
+{"level":"info","ts":1726202550.709009,"msg":"stop keep register service kitex/registry-etcd/ucenter/192.168.40.1:8081"}
+{"level":"debug","ts":1726216124.890161,"msg":"[etcd] /KitexConfig/ucenter/limit server etcd limiter updater init, config {0 0 0x2397ba0}"}
+{"level":"info","ts":1726216124.8911812,"msg":"KITEX: server listen at addr=192.168.40.1:8081"}
+{"level":"info","ts":1726216125.9328802,"msg":"start keepalive lease 694d91e9344017c2 for etcd registry"}
+{"level":"info","ts":1726216454.6795585,"msg":"CaptchaDomain Verify success\n"}
+{"level":"info","ts":1726216454.701016,"msg":"&{9   -1 -1 -1 https://mszlu.oss-cn-beijing.aliyuncs.com/mscoin/defaultavatar.png    -1 -1 -1 -1  -1 -1  -1  -1 -1  -1  中国   -1 -1  0 13322751159 AZtv1db3eRoakazsPmrW3ODRFEUNk6OnYRr3d1qeXi2E0EOoNcfeluiGCz4p1lv8  -1  -1 -1 e1301e1ab94c03f0539776a735479723d87698945724e12d661e8464cc72a0ce8aa225ca50af5f376ff3eb16602e18443ff75722217e49fde4042b930f76d9b73e13dbb92ca611389b691543d12200bca272068d02020d5bc0ffb87ff2f2f2bee50adc673dac1b6149f8e8eb2f4b9cc66afd12a3de8fa7a5457681c6c9016aeb -1 -1 0 -1  -1 -1 -1 -1 13322751159    -1 -1 -1 -1 -1 0 -1 -1 -1 -1 -1}"}
+{"level":"info","ts":1726216930.6506028,"msg":"stop keep register service kitex/registry-etcd/ucenter/192.168.40.1:8081"}
+{"level":"debug","ts":1726216963.9086573,"msg":"[etcd] /KitexConfig/ucenter/limit server etcd limiter updater init, config {0 0 0x1ba7ba0}"}
+{"level":"info","ts":1726216963.909171,"msg":"KITEX: server listen at addr=192.168.40.1:8081"}
+{"level":"info","ts":1726216964.9305258,"msg":"start keepalive lease 694d91e9344017f5 for etcd registry"}
+{"level":"info","ts":1726217031.0859585,"msg":"CaptchaDomain Verify success\n"}
+{"level":"info","ts":1726217113.4282777,"msg":"stop keep register service kitex/registry-etcd/ucenter/192.168.40.1:8081"}
+{"level":"error","ts":1726217113.4282777,"msg":"KITEX: BootstrapServer accept failed, err=accept tcp 192.168.40.1:8081: use of closed network connection"}
+{"level":"debug","ts":1726217125.143659,"msg":"[etcd] /KitexConfig/ucenter/limit server etcd limiter updater init, config {0 0 0x1c67ba0}"}
+{"level":"info","ts":1726217125.1441882,"msg":"KITEX: server listen at addr=192.168.40.1:8081"}
+{"level":"info","ts":1726217126.1574678,"msg":"start keepalive lease 694d91e934401807 for etcd registry"}
+{"level":"info","ts":1726217207.4039867,"msg":"stop keep register service kitex/registry-etcd/ucenter/192.168.40.1:8081"}
+{"level":"error","ts":1726217207.4044948,"msg":"KITEX: BootstrapServer accept failed, err=accept tcp 192.168.40.1:8081: use of closed network connection"}
+{"level":"debug","ts":1726217218.5231278,"msg":"[etcd] /KitexConfig/ucenter/limit server etcd limiter updater init, config {0 0 0x22f7ba0}"}
+{"level":"info","ts":1726217218.5236647,"msg":"KITEX: server listen at addr=192.168.40.1:8081"}
+{"level":"info","ts":1726217219.538486,"msg":"start keepalive lease 694d91e934401817 for etcd registry"}
+{"level":"info","ts":1726217236.8579931,"msg":"CaptchaDomain Verify success\n"}
+{"level":"info","ts":1726217236.8797975,"msg":"false"}
+{"level":"info","ts":1726217584.2234957,"msg":"CaptchaDomain Verify success\n"}
+{"level":"info","ts":1726217584.2417717,"msg":"false"}
+{"level":"info","ts":1726218235.6665354,"msg":"stop keep register service kitex/registry-etcd/ucenter/192.168.40.1:8081"}
+{"level":"debug","ts":1726218260.6234713,"msg":"[etcd] /KitexConfig/ucenter/limit server etcd limiter updater init, config {0 0 0x2097ba0}"}
+{"level":"info","ts":1726218260.6245492,"msg":"KITEX: server listen at addr=192.168.40.1:8081"}
+{"level":"info","ts":1726218261.6484206,"msg":"start keepalive lease 694d91e934401859 for etcd registry"}
+{"level":"info","ts":1726218274.7100968,"msg":"CaptchaDomain Verify success\n"}
+{"level":"info","ts":1726218644.1549263,"msg":"stop keep register service kitex/registry-etcd/ucenter/192.168.40.1:8081"}
+{"level":"error","ts":1726218644.1549263,"msg":"KITEX: BootstrapServer accept failed, err=accept tcp 192.168.40.1:8081: use of closed network connection"}
+{"level":"debug","ts":1726218658.8107452,"msg":"[etcd] /KitexConfig/ucenter/limit server etcd limiter updater init, config {0 0 0x18283c0}"}
+{"level":"info","ts":1726218658.8112555,"msg":"KITEX: server listen at addr=192.168.40.1:8081"}
+{"level":"info","ts":1726218659.8447478,"msg":"start keepalive lease 694d91e934401879 for etcd registry"}
+{"level":"info","ts":1726218803.5076258,"msg":"CaptchaDomain Verify success\n"}
+{"level":"info","ts":1726218869.4269898,"msg":"stop keep register service kitex/registry-etcd/ucenter/192.168.40.1:8081"}
+{"level":"error","ts":1726218869.4288754,"msg":"KITEX: BootstrapServer accept failed, err=accept tcp 192.168.40.1:8081: use of closed network connection"}
+{"level":"debug","ts":1726225281.3736231,"msg":"[etcd] /KitexConfig/ucenter/limit server etcd limiter updater init, config {0 0 0x17c83c0}"}
+{"level":"info","ts":1726225281.3741624,"msg":"KITEX: server listen at addr=192.168.40.1:8081"}
+{"level":"info","ts":1726225282.4296865,"msg":"start keepalive lease 694d91e934401890 for etcd registry"}
+{"level":"info","ts":1726226282.3887923,"msg":"CaptchaDomain Verify success\n"}
+{"level":"info","ts":1726226344.1819532,"msg":"CaptchaDomain Verify success\n"}
+{"level":"info","ts":1726227019.8397493,"msg":"CaptchaDomain Verify success\n"}
+{"level":"info","ts":1726227048.1431212,"msg":"CaptchaDomain Verify success\n"}
+{"level":"warn","ts":1726232994.4865515,"msg":"keep register get kitex/registry-etcd/ucenter/192.168.40.1:8081 failed with err: context deadline exceeded"}
+{"level":"info","ts":1726233044.6041033,"msg":"keep register service kitex/registry-etcd/ucenter/192.168.40.1:8081"}
+{"level":"info","ts":1726233044.6336925,"msg":"start keepalive lease 694d91e934401c24 for etcd registry"}
+{"level":"warn","ts":1726234749.8986518,"msg":"keep register get kitex/registry-etcd/ucenter/192.168.40.1:8081 failed with err: context deadline exceeded"}
+{"level":"warn","ts":1726234785.3771763,"msg":"keep register get kitex/registry-etcd/ucenter/192.168.40.1:8081 failed with err: context deadline exceeded"}
+{"level":"info","ts":1726235474.7542045,"msg":"keep register service kitex/registry-etcd/ucenter/192.168.40.1:8081"}
+{"level":"info","ts":1726235474.7702672,"msg":"start keepalive lease 694d91e934401e3d for etcd registry"}
+{"level":"warn","ts":1726240494.401936,"msg":"keep register get kitex/registry-etcd/ucenter/192.168.40.1:8081 failed with err: context deadline exceeded"}
+{"level":"warn","ts":1726240502.4267387,"msg":"keep register get kitex/registry-etcd/ucenter/192.168.40.1:8081 failed with err: context deadline exceeded"}
+{"level":"warn","ts":1726240510.433318,"msg":"keep register get kitex/registry-etcd/ucenter/192.168.40.1:8081 failed with err: context deadline exceeded"}
+{"level":"info","ts":1726240545.512595,"msg":"keep register service kitex/registry-etcd/ucenter/192.168.40.1:8081"}
+{"level":"info","ts":1726240545.5195165,"msg":"start keepalive lease 694d91e934402388 for etcd registry"}
+{"level":"warn","ts":1726241153.4105158,"msg":"keep register get kitex/registry-etcd/ucenter/192.168.40.1:8081 failed with err: context deadline exceeded"}
+{"level":"warn","ts":1726241161.4167802,"msg":"keep register get kitex/registry-etcd/ucenter/192.168.40.1:8081 failed with err: context deadline exceeded"}
+{"level":"warn","ts":1726241169.4360054,"msg":"keep register get kitex/registry-etcd/ucenter/192.168.40.1:8081 failed with err: context deadline exceeded"}
+{"level":"info","ts":1726241199.4955318,"msg":"keep register service kitex/registry-etcd/ucenter/192.168.40.1:8081"}
+{"level":"info","ts":1726241199.5004888,"msg":"start keepalive lease 694d91e9344023cc for etcd registry"}
+{"level":"info","ts":1726242330.7937,"msg":"stop keep register service kitex/registry-etcd/ucenter/192.168.40.1:8081"}
+{"level":"error","ts":1726242330.8111138,"msg":"KITEX: BootstrapServer accept failed, err=accept tcp 192.168.40.1:8081: use of closed network connection"}
+{"level":"debug","ts":1726383140.899193,"msg":"[etcd] key: /KitexConfig/ucenter/limit config get value failed"}
+{"level":"debug","ts":1726383140.9002368,"msg":"[etcd] /KitexConfig/ucenter/limit server etcd limiter updater init, config {0 0 0x14783c0}"}
+{"level":"info","ts":1726383140.9002368,"msg":"KITEX: server listen at addr=192.168.40.1:8081"}
+{"level":"error","ts":1726383144.9182434,"msg":"KITEX: received error and exit: error=context deadline exceeded"}
+{"level":"error","ts":1726383147.9332376,"msg":"KITEX: BootstrapServer accept failed, err=accept tcp 192.168.40.1:8081: use of closed network connection"}
+{"level":"debug","ts":1726383233.262722,"msg":"[etcd] /KitexConfig/ucenter/limit server etcd limiter updater init, config {0 0 0x17583c0}"}
+{"level":"info","ts":1726383233.2638133,"msg":"KITEX: server listen at addr=192.168.40.1:8081"}
+{"level":"info","ts":1726383234.3064017,"msg":"start keepalive lease 694d91e93440248a for etcd registry"}
+{"level":"warn","ts":1726388741.9980683,"msg":"keep register get kitex/registry-etcd/ucenter/192.168.40.1:8081 failed with err: context deadline exceeded"}
+{"level":"warn","ts":1726390018.5912054,"msg":"keep register get kitex/registry-etcd/ucenter/192.168.40.1:8081 failed with err: context deadline exceeded"}
+{"level":"warn","ts":1726390204.5271618,"msg":"keep register get kitex/registry-etcd/ucenter/192.168.40.1:8081 failed with err: context deadline exceeded"}
+{"level":"warn","ts":1726390212.5391414,"msg":"keep register get kitex/registry-etcd/ucenter/192.168.40.1:8081 failed with err: context deadline exceeded"}
+{"level":"warn","ts":1726390220.5608869,"msg":"keep register get kitex/registry-etcd/ucenter/192.168.40.1:8081 failed with err: context deadline exceeded"}
+{"level":"info","ts":1726390250.6216524,"msg":"keep register service kitex/registry-etcd/ucenter/192.168.40.1:8081"}
+{"level":"info","ts":1726390250.6498334,"msg":"start keepalive lease 694d91e934402a51 for etcd registry"}
+{"level":"warn","ts":1726394646.4073024,"msg":"keep register get kitex/registry-etcd/ucenter/192.168.40.1:8081 failed with err: context deadline exceeded"}
+{"level":"warn","ts":1726397360.6086771,"msg":"keep register get kitex/registry-etcd/ucenter/192.168.40.1:8081 failed with err: context deadline exceeded"}
+{"level":"info","ts":1726397405.6978304,"msg":"keep register service kitex/registry-etcd/ucenter/192.168.40.1:8081"}
+{"level":"info","ts":1726397405.7035737,"msg":"start keepalive lease 694d91e934402af0 for etcd registry"}
+{"level":"info","ts":1726401768.0610898,"msg":"keep register service kitex/registry-etcd/ucenter/192.168.40.1:8081"}
+{"level":"info","ts":1726401768.0691679,"msg":"start keepalive lease 694d91e934402b80 for etcd registry"}
+{"level":"info","ts":1726404532.9438307,"msg":"keep register service kitex/registry-etcd/ucenter/192.168.40.1:8081"}
+{"level":"info","ts":1726404532.9489937,"msg":"start keepalive lease 694d91e934402c32 for etcd registry"}
+{"level":"warn","ts":1726406541.6052208,"msg":"keep register get kitex/registry-etcd/ucenter/192.168.40.1:8081 failed with err: context deadline exceeded"}
+{"level":"info","ts":1726406581.685749,"msg":"keep register service kitex/registry-etcd/ucenter/192.168.40.1:8081"}
+{"level":"info","ts":1726406581.6905448,"msg":"start keepalive lease 694d91e934402c93 for etcd registry"}
+{"level":"info","ts":1726407494.1839442,"msg":"keep register service kitex/registry-etcd/ucenter/192.168.40.1:8081"}
+{"level":"info","ts":1726407494.3204455,"msg":"start keepalive lease 694d91e934402d1e for etcd registry"}
+{"level":"info","ts":1726409767.60921,"msg":"keep register service kitex/registry-etcd/ucenter/192.168.40.1:8081"}
+{"level":"info","ts":1726409767.6167881,"msg":"start keepalive lease 694d91e934402e51 for etcd registry"}
+{"level":"info","ts":1726410500.9771676,"msg":"keep register service kitex/registry-etcd/ucenter/192.168.40.1:8081"}
+{"level":"info","ts":1726410500.9855099,"msg":"start keepalive lease 694d91e934402e98 for etcd registry"}
+{"level":"warn","ts":1726411610.3383489,"msg":"keep register get kitex/registry-etcd/ucenter/192.168.40.1:8081 failed with err: context deadline exceeded"}
+{"level":"info","ts":1726411655.431397,"msg":"keep register service kitex/registry-etcd/ucenter/192.168.40.1:8081"}
+{"level":"info","ts":1726411655.438716,"msg":"start keepalive lease 694d91e934402ef7 for etcd registry"}
+{"level":"warn","ts":1726415563.5673933,"msg":"keep register get kitex/registry-etcd/ucenter/192.168.40.1:8081 failed with err: context deadline exceeded"}
+{"level":"warn","ts":1726415571.9657636,"msg":"keep register get kitex/registry-etcd/ucenter/192.168.40.1:8081 failed with err: context deadline exceeded"}
+{"level":"warn","ts":1726415579.9814816,"msg":"keep register get kitex/registry-etcd/ucenter/192.168.40.1:8081 failed with err: context deadline exceeded"}
+{"level":"info","ts":1726415615.066789,"msg":"keep register service kitex/registry-etcd/ucenter/192.168.40.1:8081"}
+{"level":"info","ts":1726415615.0868394,"msg":"start keepalive lease 694d91e934403290 for etcd registry"}
+{"level":"warn","ts":1726430435.6009705,"msg":"keep register get kitex/registry-etcd/ucenter/192.168.40.1:8081 failed with err: context deadline exceeded"}
+{"level":"warn","ts":1726446621.5595229,"msg":"keep register get kitex/registry-etcd/ucenter/192.168.40.1:8081 failed with err: context deadline exceeded"}
+{"level":"info","ts":1726446651.6079667,"msg":"keep register service kitex/registry-etcd/ucenter/192.168.40.1:8081"}
+{"level":"info","ts":1726446651.6180239,"msg":"start keepalive lease 694d91e9344032d9 for etcd registry"}
+{"level":"info","ts":1726470226.1329322,"msg":"keep register service kitex/registry-etcd/ucenter/192.168.40.1:8081"}
+{"level":"info","ts":1726470226.1484973,"msg":"start keepalive lease 694d91e934403375 for etcd registry"}
+{"level":"warn","ts":1726470269.1709578,"msg":"keep register get kitex/registry-etcd/ucenter/192.168.40.1:8081 failed with err: context deadline exceeded"}
+{"level":"info","ts":1726472506.2020059,"msg":"stop keep register service kitex/registry-etcd/ucenter/192.168.40.1:8081"}

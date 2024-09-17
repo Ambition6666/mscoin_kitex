@@ -23,21 +23,21 @@ func (d *QueueDomain) Sync1mKline(data []string, symbol string, period string) {
 	d.cli.Send(sendData)
 }
 
-//func (d *QueueDomain) SendRecharge(value float64, address string, time int64) {
-//	data := make(map[string]any)
-//	data["value"] = value
-//	data["address"] = address
-//	data["time"] = time
-//	data["type"] = model.RECHARGE
-//	data["symbol"] = "BTC"
-//	marshal, _ := json.Marshal(data)
-//	msg := database.KafkaData{
-//		Topic: "BtcTransactionTopic",
-//		Data:  marshal,
-//		Key:   []byte(address),
-//	}
-//	d.cli.Send(msg)
-//}
+func (d *QueueDomain) SendRecharge(value float64, address string, time int64) {
+	data := make(map[string]any)
+	data["value"] = value
+	data["address"] = address
+	data["time"] = time
+	data["type"] = model.RECHARGE
+	data["symbol"] = "BTC"
+	marshal, _ := json.Marshal(data)
+	msg := database.RocketMQData{
+		Topic: "BtcTransactionTopic",
+		Data:  marshal,
+		Key:   []string{address},
+	}
+	d.cli.Send(msg)
+}
 
 func NewQueueDomain(cli *database.RocketMQProducer) *QueueDomain {
 	return &QueueDomain{

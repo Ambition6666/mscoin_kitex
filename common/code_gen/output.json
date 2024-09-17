@@ -1,20 +1,14 @@
 {
   "CacheRedis": {
     "Host": "192.168.40.134:6379",
-    "Node": 0,
-    "Pass": "dream"
-  },
-  "Mongo": {
-    "Database": "mscoin",
-    "Password": "123456",
-    "Url": "mongodb://192.168.40.134:27017",
-    "Username": "ambition"
+    "Pass": "dream",
+    "Type": "node"
   },
   "Mysql": {
     "DataSource": "root:123456@tcp(127.0.0.1:3306)/mscoin?charset=utf8mb4\u0026parseTime=true\u0026loc=Asia%2FShanghai"
   },
   "Rocketmq": {
-    "Addr": "192.168.40.134:9876",
+    "Addr": "192.168.40.134:9092",
     "ReadCap": 100,
     "WriteCap": 100
   }

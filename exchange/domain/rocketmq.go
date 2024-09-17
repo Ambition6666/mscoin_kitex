@@ -47,11 +47,15 @@ type AddOrderResult struct {
 
 func (d *RocketmqDomain) WaitAddOrderResult(topic string) {
 	conf := config.GetConf().Rocketmq
-	d.rocketmqConsumer.AddConsumer(&rmq.Config{
+	err := d.rocketmqConsumer.AddConsumer(&rmq.Config{
 		Endpoint:      conf.Addr,
 		ConsumerGroup: "exchange_api",
 		Credentials:   &credentials.SessionCredentials{},
 	}, conf.ReadCap, topic)
+	if err != nil {
+		klog.Error(err)
+		return
+	}
 	d.rocketmqConsumer.StartRead(topic)
 	for {
 		data, _ := d.rocketmqConsumer.Read(topic)

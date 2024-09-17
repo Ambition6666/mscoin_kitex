@@ -6,7 +6,7 @@ import (
 	"github.com/cloudwego/kitex/transport"
 	etcd "github.com/kitex-contrib/registry-etcd"
 	"grpc_common/kitex_gen/ucenter/asset"
-	"ucenter_api/config"
+	"jobcenter/config"
 )
 
 var assetCli asset.Client

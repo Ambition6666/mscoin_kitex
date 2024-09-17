@@ -4,8 +4,8 @@ import (
 	"context"
 	"exchange/domain"
 	"exchange/model"
-	"exchange/rpc"
 	"exchange/utils"
+	rpc2 "exchange/utils/rpc"
 	"fmt"
 	"github.com/cloudwego/kitex/pkg/kerrors"
 	"github.com/cloudwego/kitex/pkg/klog"
@@ -58,7 +58,7 @@ func (s *OrderImpl) FindOrderCurrent(ctx context.Context, req *exchange.OrderReq
 // Add implements the OrderImpl interface.
 func (s *OrderImpl) Add(ctx context.Context, req *exchange.OrderReq) (resp *exchange.AddOrderRes, err error) {
 	// TODO: Your code here...
-	memberRes, err := rpc.GetMemberClient().FindMemberById(ctx, &ucenter.MemberReq{
+	memberRes, err := rpc2.GetMemberClient().FindMemberById(ctx, &ucenter.MemberReq{
 		MemberId: req.UserId,
 	})
 	if err != nil {
@@ -74,7 +74,7 @@ func (s *OrderImpl) Add(ctx context.Context, req *exchange.OrderReq) (resp *exch
 	if req.Amount <= 0 {
 		return nil, kerrors.NewBizStatusError(-1, "数量不能小于等于0")
 	}
-	exchangeCoin, err := rpc.GetMarketClient().FindSymbolInfo(ctx, &market.MarketReq{
+	exchangeCoin, err := rpc2.GetMarketClient().FindSymbolInfo(ctx, &market.MarketReq{
 		Symbol: req.Symbol,
 	})
 	if err != nil {
@@ -93,7 +93,7 @@ func (s *OrderImpl) Add(ctx context.Context, req *exchange.OrderReq) (resp *exch
 		//根据交易币查询
 		cc = coinSymbol
 	}
-	coin, err := rpc.GetMarketClient().FindCoinInfo(ctx, &market.MarketReq{
+	coin, err := rpc2.GetMarketClient().FindCoinInfo(ctx, &market.MarketReq{
 		Unit: cc,
 	})
 	if err != nil || coin == nil {
@@ -112,7 +112,7 @@ func (s *OrderImpl) Add(ctx context.Context, req *exchange.OrderReq) (resp *exch
 		}
 	}
 	//查询用户钱包
-	baseWallet, err := rpc.GetAssetClient().FindWalletBySymbol(ctx, &ucenter.AssetReq{
+	baseWallet, err := rpc2.GetAssetClient().FindWalletBySymbol(ctx, &ucenter.AssetReq{
 		UserId:   req.UserId,
 		CoinName: baseSymbol,
 	})
@@ -120,7 +120,7 @@ func (s *OrderImpl) Add(ctx context.Context, req *exchange.OrderReq) (resp *exch
 		klog.Error("Add: ", err)
 		return nil, kerrors.NewBizStatusError(-1, "没有钱包")
 	}
-	exCoinWallet, err := rpc.GetAssetClient().FindWalletBySymbol(ctx, &ucenter.AssetReq{
+	exCoinWallet, err := rpc2.GetAssetClient().FindWalletBySymbol(ctx, &ucenter.AssetReq{
 		UserId:   req.UserId,
 		CoinName: coinSymbol,
 	})

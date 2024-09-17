@@ -67,12 +67,12 @@ func NewDefaultProcessor(rcli *database.RocketMQConsumer) *DefaultProcessor {
 func (p *DefaultProcessor) Init(wh *WebsocketHandler) {
 	p.AddHandler(wh)
 	//接收kline 1m的同步数据
-	go p.startReadFromRocketMQ(KLINE1M, KLINE)
+	p.startReadFromRocketMQ(KLINE1M, KLINE)
 	p.startReadTradePlate(TradePlateTopic)
 }
 
 func (p *DefaultProcessor) Process(data *ProcessData) {
-
+	klog.Info(data)
 	if data.Type == KLINE {
 		kline := &model.Kline{}
 		json.Unmarshal(data.Data, kline)
@@ -99,7 +99,7 @@ func (p *DefaultProcessor) startReadFromRocketMQ(topic string, tp string) {
 		Credentials:   &credentials.SessionCredentials{},
 	}, conf.ReadCap, topic)
 	if err != nil {
-		klog.Error(err)
+		klog.Error("注册rocketmq consumer失败: ", err)
 		return
 	}
 
@@ -108,18 +108,17 @@ func (p *DefaultProcessor) startReadFromRocketMQ(topic string, tp string) {
 		klog.Error(err)
 		return
 	}
-	go p.dealQueueData(p.rocketmqCli, tp, topic)
+	go p.dealQueueData(tp, topic)
 }
 
-func (p *DefaultProcessor) dealQueueData(rcli *database.RocketMQConsumer, tp string, topic string) {
+func (p *DefaultProcessor) dealQueueData(tp string, topic string) {
 	for {
-		rocketmqData, _ := rcli.Read(topic)
+		rocketmqData, _ := p.rocketmqCli.Read(topic)
 		var key string
-
 		if len(rocketmqData.Data) == 0 {
 			continue
 		} else {
-			key = string(rocketmqData.Key[0])
+			key = rocketmqData.Key[0]
 		}
 
 		pd := &ProcessData{
@@ -132,8 +131,18 @@ func (p *DefaultProcessor) dealQueueData(rcli *database.RocketMQConsumer, tp str
 }
 
 func (p *DefaultProcessor) startReadTradePlate(topic string) {
+	conf := config.GetConf().Rocketmq
+	err := p.rocketmqCli.AddConsumer(&rmq.Config{
+		Endpoint:      conf.Addr,
+		ConsumerGroup: "market_api",
+		Credentials:   &credentials.SessionCredentials{},
+	}, conf.ReadCap, topic)
+	if err != nil {
+		klog.Error(err)
+		return
+	}
 	p.rocketmqCli.StartRead(topic)
-	go p.dealQueueData(p.rocketmqCli, TradePlate, topic)
+	go p.dealQueueData(TradePlate, topic)
 }
 
 func GetDefaultProcessor() *DefaultProcessor {

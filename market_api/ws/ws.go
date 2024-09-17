@@ -13,6 +13,8 @@ import (
 const ROOM = "market"
 
 type WebSocketHandler func(s socketio.Conn) error
+type WebSocketErrorHandler func(s socketio.Conn, err error)
+type WebSocketDisconnectHandler func(s socketio.Conn, reason string)
 
 type WebSocketServer struct {
 	wsServer *socketio.Server
@@ -46,9 +48,13 @@ func NewWebSocketServer() *WebSocketServer {
 		return nil
 	})
 
-	// 处理断开连接事件
+	ws.OnError("/", func(s socketio.Conn, e error) {
+		klog.Info("连接错误:", e)
+	})
+
 	ws.OnDisconnect("/", func(s socketio.Conn, reason string) {
-		klog.Infof("Client disconnected: %s, Reason: %s", s.ID(), reason)
+		s.LeaveAll()
+		klog.Info("关闭连接：", reason)
 	})
 
 	return ws
@@ -70,8 +76,12 @@ func (ws *WebSocketServer) OnConnect(path string, handler WebSocketHandler) {
 	ws.wsServer.OnConnect(path, handler)
 }
 
-func (ws *WebSocketServer) OnDisconnect(path string, handler func(socketio.Conn, string)) {
-	ws.wsServer.OnDisconnect(path, handler)
+func (w *WebSocketServer) OnError(path string, handler WebSocketErrorHandler) {
+	w.wsServer.OnError(path, handler)
+}
+
+func (w *WebSocketServer) OnDisconnect(path string, handler WebSocketDisconnectHandler) {
+	w.wsServer.OnDisconnect(path, handler)
 }
 
 func (ws *WebSocketServer) BroadcastToNamespace(path string, event string, data any) {
@@ -81,5 +91,7 @@ func (ws *WebSocketServer) BroadcastToNamespace(path string, event string, data 
 }
 
 func (ws *WebSocketServer) Serve(r *http.Request, w http.ResponseWriter) {
+	klog.Infof("Serving WebSocket request: %v", r.URL)
+	klog.Info(r.Header)
 	ws.wsServer.ServeHTTP(w, r)
 }

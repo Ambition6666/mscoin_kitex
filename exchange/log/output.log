@@ -1,0 +1,143 @@
+{"level":"debug","ts":1726194872.9695964,"msg":"[etcd] /KitexConfig/exchange/limit server etcd limiter updater init, config {0 0 0x1add200}"}
+{"level":"error","ts":1726194872.9701016,"msg":"KITEX: server listen failed, addr=192.168.40.1:8081 error=listen tcp 192.168.40.1:8081: bind: Only one usage of each socket address (protocol/network address/port) is normally permitted."}
+{"level":"error","ts":1726194872.9701016,"msg":"KITEX: server start error: error=listen tcp 192.168.40.1:8081: bind: Only one usage of each socket address (protocol/network address/port) is normally permitted."}
+{"level":"debug","ts":1726194942.0329108,"msg":"[etcd] /KitexConfig/exchange/limit server etcd limiter updater init, config {0 0 0x1e1d200}"}
+{"level":"info","ts":1726194942.0340402,"msg":"KITEX: server listen at addr=192.168.40.1:8083"}
+{"level":"info","ts":1726194943.0494816,"msg":"start keepalive lease 694d91e934401432 for etcd registry"}
+{"level":"info","ts":1726194947.0341687,"msg":"收到订单增加结果:"}
+{"level":"debug","ts":1726195307.6852012,"msg":"[etcd] /KitexConfig/exchange/limit server etcd limiter updater init, config {0 0 0x23bd200}"}
+{"level":"info","ts":1726195307.6860025,"msg":"KITEX: server listen at addr=192.168.40.1:8083"}
+{"level":"info","ts":1726195308.7111924,"msg":"start keepalive lease 694d91e934401463 for etcd registry"}
+{"level":"info","ts":1726195312.6955807,"msg":"收到订单增加结果:"}
+{"level":"debug","ts":1726195370.0826583,"msg":"[etcd] /KitexConfig/exchange/limit server etcd limiter updater init, config {0 0 0x1b9d200}"}
+{"level":"info","ts":1726195370.0831673,"msg":"KITEX: server listen at addr=192.168.40.1:8083"}
+{"level":"info","ts":1726195371.101814,"msg":"start keepalive lease 694d91e934401474 for etcd registry"}
+{"level":"info","ts":1726195375.0859814,"msg":"收到订单增加结果:"}
+{"level":"debug","ts":1726195607.4786944,"msg":"[etcd] /KitexConfig/exchange/limit server etcd limiter updater init, config {0 0 0x1b4d200}"}
+{"level":"info","ts":1726195607.479249,"msg":"KITEX: server listen at addr=192.168.40.1:8083"}
+{"level":"info","ts":1726195608.490617,"msg":"start keepalive lease 694d91e93440149e for etcd registry"}
+{"level":"info","ts":1726195612.4869566,"msg":"收到订单增加结果:"}
+{"level":"debug","ts":1726195810.4619215,"msg":"[etcd] /KitexConfig/exchange/limit server etcd limiter updater init, config {0 0 0x20dd200}"}
+{"level":"info","ts":1726195810.4624355,"msg":"KITEX: server listen at addr=192.168.40.1:8083"}
+{"level":"info","ts":1726195811.4930193,"msg":"start keepalive lease 694d91e9344014c6 for etcd registry"}
+{"level":"info","ts":1726195815.4684374,"msg":"收到订单增加结果:"}
+{"level":"debug","ts":1726195908.8542404,"msg":"[etcd] /KitexConfig/exchange/limit server etcd limiter updater init, config {0 0 0x1b2d200}"}
+{"level":"info","ts":1726195908.854809,"msg":"KITEX: server listen at addr=192.168.40.1:8083"}
+{"level":"info","ts":1726195909.8723454,"msg":"start keepalive lease 694d91e9344014dc for etcd registry"}
+{"level":"info","ts":1726195913.8636718,"msg":"收到订单增加结果:"}
+{"level":"error","ts":1726196059.0020142,"msg":"create grpc conn failed, err=context deadline exceeded"}
+{"level":"debug","ts":1726196059.0042434,"msg":"[etcd] /KitexConfig/exchange/limit server etcd limiter updater init, config {0 0 0x1a7d200}"}
+{"level":"info","ts":1726196059.004761,"msg":"KITEX: server listen at addr=192.168.40.1:8083"}
+{"level":"info","ts":1726196060.0161383,"msg":"start keepalive lease 694d91e9344014f6 for etcd registry"}
+{"level":"info","ts":1726196064.0092003,"msg":"收到订单增加结果:"}
+{"level":"error","ts":1726196154.7206929,"msg":"create grpc conn failed, err=context deadline exceeded"}
+{"level":"debug","ts":1726196154.7236853,"msg":"[etcd] /KitexConfig/exchange/limit server etcd limiter updater init, config {0 0 0x23bd200}"}
+{"level":"info","ts":1726196154.7242086,"msg":"KITEX: server listen at addr=192.168.40.1:8083"}
+{"level":"info","ts":1726196155.7402217,"msg":"start keepalive lease 694d91e93440150b for etcd registry"}
+{"level":"error","ts":1726196159.7332444,"msg":"create grpc conn failed, err=context deadline exceeded"}
+{"level":"info","ts":1726196236.1802416,"msg":"stop keep register service kitex/registry-etcd/exchange/192.168.40.1:8083"}
+{"level":"error","ts":1726196236.1807506,"msg":"KITEX: BootstrapServer accept failed, err=accept tcp 192.168.40.1:8083: use of closed network connection"}
+{"level":"error","ts":1726196252.5145745,"msg":"create grpc conn failed, err=context deadline exceeded"}
+{"level":"debug","ts":1726196252.5171318,"msg":"[etcd] /KitexConfig/exchange/limit server etcd limiter updater init, config {0 0 0x193d200}"}
+{"level":"info","ts":1726196252.5176508,"msg":"KITEX: server listen at addr=192.168.40.1:8083"}
+{"level":"info","ts":1726196253.5324438,"msg":"start keepalive lease 694d91e934401527 for etcd registry"}
+{"level":"error","ts":1726196257.5192719,"msg":"create grpc conn failed, err=context deadline exceeded"}
+{"level":"warn","ts":1726197059.6843777,"msg":"keep register get kitex/registry-etcd/exchange/192.168.40.1:8083 failed with err: context deadline exceeded"}
+{"level":"warn","ts":1726197067.6989646,"msg":"keep register get kitex/registry-etcd/exchange/192.168.40.1:8083 failed with err: context deadline exceeded"}
+{"level":"warn","ts":1726197075.709053,"msg":"keep register get kitex/registry-etcd/exchange/192.168.40.1:8083 failed with err: context deadline exceeded"}
+{"level":"info","ts":1726197110.7642083,"msg":"keep register service kitex/registry-etcd/exchange/192.168.40.1:8083"}
+{"level":"info","ts":1726197110.778584,"msg":"start keepalive lease 694d91e93440158a for etcd registry"}
+{"level":"warn","ts":1726197838.9306126,"msg":"keep register get kitex/registry-etcd/exchange/192.168.40.1:8083 failed with err: context deadline exceeded"}
+{"level":"warn","ts":1726197846.9552257,"msg":"keep register get kitex/registry-etcd/exchange/192.168.40.1:8083 failed with err: context deadline exceeded"}
+{"level":"info","ts":1726197892.062,"msg":"keep register service kitex/registry-etcd/exchange/192.168.40.1:8083"}
+{"level":"info","ts":1726197892.077726,"msg":"start keepalive lease 694d91e9344015f9 for etcd registry"}
+{"level":"info","ts":1726200884.3481038,"msg":"keep register service kitex/registry-etcd/exchange/192.168.40.1:8083"}
+{"level":"info","ts":1726200884.3581219,"msg":"start keepalive lease 694d91e934401745 for etcd registry"}
+{"level":"info","ts":1726200932.2498965,"msg":"stop keep register service kitex/registry-etcd/exchange/192.168.40.1:8083"}
+{"level":"error","ts":1726200932.2504175,"msg":"KITEX: BootstrapServer accept failed, err=accept tcp 192.168.40.1:8083: use of closed network connection"}
+{"level":"error","ts":1726225974.7504985,"msg":"create grpc conn failed, err=context deadline exceeded"}
+{"level":"debug","ts":1726225974.7541423,"msg":"[etcd] /KitexConfig/exchange/limit server etcd limiter updater init, config {0 0 0x1701500}"}
+{"level":"info","ts":1726225974.7551491,"msg":"KITEX: server listen at addr=192.168.40.1:8083"}
+{"level":"info","ts":1726225975.7928526,"msg":"start keepalive lease 694d91e9344018dd for etcd registry"}
+{"level":"error","ts":1726225979.766073,"msg":"create grpc conn failed, err=context deadline exceeded"}
+{"level":"warn","ts":1726232995.828083,"msg":"keep register get kitex/registry-etcd/exchange/192.168.40.1:8083 failed with err: context deadline exceeded"}
+{"level":"info","ts":1726233046.1242926,"msg":"keep register service kitex/registry-etcd/exchange/192.168.40.1:8083"}
+{"level":"info","ts":1726233046.1445513,"msg":"start keepalive lease 694d91e934401c2d for etcd registry"}
+{"level":"info","ts":1726233637.3575022,"msg":"stop keep register service kitex/registry-etcd/exchange/192.168.40.1:8083"}
+{"level":"error","ts":1726233637.3596296,"msg":"KITEX: BootstrapServer accept failed, err=accept tcp 192.168.40.1:8083: use of closed network connection"}
+{"level":"error","ts":1726233677.5579615,"msg":"create grpc conn failed, err=context deadline exceeded"}
+{"level":"debug","ts":1726233677.5617704,"msg":"[etcd] /KitexConfig/exchange/limit server etcd limiter updater init, config {0 0 0x1ee1500}"}
+{"level":"info","ts":1726233677.5622787,"msg":"KITEX: server listen at addr=192.168.40.1:8083"}
+{"level":"info","ts":1726233678.590104,"msg":"start keepalive lease 694d91e934401c96 for etcd registry"}
+{"level":"error","ts":1726233682.5708706,"msg":"create grpc conn failed, err=context deadline exceeded"}
+{"level":"warn","ts":1726234785.3750837,"msg":"keep register get kitex/registry-etcd/exchange/192.168.40.1:8083 failed with err: context deadline exceeded"}
+{"level":"warn","ts":1726235434.2208061,"msg":"keep register get kitex/registry-etcd/exchange/192.168.40.1:8083 failed with err: context deadline exceeded"}
+{"level":"info","ts":1726235489.3372467,"msg":"keep register service kitex/registry-etcd/exchange/192.168.40.1:8083"}
+{"level":"info","ts":1726235489.3503935,"msg":"start keepalive lease 694d91e934401e48 for etcd registry"}
+{"level":"warn","ts":1726240494.7606034,"msg":"keep register get kitex/registry-etcd/exchange/192.168.40.1:8083 failed with err: context deadline exceeded"}
+{"level":"warn","ts":1726240502.7805812,"msg":"keep register get kitex/registry-etcd/exchange/192.168.40.1:8083 failed with err: context deadline exceeded"}
+{"level":"warn","ts":1726240510.7901044,"msg":"keep register get kitex/registry-etcd/exchange/192.168.40.1:8083 failed with err: context deadline exceeded"}
+{"level":"info","ts":1726240540.832853,"msg":"keep register service kitex/registry-etcd/exchange/192.168.40.1:8083"}
+{"level":"info","ts":1726240540.8459985,"msg":"start keepalive lease 694d91e934402382 for etcd registry"}
+{"level":"warn","ts":1726241153.378478,"msg":"keep register get kitex/registry-etcd/exchange/192.168.40.1:8083 failed with err: context deadline exceeded"}
+{"level":"warn","ts":1726241161.3854136,"msg":"keep register get kitex/registry-etcd/exchange/192.168.40.1:8083 failed with err: context deadline exceeded"}
+{"level":"warn","ts":1726241169.4041765,"msg":"keep register get kitex/registry-etcd/exchange/192.168.40.1:8083 failed with err: context deadline exceeded"}
+{"level":"info","ts":1726241194.450846,"msg":"keep register service kitex/registry-etcd/exchange/192.168.40.1:8083"}
+{"level":"info","ts":1726241194.4552488,"msg":"start keepalive lease 694d91e9344023c5 for etcd registry"}
+{"level":"info","ts":1726242330.7976856,"msg":"stop keep register service kitex/registry-etcd/exchange/192.168.40.1:8083"}
+{"level":"error","ts":1726242330.8232164,"msg":"KITEX: BootstrapServer accept failed, err=accept tcp 192.168.40.1:8083: use of closed network connection"}
+{"level":"error","ts":1726383233.2735612,"msg":"service discovery error: no instance remains for market"}
+{"level":"error","ts":1726383238.2850375,"msg":"create grpc conn failed, err=context deadline exceeded"}
+{"level":"debug","ts":1726383238.2919211,"msg":"[etcd] /KitexConfig/exchange/limit server etcd limiter updater init, config {0 0 0x15f1500}"}
+{"level":"info","ts":1726383238.2919211,"msg":"KITEX: server listen at addr=192.168.40.1:8083"}
+{"level":"info","ts":1726383239.317925,"msg":"start keepalive lease 694d91e934402491 for etcd registry"}
+{"level":"error","ts":1726383243.2927203,"msg":"create grpc conn failed, err=context deadline exceeded"}
+{"level":"debug","ts":1726386486.5997665,"msg":"[etcd] config key: exchange updated,value is {   \"CacheRedis\": {     \"Host\": \"192.168.40.134:6379\",     \"Pass\": \"dream\",     \"Type\": \"node\"   },   \"Mysql\": {     \"DataSource\": \"root:123456@tcp(127.0.0.1:3306)/mscoin?charset=utf8mb4\\u0026parseTime=true\\u0026loc=Asia%2FShanghai\"   },   \"Rocketmq\": {     \"Addr\": \"192.168.40.134:8080\",     \"ReadCap\": 100,     \"WriteCap\": 100   } }"}
+{"level":"info","ts":1726386644.761839,"msg":"stop keep register service kitex/registry-etcd/exchange/192.168.40.1:8083"}
+{"level":"error","ts":1726386664.8513815,"msg":"CODE: INTERNAL_SERVER_ERROR, MESSAGE: null. NullPointerException. org.apache.rocketmq.proxy.grpc.v2.consumer.ReceiveMessageActivity.receiveMessage(ReceiveMessageActivity.java:63)"}
+{"level":"debug","ts":1726386664.862937,"msg":"[etcd] /KitexConfig/exchange/limit server etcd limiter updater init, config {0 0 0x1f51500}"}
+{"level":"info","ts":1726386664.863987,"msg":"KITEX: server listen at addr=192.168.40.1:8083"}
+{"level":"info","ts":1726386665.8854883,"msg":"start keepalive lease 694d91e9344026b0 for etcd registry"}
+{"level":"error","ts":1726386675.5359907,"msg":"CODE: MESSAGE_NOT_FOUND, MESSAGE: no new message"}
+{"level":"error","ts":1726386675.5383532,"msg":"CODE: MESSAGE_NOT_FOUND, MESSAGE: no new message"}
+{"level":"warn","ts":1726390204.7703369,"msg":"keep register get kitex/registry-etcd/exchange/192.168.40.1:8083 failed with err: context deadline exceeded"}
+{"level":"warn","ts":1726390212.784992,"msg":"keep register get kitex/registry-etcd/exchange/192.168.40.1:8083 failed with err: context deadline exceeded"}
+{"level":"warn","ts":1726390220.8063815,"msg":"keep register get kitex/registry-etcd/exchange/192.168.40.1:8083 failed with err: context deadline exceeded"}
+{"level":"info","ts":1726390255.878922,"msg":"keep register service kitex/registry-etcd/exchange/192.168.40.1:8083"}
+{"level":"info","ts":1726390255.8909376,"msg":"start keepalive lease 694d91e934402a5e for etcd registry"}
+{"level":"warn","ts":1726394646.7574108,"msg":"keep register get kitex/registry-etcd/exchange/192.168.40.1:8083 failed with err: context deadline exceeded"}
+{"level":"warn","ts":1726397360.2375426,"msg":"keep register get kitex/registry-etcd/exchange/192.168.40.1:8083 failed with err: context deadline exceeded"}
+{"level":"info","ts":1726397390.303076,"msg":"keep register service kitex/registry-etcd/exchange/192.168.40.1:8083"}
+{"level":"info","ts":1726397390.3115592,"msg":"start keepalive lease 694d91e934402adc for etcd registry"}
+{"level":"info","ts":1726401767.9245872,"msg":"keep register service kitex/registry-etcd/exchange/192.168.40.1:8083"}
+{"level":"info","ts":1726401767.9340332,"msg":"start keepalive lease 694d91e934402b7b for etcd registry"}
+{"level":"info","ts":1726404532.8355803,"msg":"keep register service kitex/registry-etcd/exchange/192.168.40.1:8083"}
+{"level":"info","ts":1726404532.8404505,"msg":"start keepalive lease 694d91e934402c2d for etcd registry"}
+{"level":"warn","ts":1726406541.8141465,"msg":"keep register get kitex/registry-etcd/exchange/192.168.40.1:8083 failed with err: context deadline exceeded"}
+{"level":"info","ts":1726406581.9293828,"msg":"keep register service kitex/registry-etcd/exchange/192.168.40.1:8083"}
+{"level":"info","ts":1726406581.9348052,"msg":"start keepalive lease 694d91e934402c9d for etcd registry"}
+{"level":"info","ts":1726407494.2001026,"msg":"keep register service kitex/registry-etcd/exchange/192.168.40.1:8083"}
+{"level":"info","ts":1726407494.3194547,"msg":"start keepalive lease 694d91e934402d20 for etcd registry"}
+{"level":"info","ts":1726409767.513841,"msg":"keep register service kitex/registry-etcd/exchange/192.168.40.1:8083"}
+{"level":"info","ts":1726409767.5211756,"msg":"start keepalive lease 694d91e934402e4c for etcd registry"}
+{"level":"warn","ts":1726410442.222654,"msg":"keep register get kitex/registry-etcd/exchange/192.168.40.1:8083 failed with err: context deadline exceeded"}
+{"level":"info","ts":1726410487.3215327,"msg":"keep register service kitex/registry-etcd/exchange/192.168.40.1:8083"}
+{"level":"info","ts":1726410487.3260477,"msg":"start keepalive lease 694d91e934402e8e for etcd registry"}
+{"level":"info","ts":1726411670.403795,"msg":"keep register service kitex/registry-etcd/exchange/192.168.40.1:8083"}
+{"level":"info","ts":1726411670.4096174,"msg":"start keepalive lease 694d91e934402f03 for etcd registry"}
+{"level":"warn","ts":1726412193.6440923,"msg":"keep register get kitex/registry-etcd/exchange/192.168.40.1:8083 failed with err: context deadline exceeded"}
+{"level":"warn","ts":1726412201.658014,"msg":"keep register get kitex/registry-etcd/exchange/192.168.40.1:8083 failed with err: context deadline exceeded"}
+{"level":"warn","ts":1726415563.4118733,"msg":"keep register get kitex/registry-etcd/exchange/192.168.40.1:8083 failed with err: context deadline exceeded"}
+{"level":"warn","ts":1726415571.4960325,"msg":"keep register get kitex/registry-etcd/exchange/192.168.40.1:8083 failed with err: context deadline exceeded"}
+{"level":"warn","ts":1726415579.5131443,"msg":"keep register get kitex/registry-etcd/exchange/192.168.40.1:8083 failed with err: context deadline exceeded"}
+{"level":"info","ts":1726415614.565811,"msg":"keep register service kitex/registry-etcd/exchange/192.168.40.1:8083"}
+{"level":"info","ts":1726415614.586987,"msg":"start keepalive lease 694d91e93440328b for etcd registry"}
+{"level":"warn","ts":1726430435.7252343,"msg":"keep register get kitex/registry-etcd/exchange/192.168.40.1:8083 failed with err: context deadline exceeded"}
+{"level":"warn","ts":1726446621.7410061,"msg":"keep register get kitex/registry-etcd/exchange/192.168.40.1:8083 failed with err: context deadline exceeded"}
+{"level":"info","ts":1726446651.7935731,"msg":"keep register service kitex/registry-etcd/exchange/192.168.40.1:8083"}
+{"level":"info","ts":1726446651.8036249,"msg":"start keepalive lease 694d91e9344032de for etcd registry"}
+{"level":"info","ts":1726470225.978973,"msg":"keep register service kitex/registry-etcd/exchange/192.168.40.1:8083"}
+{"level":"info","ts":1726470225.992521,"msg":"start keepalive lease 694d91e934403370 for etcd registry"}
+{"level":"warn","ts":1726470269.0347123,"msg":"keep register get kitex/registry-etcd/exchange/192.168.40.1:8083 failed with err: context deadline exceeded"}
+{"level":"info","ts":1726472511.1702797,"msg":"stop keep register service kitex/registry-etcd/exchange/192.168.40.1:8083"}
+{"level":"error","ts":1726472511.1744084,"msg":"KITEX: BootstrapServer accept failed, err=accept tcp 192.168.40.1:8083: use of closed network connection"}

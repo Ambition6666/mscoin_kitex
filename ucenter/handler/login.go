@@ -18,7 +18,7 @@ type LoginImpl struct {
 }
 
 // Login implements the LoginImpl interface.
-func (s *LoginImpl) Login(ctx context.Context, req *login.LoginReq) (resp *login.LoginRes, err error) {
+func (s *LoginImpl) Login(ctx context.Context, req *login.LoginReq) (*login.LoginRes, error) {
 	// TODO: Your code here...
 	//校验人机
 	isVerify := s.CaptchaDomain.Verify(req.Captcha.Server, req.Captcha.Token, 2, req.Ip)
@@ -30,6 +30,7 @@ func (s *LoginImpl) Login(ctx context.Context, req *login.LoginReq) (resp *login
 	if mem == nil {
 		return nil, kerrors.NewBizStatusError(-1, "用户不存在")
 	}
+
 	salt := mem.Salt
 	verify := tools.Verify(req.Password, salt, mem.Password, nil)
 	if !verify {
@@ -58,10 +59,9 @@ func (s *LoginImpl) Login(ctx context.Context, req *login.LoginReq) (resp *login
 		SuperPartner:  mem.SuperPartner,
 		LoginCount:    int32(loginCount),
 	}, nil
-	return
 }
 
-func (l *LoginImpl) getJwtToken(secretKey string, iat, seconds, userId int64) (string, error) {
+func (s *LoginImpl) getJwtToken(secretKey string, iat, seconds, userId int64) (string, error) {
 	claims := make(jwt.MapClaims)
 	claims["exp"] = iat + seconds
 	claims["iat"] = iat

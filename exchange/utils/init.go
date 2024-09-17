@@ -1,9 +1,10 @@
 package utils
 
 func Init() {
+	initRocketMQProducer()
+	initRocketMQConsumer()
 	initRedis()
 	initMysql()
-	initRocketMQProducer()
 }
 
 func Close() {

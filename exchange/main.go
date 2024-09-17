@@ -6,10 +6,11 @@ import (
 	"exchange/consumer"
 	"exchange/handler"
 	"exchange/processor"
-	"exchange/rpc"
 	"exchange/utils"
+	"exchange/utils/rpc"
 	"github.com/cloudwego/kitex/pkg/klog"
 	"github.com/cloudwego/kitex/pkg/rpcinfo"
+	"github.com/cloudwego/kitex/pkg/transmeta"
 	"github.com/cloudwego/kitex/server"
 	"github.com/kitex-contrib/obs-opentelemetry/logging/zap"
 	etcd "github.com/kitex-contrib/registry-etcd"
@@ -25,19 +26,6 @@ func main() {
 	// 配置初始化
 	suite := cc.InitConfigClient(config.ServerName, config.ServerName, config.MID, config.EtcdAddr, config.GetConf())
 
-	// 工具初始化
-	utils.Init()
-	defer utils.Close()
-
-	// rpc服务注册
-	rpc.Init()
-
-	// 启动消费者
-	factory := processor.InitCoinTradeFactory()
-	factory.Init()
-	con := consumer.NewRocketmqConsumer(factory)
-	con.Run()
-
 	// 日志注册
 	klog.SetLogger(zap.NewLogger())
 	klog.SetLevel(klog.LevelDebug)
@@ -45,8 +33,22 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+
+	// 工具初始化
+	utils.Init()
+	defer utils.Close()
+
+	// rpc服务注册
+	rpc.Init()
+
 	defer f.Close()
 	klog.SetOutput(f)
+
+	// 启动消费者
+	factory := processor.InitCoinTradeFactory()
+	factory.Init()
+	con := consumer.NewRocketmqConsumer(factory)
+	con.Run()
 
 	// 服务注册
 	addr, _ := net.ResolveTCPAddr("tcp", config.ServerAddr)
@@ -62,7 +64,7 @@ func main() {
 		panic(err)
 	}
 
-	svr := exchange.NewServer(handler.NewOrderImpl(), server.WithServerBasicInfo(&rpcinfo.EndpointBasicInfo{ServiceName: config.ServerName}), server.WithRegistry(r), server.WithServiceAddr(addr), server.WithSuite(suite))
+	svr := exchange.NewServer(handler.NewOrderImpl(), server.WithServerBasicInfo(&rpcinfo.EndpointBasicInfo{ServiceName: config.ServerName}), server.WithRegistry(r), server.WithServiceAddr(addr), server.WithSuite(suite), server.WithMetaHandler(transmeta.ServerTTHeaderHandler))
 
 	err = svr.Run()
 

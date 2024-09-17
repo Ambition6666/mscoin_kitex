@@ -68,10 +68,9 @@ func (k *Kline) syncToMongo(instId string, symbol, period string) {
 			if resp.Code == "0" {
 				//代表成功
 				k.klineDomain.Save(resp.Data, symbol, period)
-				if "1m" == period {
-					if len(resp.Data) > 0 {
-						k.queueDomain.Sync1mKline(resp.Data[0], symbol, period)
-					}
+
+				if len(resp.Data) > 0 {
+					k.Send(resp.Data[0], symbol, period)
 				}
 			}
 		}
@@ -86,7 +85,7 @@ func (k *Kline) syncToMongo(instId string, symbol, period string) {
 
 func (k *Kline) Send(data []string, symbol, period string) {
 	if "1m" == period {
-		//只有1m间隔的数据 才向kafka发送数据
+		//只有1m间隔的数据 才向rocketmq发送数据
 		k.queueDomain.Sync1mKline(data, symbol, period)
 	}
 }

@@ -39,7 +39,8 @@ func (r *Result) Deal(data any, err error, c *app.RequestContext) {
 			r.Fail(BizFailCode, bizErr.BizMessage())
 			c.JSON(http.StatusOK, r)
 		} else {
-			c.JSON(http.StatusInternalServerError, "服务错误")
+			r.Fail(BizFailCode, err.Error())
+			c.JSON(http.StatusOK, r)
 		}
 		return
 	}

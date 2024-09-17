@@ -6,6 +6,7 @@ import (
 	cc "common/config"
 	"github.com/cloudwego/hertz/pkg/app/server"
 	"github.com/cloudwego/kitex/pkg/klog"
+	"github.com/hertz-contrib/cors"
 	"github.com/kitex-contrib/obs-opentelemetry/logging/zap"
 	"market_api/config"
 	"market_api/processor"
@@ -33,6 +34,13 @@ func main() {
 
 	// 创建网关
 	h := server.Default(server.WithHostPorts(config.ServerAddr))
+	// 配置 CORS
+	h.Use(cors.New(cors.Config{
+		AllowOrigins:     []string{"*"},
+		AllowMethods:     []string{"GET", "POST", "OPTIONS"},
+		AllowHeaders:     []string{"Origin", "Content-Type", "Accept"},
+		AllowCredentials: true,
+	}))
 	w := ws.NewWebSocketServer()
 	go w.Start()
 	defer w.Stop()

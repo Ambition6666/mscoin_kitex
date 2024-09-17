@@ -4,6 +4,7 @@ package handler
 
 import (
 	"common/results"
+	"common/tools"
 	"context"
 	"github.com/cloudwego/hertz/pkg/app"
 	"github.com/cloudwego/hertz/pkg/protocol/consts"
@@ -28,6 +29,7 @@ func Register(ctx context.Context, c *app.RequestContext) {
 
 	copier.Copy(regReq, req)
 
+	regReq.Ip = tools.GetRemoteClientIp(c)
 	_, err = rpc.GetRegisterClient().RegisterByPhone(ctx, regReq)
 
 	resp := new(model.Response)

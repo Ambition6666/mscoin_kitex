@@ -6,7 +6,7 @@ import (
 	"common/results"
 	"common/tools"
 	"context"
-	"github.com/cloudwego/kitex/pkg/klog"
+	"github.com/cloudwego/kitex/pkg/kerrors"
 	"github.com/jinzhu/copier"
 	"grpc_common/kitex_gen/ucenter"
 	"ucenter_api/config"
@@ -23,15 +23,18 @@ func Login(ctx context.Context, c *app.RequestContext) {
 	var err error
 	var req model.LoginReq
 	err = c.BindAndValidate(&req)
+	ip := tools.GetRemoteClientIp(c)
 	if err != nil {
 		c.String(consts.StatusBadRequest, err.Error())
 		return
 	}
 	loginReq := new(ucenter.LoginReq)
 	copier.Copy(loginReq, &req)
+	loginReq.Ip = ip
 	data, err := rpc.GetLoginClient().Login(ctx, loginReq)
 	if err != nil {
-		klog.Error(err)
+		results.NewResult().Deal(nil, err, c)
+		return
 	}
 	resp := new(model.LoginRes)
 	copier.Copy(resp, data)
@@ -44,7 +47,7 @@ func CheckLogin(ctx context.Context, c *app.RequestContext) {
 
 	_, err := tools.ParseToken(token, config.AccessSecret)
 	if err != nil {
-		results.NewResult().Deal(false, err, c)
+		results.NewResult().Deal(false, kerrors.NewBizStatusError(-1, "验证不通过"), c)
 	}
-	results.NewResult().Deal(true, err, c)
+	results.NewResult().Deal(true, nil, c)
 }

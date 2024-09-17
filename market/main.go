@@ -4,6 +4,7 @@ import (
 	cc "common/config"
 	"github.com/cloudwego/kitex/pkg/klog"
 	"github.com/cloudwego/kitex/pkg/rpcinfo"
+	"github.com/cloudwego/kitex/pkg/transmeta"
 	"github.com/cloudwego/kitex/server"
 	"github.com/kitex-contrib/obs-opentelemetry/logging/zap"
 	etcd "github.com/kitex-contrib/registry-etcd"
@@ -51,7 +52,7 @@ func main() {
 		panic(err)
 	}
 
-	svr := server.NewServer(server.WithServerBasicInfo(&rpcinfo.EndpointBasicInfo{ServiceName: config.ServerName}), server.WithRegistry(r), server.WithServiceAddr(addr), server.WithSuite(suite))
+	svr := server.NewServer(server.WithServerBasicInfo(&rpcinfo.EndpointBasicInfo{ServiceName: config.ServerName}), server.WithRegistry(r), server.WithServiceAddr(addr), server.WithSuite(suite), server.WithMetaHandler(transmeta.ServerTTHeaderHandler))
 
 	err = market.RegisterService(svr, handler.NewMarketImpl())
 	if err != nil {

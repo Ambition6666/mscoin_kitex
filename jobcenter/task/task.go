@@ -32,7 +32,9 @@ func (t *Task) Run() {
 		kline.Do("1M")
 		rate.Do()
 	})
-
+	t.s.Every(10).Minute().Do(func() {
+		market.NewBitCoin().Do()
+	})
 }
 
 func (t *Task) StartBlocking() {

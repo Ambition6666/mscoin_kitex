@@ -6,7 +6,7 @@ import (
 	"github.com/cloudwego/kitex/transport"
 	etcd "github.com/kitex-contrib/registry-etcd"
 	"grpc_common/kitex_gen/market/exchangerate"
-	"market/config"
+	"market_api/config"
 )
 
 var exchangeRateCli exchangerate.Client

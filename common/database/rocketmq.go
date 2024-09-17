@@ -13,9 +13,9 @@ import (
 
 var (
 	// maximum waiting time for receive func
-	awaitDuration = time.Second * 5
+	awaitDuration = time.Second * 10
 	// maximum number of messages received at one time
-	maxMessageNum int32 = 16
+	maxMessageNum int32 = 1
 	// invisibleDuration should > 20s
 	invisibleDuration = time.Second * 20
 	// repeated number of send the message
@@ -99,6 +99,7 @@ func (p *RocketMQProducer) sendRocketMQ() {
 					success = true
 					break
 				}
+				klog.Error(err)
 				if errors.Is(err, rmq.ErrNoAvailableBrokers) || errors.Is(err, context.DeadlineExceeded) {
 					time.Sleep(time.Millisecond * 250)
 					success = false
@@ -106,7 +107,7 @@ func (p *RocketMQProducer) sendRocketMQ() {
 				}
 				if err != nil {
 					success = false
-					log.Printf("kafka send writemessage err %s \n", err.Error())
+					log.Printf("rocketmq send writemessage err %s \n", err.Error())
 				}
 			}
 			if !success {
@@ -139,17 +140,17 @@ func (c *RocketMQConsumer) AddConsumer(config *rmq.Config, cap int, topic string
 	c.mutex.Lock()
 	defer c.mutex.Unlock()
 
-	consumer, err := rmq.NewSimpleConsumer(config, rmq.WithAwaitDuration(awaitDuration))
-	if err != nil {
-		return err
-	}
+	consumer, err := rmq.NewSimpleConsumer(
+		config,
+		rmq.WithAwaitDuration(awaitDuration),
+	)
 
 	err = consumer.Start()
 	if err != nil {
 		return err
 	}
 
-	err = consumer.Subscribe(topic, rmq.SUB_ALL)
+	err = consumer.Subscribe(topic, rmq.NewFilterExpression("*"))
 	if err != nil {
 		return err
 	}

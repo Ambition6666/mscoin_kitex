@@ -2,8 +2,11 @@ package main
 
 import (
 	cc "common/config"
+	rmq "github.com/apache/rocketmq-clients/golang/v5"
+	"github.com/apache/rocketmq-clients/golang/v5/credentials"
 	"github.com/cloudwego/kitex/pkg/klog"
 	"github.com/cloudwego/kitex/pkg/rpcinfo"
+	"github.com/cloudwego/kitex/pkg/transmeta"
 	"github.com/cloudwego/kitex/server"
 	"github.com/kitex-contrib/obs-opentelemetry/logging/zap"
 	etcd "github.com/kitex-contrib/registry-etcd"
@@ -16,6 +19,7 @@ import (
 	"os"
 	"time"
 	"ucenter/config"
+	"ucenter/consumer"
 	"ucenter/handler"
 	"ucenter/utils"
 )
@@ -38,6 +42,26 @@ func main() {
 	defer f.Close()
 	klog.SetOutput(f)
 
+	// 启动消费者
+	conf := config.GetConf().Rocketmq
+	rmqconf := &rmq.Config{
+		Endpoint:      conf.Addr,
+		ConsumerGroup: config.ServerName,
+		Credentials:   &credentials.SessionCredentials{},
+	}
+	utils.GetRocketMQConsumer().AddConsumer(rmqconf, conf.ReadCap, "add-exchange-asset")
+	utils.GetRocketMQConsumer().AddConsumer(rmqconf, conf.ReadCap, "exchange_order_complete_update_success")
+	utils.GetRocketMQConsumer().AddConsumer(rmqconf, conf.ReadCap, "BtcTransactionTopic")
+	utils.GetRocketMQConsumer().AddConsumer(rmqconf, conf.ReadCap, "withdraw")
+	utils.GetRocketMQConsumer().StartRead("add-exchange-asset")
+	utils.GetRocketMQConsumer().StartRead("exchange_order_complete_update_success")
+	utils.GetRocketMQConsumer().StartRead("BtcTransactionTopic")
+	utils.GetRocketMQConsumer().StartRead("exchange_order_complete_update_success")
+	go consumer.ExchangeOrderAddConsumer("add-exchange-asset")
+	go consumer.ExchangeOrderComplete("exchange_order_complete_update_success")
+	go consumer.BitCoinTransaction("BtcTransactionTopic")
+	go consumer.WithdrawConsumer("withdraw")
+
 	// 服务注册
 	addr, _ := net.ResolveTCPAddr("tcp", config.ServerAddr)
 
@@ -52,7 +76,7 @@ func main() {
 		panic(err)
 	}
 
-	svr := server.NewServer(server.WithServerBasicInfo(&rpcinfo.EndpointBasicInfo{ServiceName: config.ServerName}), server.WithRegistry(r), server.WithServiceAddr(addr), server.WithSuite(suite), server.WithRefuseTrafficWithoutServiceName())
+	svr := server.NewServer(server.WithServerBasicInfo(&rpcinfo.EndpointBasicInfo{ServiceName: config.ServerName}), server.WithRegistry(r), server.WithServiceAddr(addr), server.WithSuite(suite), server.WithRefuseTrafficWithoutServiceName(), server.WithMetaHandler(transmeta.ServerTTHeaderHandler))
 
 	err = login.RegisterService(svr, handler.NewLoginImpl())
 	if err != nil {

@@ -27,11 +27,18 @@ type JWT struct {
 	AccessExpire int64  `yaml:"AccessExpire"`
 }
 
+type Rocketmq struct {
+	Addr     string `yaml:"Addr"`
+	WriteCap int    `yaml:"WriteCap"`
+	ReadCap  int    `yaml:"ReadCap"`
+}
+
 type config struct {
 	Mysql      Mysql      `yaml:"Mysql"`
 	CacheRedis CacheRedis `yaml:"CacheRedis"`
 	Captcha    Captcha    `yaml:"Captcha"`
 	JWT        JWT        `yaml:"JWT"`
+	Rocketmq   Rocketmq   `yaml:"Rocketmq"`
 }
 
 var conf config

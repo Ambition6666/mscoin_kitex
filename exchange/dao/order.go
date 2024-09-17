@@ -66,7 +66,7 @@ func (d *ExchangeOrderDao) UpdateOrderStatus(ctx context.Context, orderId string
 
 func (d *ExchangeOrderDao) FindByOrderId(ctx context.Context, orderId string) (o *model.ExchangeOrder, err error) {
 	session := d.conn.Session(&gorm.Session{SkipDefaultTransaction: true}).WithContext(ctx)
-	err = session.Model(&model.ExchangeOrder{}).Where("order_id=?", orderId).Take(&o).Error
+	err = session.Model(&model.ExchangeOrder{}).Where("order_id=?", orderId).Take(o).Error
 	if err != nil {
 		return nil, nil
 	}

@@ -10,7 +10,7 @@ import (
 
 	"github.com/cloudwego/hertz/pkg/app"
 	"github.com/cloudwego/hertz/pkg/protocol/consts"
-	model "market_api/biz/model"
+	"market_api/biz/model"
 )
 
 // GetUsdRate .
